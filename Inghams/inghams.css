@@ -401,10 +401,10 @@ h3.sub-title {
     gap: 12px;
   }
 /* SVG canvas'ı şeffaf (fill="none") — CSS background bunun yerini
-   alıyor. Sistem --bg (#FAFAF6) tonuyla beyaz karttan hafifçe
-   ayrışıyor, frame border'a gerek bırakmıyor. */
+   alıyor. Warm-leaning light gray: minimal saturation ama paletteki
+   warm grays (#BFBFB5, #8C8C82) ailesine ait, beyaz karttan ayrışıyor. */
 .preview-stage .asset-img {
-  background: var(--bg);
+  background: #E8E6E1;
   border-radius: 16px;
 }
 
