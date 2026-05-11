@@ -213,13 +213,6 @@ h3.sub-title {
     grid-row: 2;
     align-self: start;
   }
-  .phase-content .phase-cta {
-    grid-column: 1;
-    grid-row: 3;
-    align-self: start;
-    justify-self: start;
-    margin-top: 8px;
-  }
   .phase-content .asset-phase {
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -400,13 +393,9 @@ h3.sub-title {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-/* SVG canvas'ı şeffaf (fill="none") — CSS background bunun yerini
-   alıyor. Çok hafif neutral gri — beyaz karttan ayrışıyor ama
-   görsel ağırlık yok, gözü yormuyor. */
-.preview-stage .asset-img {
-  background: #F6F6F6;
-  border-radius: 16px;
-}
+/* SVG'lerin kendi canvas bg ve frame'i var — CSS background veya
+   border-radius eklemek köşelerde overlap/cut oluşturuyordu. SVG
+   tek görsel kaynak olarak bırakıldı. */
 
 .prow-bar.sub {
     height: 3px;
@@ -554,6 +543,11 @@ h3.sub-title {
 .solution-head {
     margin-bottom: var(--header-mb);
   }
+/* "View live product" CTA, solution-intro paragrafının altında —
+   solution-head .right kolonunda start-aligned, hafif üst boşluk. */
+.solution-head .solution-cta {
+  margin-top: 24px;
+}
 
 .device-strip {
     display: grid;
