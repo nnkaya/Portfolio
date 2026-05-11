@@ -400,6 +400,13 @@ h3.sub-title {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
+/* SVG'lerin canvas dolgusu kaldırıldı — yerine CSS frame koyuyoruz.
+   Yumuşak bir line + 16px radius, kart üzerinde wireframe'i çerçeveliyor. */
+.preview-stage .asset-img {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: transparent;
+}
 
 .prow-bar.sub {
     height: 3px;
