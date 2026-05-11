@@ -731,25 +731,29 @@ h1.title {
      block sits close to the hero content above it. Format is
      row-gap / column-gap. */
   gap: 32px var(--grid-gap);
-  /* Vertically center hero-left text against hero-right image
-     so neither column floats at the top of its cell — gives
-     the row a balanced anchor and prevents a long image from
-     hanging below a short copy block (or vice versa). */
-  align-items: center;
+  /* start alignment lets us anchor chips to the top of
+     hero-left and the image envelope to the bottom (via
+     align-self: end on hero-right). That alignment couple
+     is what makes the image vertically centered on the
+     title+content block — NOT including the chip-row. */
+  align-items: start;
 }
-/* Chip-row sits on its own row above the title+image+image
-   row so the image vertically aligns to the title+content
-   midpoint — not biased upward by the chips that float at
-   the very top of the hero block. */
-.hero > .chip-row { grid-column: 1 / -1; }
-/* hero-left is the title + subtitle + lede column on row 2.
-   The fixed min-height anchors every case study to the same
-   visual envelope: the longest case (Inntravel, ~360px of
-   stacked copy) sets the floor, the shorter ones sit centered
-   inside the same height so the image opposite them centers
-   on a consistent midline. */
+/* Hero-left holds chips at the top + a .hero-copy wrapper
+   that takes the remaining space and centers title/subtitle/
+   lede inside it. min-height anchors every case to the same
+   visual envelope so meta line + image align consistently. */
 .hero-left {
-  min-height: 400px;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-left > .chip-row { flex-shrink: 0; margin-bottom: 0; }
+/* .hero-copy fills the space below the chip-row and centers
+   its content vertically. This is the "title + content"
+   block the image envelope on the right is aligned with. */
+.hero-copy {
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -868,13 +872,18 @@ h1.title {
 .hero-center {
   position: relative;
   width: 100%;
-  /* 500 × 400 (5:4) — height matches hero-left min-height so
-     image and content share the same vertical envelope. Sized
-     down from the previous 540 so the image doesn't dominate
-     the row visually. */
+  /* 500 × 400 (5:4) envelope. The 400 height intentionally
+     matches the .hero-copy area inside hero-left (hero-left
+     min-height 440 − chip-row height ≈ 40px) so the image
+     spans exactly the title+content block, not the full
+     left column. align-self: end anchors this envelope to
+     the bottom of the grid row — meaning its top sits at
+     the chip-row's bottom, vertically aligned with where
+     the title+content area begins. */
   max-width: 500px;
   aspect-ratio: 5 / 4;
   margin-left: auto;
+  align-self: end;
   display: flex;
   align-items: center;
   justify-content: center;
