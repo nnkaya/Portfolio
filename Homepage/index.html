@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nur Kaya — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-system.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <span class="loader-word">Nur Kaya</span>
+    <span class="loader-bar"></span>
+  </div>
+</div>
+
+<!-- CUSTOM CURSOR (desktop only — VIEW pill on case cards) -->
+<div class="custom-cursor" aria-hidden="true">
+  <span class="custom-cursor-text">View →</span>
+</div>
+
+<!-- TOP NAV — homepage floating pill, fixed -->
+<header class="topbar topbar--fixed" id="topbar">
+  <div class="topbar-container">
+    <a href="#" class="topbar-logo">
+      <span class="topbar-logo-mark">N</span>
+      <span class="topbar-logo-text">Nur Kaya</span>
+    </a>
+
+    <nav class="topbar-links" aria-label="Primary">
+      <a href="#work" class="topbar-link is-active">Work</a>
+      <a href="#approach" class="topbar-link">Approach</a>
+      <a href="#about" class="topbar-link">About</a>
+      <a href="#contact" class="topbar-link">Contact</a>
+    </nav>
+
+    <a class="topbar-cta" href="#" aria-label="Resume">
+      <span>Resume</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU PANEL -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-menu-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M5 5l10 10M15 5L5 15"/>
+      </svg>
+    </button>
+    <nav class="mobile-menu-links">
+      <a href="#work" class="active">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="mobile-menu-cta" href="#">Resume <span aria-hidden="true">→</span></a>
+  </aside>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="home-hero">
+  <div class="home-hero-grid">
+    <div class="home-hero-text">
+      <div class="home-hero-meta">
+        <span class="home-hero-eyebrow"><span class="dot"></span> Product Designer based in Berlin</span>
+        <span class="home-hero-divider"></span>
+        <span class="home-hero-meta-text">Portfolio 2026</span>
+      </div>
+
+      <h1 class="home-hero-statement">
+        Product designer focused on <em>usability</em>, <em>workflows</em>, and <em>scalable</em> experiences.
+      </h1>
+    </div>
+
+    <div class="home-hero-image">
+      <img src="homehero.png" alt="Nur Kaya" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARQUEE ==================== -->
+<section class="home-marquee" aria-label="Clients and skills">
+  <div class="marquee-track">
+    <div class="marquee-row">
+      <span class="marquee-item">Inntravel</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Inghams</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Loopingo</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Operational UX</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Self-service Design</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Information Architecture</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Booking Journeys</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">A/B Testing</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">User Research</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Conversion Strategy</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Discovery</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">UX Strategy</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+    </div>
+    <div class="marquee-row" aria-hidden="true">
+      <span class="marquee-item">Inntravel</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Inghams</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Loopingo</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Operational UX</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Self-service Design</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Information Architecture</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Booking Journeys</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">A/B Testing</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">User Research</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Conversion Strategy</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">Discovery</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+      <span class="marquee-item">UX Strategy</span>
+      <span class="marquee-dot" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CASE STUDIES ==================== -->
+<section class="home-cases" id="work">
+  <div class="home-section-head">
+    <span class="eyebrow">Selected work</span>
+    <h2 class="home-section-title">Four cases on <em>structure,</em> decision-making, and the weight of the right default.</h2>
+  </div>
+
+  <div class="case-list">
+
+
+    <div class="case-divider"></div>
+
+    <!-- INGHAMS — №01 -->
+    <a class="case-card" href="Inghams.html">
+      <div class="case-card-meta">
+        <span class="case-card-num">№ 01</span>
+      </div>
+
+      <div class="case-card-content">
+        <span class="case-card-eyebrow">Inghams · Tour Operator · B2C</span>
+        <h3 class="case-card-title">Rethinking destination selection</h3>
+        <p class="case-card-pitch">From recall to discovery — a two-phase rebuild of how users select where to go, shifting search-led behaviour into a more exploratory journey.</p>
+        <div class="case-card-tags">
+          <span class="chip">Discovery</span>
+          <span class="chip">Information Architecture</span>
+          <span class="chip">UX Strategy</span>
+        </div>
+        <div class="case-card-stats">
+          <div class="case-stat">
+            <span class="case-stat-num">51<span class="unit">%</span></span>
+            <span class="case-stat-label">Chose structured list</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-num">~33<span class="unit">%</span></span>
+            <span class="case-stat-label">Explored beyond country</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card-image">
+        <img src="case01.png" alt="Inghams destination selection redesign" class="case-card-img-static" loading="lazy">
+        <img src="case01.gif" alt="" class="case-card-img-hover" loading="lazy" aria-hidden="true">
+        <span class="case-card-live">Live</span>
+      </div>
+
+      <span class="case-card-mobile-cta">View case <span aria-hidden="true">→</span></span>
+      <div class="case-card-spotlight" aria-hidden="true"></div>
+    </a>
+
+    <div class="case-divider"></div>
+
+    <!-- INNTRAVEL — №02 -->
+    <a class="case-card" href="Inntravel.html">
+      <div class="case-card-meta">
+        <span class="case-card-num">№ 02</span>
+      </div>
+
+      <div class="case-card-content">
+        <span class="case-card-eyebrow">Inntravel · Travel Experience Company · B2C</span>
+        <h3 class="case-card-title">Rebuilding the booking journey</h3>
+        <p class="case-card-pitch">A four-phase rebuild of how users discover, decide and book — replacing a brittle linear checkout with a journey shaped around how people actually plan a high-consideration trip.</p>
+        <div class="case-card-tags">
+          <span class="chip">Booking Experience</span>
+          <span class="chip">Journey Optimisation</span>
+          <span class="chip">User Journey Design</span>
+        </div>
+        <div class="case-card-stats">
+          <div class="case-stat">
+            <span class="case-stat-num">+67.8<span class="unit">%</span></span>
+            <span class="case-stat-label">Started booking journey</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-num">+117<span class="unit">%</span></span>
+            <span class="case-stat-label">Completed end-to-end</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card-image">
+        <img src="case02.png" alt="Inntravel booking journey redesign" class="case-card-img-static" loading="lazy">
+        <img src="case02.gif" alt="" class="case-card-img-hover" loading="lazy" aria-hidden="true">
+        <span class="case-card-live">Live</span>
+      </div>
+
+      <span class="case-card-mobile-cta">View case <span aria-hidden="true">→</span></span>
+      <div class="case-card-spotlight" aria-hidden="true"></div>
+    </a>
+
+    <div class="case-divider"></div>
+
+    <!-- UPLIFT — №03 -->
+    <a class="case-card" href="loopingo_-_Uplift.html">
+      <div class="case-card-meta">
+        <span class="case-card-num">№ 03</span>
+      </div>
+
+      <div class="case-card-content">
+        <span class="case-card-eyebrow">Loopingo · Embedded Rewards Platform · B2B2C</span>
+        <h3 class="case-card-title">Uplift cashback solution</h3>
+        <p class="case-card-pitch">Bringing partner rewards into the shopping experience — before the decision is made, where they can actually shape conversion.</p>
+        <div class="case-card-tags">
+          <span class="chip">Reward Experience</span>
+          <span class="chip">Behavioural UX</span>
+          <span class="chip">Experimentation</span>
+        </div>
+        <div class="case-card-stats">
+          <div class="case-stat">
+            <span class="case-stat-num">+20<span class="unit">%</span></span>
+            <span class="case-stat-label">Click-through (top)</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-num">~7<span class="unit">%</span></span>
+            <span class="case-stat-label">Coupon selection</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card-image">
+        <img src="case03.png" alt="Uplift cashback widget" class="case-card-img-static" loading="lazy">
+        <img src="case03.gif" alt="" class="case-card-img-hover" loading="lazy" aria-hidden="true">
+      </div>
+
+      <span class="case-card-mobile-cta">View case <span aria-hidden="true">→</span></span>
+      <div class="case-card-spotlight" aria-hidden="true"></div>
+    </a>
+
+    <div class="case-divider"></div>
+
+<!-- TRACKER — №04 -->
+    <a class="case-card" href="loopingo_-_Tracker.html">
+      <div class="case-card-meta">
+        <span class="case-card-num">№ 04</span>
+      </div>
+
+      <div class="case-card-content">
+        <span class="case-card-eyebrow">Loopingo · Embedded Rewards Platform · B2B2C</span>
+        <h3 class="case-card-title">Cashback Tracker</h3>
+        <p class="case-card-pitch">From email-based support to a guided self-service experience — turning a manual cashback workflow into a flow users can complete on their own.</p>
+        <div class="case-card-tags">
+          <span class="chip">Self-service Design</span>
+          <span class="chip">Process to Product</span>
+          <span class="chip">Operational UX</span>
+        </div>
+        <div class="case-card-stats">
+          <div class="case-stat">
+            <span class="case-stat-num">~40<span class="unit">%</span></span>
+            <span class="case-stat-label">Fewer support requests</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-num">↑ Higher</span>
+            <span class="case-stat-label">User satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card-image">
+        <img src="case04.png" alt="Cashback Tracker dashboard" loading="lazy">
+      </div>
+
+      <span class="case-card-mobile-cta">View case <span aria-hidden="true">→</span></span>
+      <div class="case-card-spotlight" aria-hidden="true"></div>
+    </a>
+
+    <div class="case-divider"></div>
+
+  </div>
+</section>
+
+    <!-- ==================== PLAYGROUND ==================== -->
+<section class="home-playground" data-reveal>
+  <div class="playground-layout">
+    <div class="playground-head">
+      <span class="eyebrow">Playground</span>
+      <h2 class="home-section-title">A side project — <em>Pleia.</em></h2>
+      <p class="body-p home-section-intro">A dermatologist-backed AI skincare assistant, almost ready to launch. Small team — I handled UX and most of the consumer-side screens. A few in-progress shots on the right.</p>
+      <a class="home-playground-link" href="https://www.pleia.ai/" target="_blank" rel="noopener">
+        Visit pleia.ai <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <!-- Horizontal looping screen strip on the right.
+         Same duplicate-track technique as the brand marquee. -->
+    <div class="playground-marquee" aria-label="Pleia app screens">
+      <div class="playground-track">
+        <div class="playground-row">
+          <img class="playground-screen" src="pleia1.png" alt="Pleia screen 1" loading="lazy">
+          <img class="playground-screen" src="pleia2.png" alt="Pleia screen 2" loading="lazy">
+          <img class="playground-screen" src="pleia3.png" alt="Pleia screen 3" loading="lazy">
+          <img class="playground-screen" src="pleia4.png" alt="Pleia screen 4" loading="lazy">
+          <img class="playground-screen" src="pleia5.png" alt="Pleia screen 5" loading="lazy">
+          <img class="playground-screen" src="pleia6.png" alt="Pleia screen 6" loading="lazy">
+          <img class="playground-screen" src="pleia7.png" alt="Pleia screen 7" loading="lazy">
+          <img class="playground-screen" src="pleia8.png" alt="Pleia screen 8" loading="lazy">
+          <img class="playground-screen" src="pleia9.png" alt="Pleia screen 9" loading="lazy">
+          <img class="playground-screen" src="pleia10.png" alt="Pleia screen 10" loading="lazy">
+          <img class="playground-screen" src="pleia11.png" alt="Pleia screen 11" loading="lazy">
+          <img class="playground-screen" src="pleia12.png" alt="Pleia screen 12" loading="lazy">
+        </div>
+        <div class="playground-row" aria-hidden="true">
+          <img class="playground-screen" src="pleia1.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia2.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia3.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia4.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia5.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia6.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia7.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia8.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia9.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia10.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia11.png" alt="" loading="lazy">
+          <img class="playground-screen" src="pleia12.png" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== APPROACH ==================== -->
+<section class="home-approach" id="approach" data-reveal>
+  <div class="home-section-head">
+    <span class="eyebrow">How I work</span>
+    <h2 class="home-section-title">Thoughts behind the <em>process.</em></h2>
+  </div>
+
+  <div class="approach-grid">
+    <article class="approach-item">
+      <span class="approach-num">01</span>
+      <h3 class="approach-title">Understanding before solving</h3>
+      <p class="body-p approach-text">I like understanding the real problem before exploring solutions — through user behaviour, product context, research and conversations with the right people.</p>
+    </article>
+    <article class="approach-item">
+      <span class="approach-num">02</span>
+      <h3 class="approach-title">Thinking beyond individual screens</h3>
+      <p class="body-p approach-text">I care about how experiences connect across the full journey — how flows, interactions and small details come together to create a cohesive experience.</p>
+    </article>
+    <article class="approach-item">
+      <span class="approach-num">03</span>
+      <h3 class="approach-title">Iteration shapes better products</h3>
+      <p class="body-p approach-text">I see design as an evolving process shaped by feedback, testing and continuous refinement rather than a single final answer.</p>
+    </article>
+    <article class="approach-item">
+      <span class="approach-num">04</span>
+      <h3 class="approach-title">Thoughtful over trendy</h3>
+      <p class="body-p approach-text">I don't believe every trend works for every product. I prefer approaches that make experiences feel clearer, more usable and intentional in their own context.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="home-about" id="about" data-reveal>
+  <div class="home-section-head">
+    <span class="eyebrow">About me</span>
+    <h2 class="home-section-title">Hey!</h2>
+  </div>
+
+  <div class="about-body">
+    <div class="about-prose">
+      <p class="body-p about-p">I am a <strong>product designer</strong> based in Berlin with five years in <strong>e-commerce</strong> and <strong>travel</strong>. Most recently at <strong>DERTOUR Group</strong>, working across Inntravel, Inghams, and Explore on B2C flows. Before that at <strong>Loopingo</strong>, where I designed both the consumer product and the B2B tools our clients used. My background is <strong>industrial engineering and marketing</strong> — not a typical path into product design, but it taught me to think across teams and understand how business goals, user needs, and operational reality have to meet in the same flow. When I'm not working: traveling, computer games, and illustrations — <em>a few are hiding in the footer.</em></p>
+    </div>
+
+    <div class="about-image" aria-hidden="true">
+      <img src="about.png" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="home-footer">
+  <div class="home-footer-inner">
+    <div class="home-footer-head">
+      <span class="home-footer-name">Nur Kaya</span>
+      <h2 class="home-footer-statement">
+        Ready to make <em>something thoughtful</em> together, or just <em>say hi</em>
+      </h2>
+    </div>
+
+    <ul class="home-footer-links">
+      <li><a href="#">LinkedIn <span aria-hidden="true">↗</span></a></li>
+      <li><a href="#">Dribbble <span aria-hidden="true">↗</span></a></li>
+      <li><a href="mailto:hello@nurkaya.com">Email <span aria-hidden="true">↗</span></a></li>
+    </ul>
+  </div>
+
+  <!-- Photo collage — 9 cards scattered along the bottom edge. -->
+  <div class="home-footer-collage" aria-hidden="true">
+    <div class="footer-photo" style="--r: -8deg; --x: 2%; --y: 24px;">
+      <img src="footer1.png" alt="" loading="lazy">
+      <span class="footer-photo-label">01</span>
+    </div>
+    <div class="footer-photo" style="--r: 6deg; --x: 12%; --y: 60px;">
+      <img src="footer2.png" alt="" loading="lazy">
+      <span class="footer-photo-label">02</span>
+    </div>
+    <div class="footer-photo" style="--r: -4deg; --x: 22%; --y: 12px;">
+      <img src="footer3.png" alt="" loading="lazy">
+      <span class="footer-photo-label">03</span>
+    </div>
+    <div class="footer-photo" style="--r: 10deg; --x: 32%; --y: 48px;">
+      <img src="footer4.png" alt="" loading="lazy">
+      <span class="footer-photo-label">04</span>
+    </div>
+    <div class="footer-photo" style="--r: -6deg; --x: 42%; --y: 28px;">
+      <img src="footer5.png" alt="" loading="lazy">
+      <span class="footer-photo-label">05</span>
+    </div>
+    <div class="footer-photo" style="--r: 4deg; --x: 53%; --y: 56px;">
+      <img src="footer6.png" alt="" loading="lazy">
+      <span class="footer-photo-label">06</span>
+    </div>
+    <div class="footer-photo" style="--r: -10deg; --x: 64%; --y: 20px;">
+      <img src="footer7.png" alt="" loading="lazy">
+      <span class="footer-photo-label">07</span>
+    </div>
+    <div class="footer-photo" style="--r: 8deg; --x: 75%; --y: 44px;">
+      <img src="footer8.png" alt="" loading="lazy">
+      <span class="footer-photo-label">08</span>
+    </div>
+    <div class="footer-photo" style="--r: -5deg; --x: 86%; --y: 8px;">
+      <img src="footer9.png" alt="" loading="lazy">
+      <span class="footer-photo-label">09</span>
+    </div>
+  </div>
+
+  <div class="home-footer-baseline">
+    <span>© 2026 Nur Kaya</span>
+    <span>Designed and built from scratch.</span>
+  </div>
+</footer>
+
+<script src="portfolio-system.js" defer></script>
+<script src="home.js" defer></script>
+</body>
+</html>

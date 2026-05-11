@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebuilding the Booking Journey — Inntravel · Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-system.css">
+<link rel="stylesheet" href="inntravel.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Nur Kaya</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Work</a>
+      <a href="#">About</a>
+      <a href="#">Writing</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#"><span class="dot"></span> Available</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-backdrop"></div>
+    <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+      </button>
+      <nav class="mobile-menu-links">
+        <a href="#" class="active">Work</a>
+        <a href="#">About</a>
+        <a href="#">Writing</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="mobile-menu-cta" href="#"><span class="dot"></span> Available</a>
+    </aside>
+  </div><!-- BREADCRUMB -->
+  <div class="crumb-row">
+    <div class="crumb">
+      <a href="#">Index</a>
+      <span class="sep">/</span>
+      <a href="#">Case Studies</a>
+      <span class="sep">/</span>
+      <span class="current">Booking Journey</span>
+    </div>
+    <div class="case-index">Case №04 — 2024</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" data-reveal="">
+    <div class="hero-left">
+      <div class="chip-row">
+        <span class="chip">Product Design</span>
+        <span class="chip">Conversion Optimisation</span>
+        <span class="chip">User Journey Design</span>
+		<span class="chip">Checkout Experience</span>
+      </div>
+
+      <h1 class="title">Rebuilding the Booking Journey</h1>
+
+      <p class="subtitle">A four-phase rebuild of how users <br>discover, decide, and book.</p>
+
+      <p class="lede">Inntravel is a UK-based walking holiday specialist offering highly customisable, high-consideration trips. This project focused on rebuilding the booking journey — improving how users move from initial consideration through to completing a booking or enquiry.</p><p class="lede">The work evolved across four phases, each responding to what the previous phase revealed.</p>
+      <p class="lede"></p>
+
+      <!-- Mobile carousel (hidden on desktop) -->
+      <div class="hero-screens-mobile">
+        <div class="hero-screen-mob">
+          <img src="PDP.svg" alt="Inntravel PDP" loading="lazy">
+          <span class="hero-screen-mob-label dark">PDP</span>
+        </div>
+        <div class="hero-screen-mob teal">
+          <img src="Step 1.svg" alt="Inntravel checkout Step 1" loading="lazy">
+          <span class="hero-screen-mob-label teal">Checkout</span>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="meta-item">
+          <div class="label">Scope</div>
+          <div class="value">End-to-end booking journey<span class="sub"> — PDP, checkout, enquiry</span></div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Role</div>
+          <div class="value">UX/UI Designer</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Team</div>
+          <div class="value">PM, Engineers, Designers, Branding &amp; Marketing</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Duration</div>
+          <div class="value">12 months<span class="sub"> — 4 phases</span></div>
+        </div>
+        <div class="meta-item">
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right" data-reveal="">
+      <!-- Desktop: stacked overlapping cards -->
+      <div class="hero-screens">
+        <div class="hero-screen back">
+          <img src="PDP.svg" alt="Inntravel PDP — original product detail page" loading="lazy">
+          <span class="hero-screen-label">PDP</span>
+        </div>
+        <div class="hero-screen front">
+          <img src="Step 1.svg" alt="Inntravel checkout — redesigned Step 1" loading="lazy">
+          <span class="hero-screen-label">Checkout</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DISCOVERY + PROBLEMS -->
+  <section class="section" data-reveal="">
+    <div class="discovery-head">
+      <div class="left">
+        <span class="eyebrow">Discovery + Problems</span>
+        <h3>What we learned from the existing journey.</h3>
+        <p class="body-p" style="
+    margin-bottom: 24px;
+">To understand where and why, the full journey was analysed using funnel data, session recordings, and behavioural patterns, complemented by heuristic review and competitor benchmarks.</p><p class="body-p">Despite strong traffic to the PDP, a significant number of users were dropping off before entering the booking flow — indicating friction early in the journey.</p>
+      </div>
+      <div class="right">
+        <div class="discovery-image">
+          <img src="Discover+Problems.png" alt="Inntravel research board" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Problems — 3-col cards -->
+    <span class="problems-label">Problems</span>
+    <div class="findings-3col" data-reveal-stagger="">
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 01</span>
+          <span class="finding-tag">On the PDP</span>
+        </div>
+        
+        <p class="finding-text">Key information and pricing were pushed <strong>below the fold</strong>, with a large hero image dominating the view — Booking and enquiry were also combined behind a single action.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 02</span>
+          <span class="finding-tag">Checkout</span>
+        </div>
+        
+        <p class="finding-text">A dense 5-step checkout, with the highest drop-off at Step 1, where key selections weren’t visible and users had to recall information from the PDP.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 03</span>
+          <span class="finding-tag">Enquiry path</span>
+        </div>
+        
+        <p class="finding-text">Users who preferred to enquire had to leave the page entirely and fill out a long generic form.</p>
+      </article>
+    </div>
+
+    <!-- Opportunity + Evolved — two equal blocks side by side -->
+    <div class="opp-evolved-pair">
+      <div class="opp-block">
+        <span class="opp-label">The Opportunity</span>
+        <p class="opp-text">Better support progression through the journey by aligning the experience with <strong>user intent</strong> and reducing friction at key steps.</p>
+      </div>
+      <div class="opp-block">
+        <span class="opp-label">How the work evolved</span>
+        <p class="opp-text">Early changes focused on improving the existing experience, while later phases responded to new constraints and a shift towards <strong>e-commerce</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CHALLENGES -->
+  <section class="section" data-reveal="">
+    <div class="section-head title-only">
+      <div class="left">
+        <span class="eyebrow">Working within constraints</span>
+        <h3>Balance flexibility, constraints, and a shift towards e-commerce.</h3>
+      </div>
+    </div>
+
+    <div class="challenges-grid" data-reveal-stagger="">
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.3333 20C23.0747 20 24.5573 21.1133 25.1067 22.6667H26.6667C27.0203 22.6667 27.3594 22.8071 27.6095 23.0572C27.8595 23.3072 28 23.6464 28 24C28 24.3536 27.8595 24.6928 27.6095 24.9428C27.3594 25.1929 27.0203 25.3333 26.6667 25.3333H25.1067C24.8312 26.114 24.3203 26.7901 23.6445 27.2683C22.9687 27.7465 22.1612 28.0033 21.3333 28.0033C20.5054 28.0033 19.6979 27.7465 19.0221 27.2683C18.3463 26.7901 17.8355 26.114 17.56 25.3333H5.33333C4.97971 25.3333 4.64057 25.1929 4.39052 24.9428C4.14048 24.6928 4 24.3536 4 24C4 23.6464 4.14048 23.3072 4.39052 23.0572C4.64057 22.8071 4.97971 22.6667 5.33333 22.6667H17.56C17.8358 21.8865 18.3469 21.211 19.0227 20.7334C19.6985 20.2558 20.5058 19.9996 21.3333 20ZM21.3333 22.6667C20.9797 22.6667 20.6406 22.8071 20.3905 23.0572C20.1405 23.3072 20 23.6464 20 24C20 24.3536 20.1405 24.6928 20.3905 24.9428C20.6406 25.1929 20.9797 25.3333 21.3333 25.3333C21.687 25.3333 22.0261 25.1929 22.2761 24.9428C22.5262 24.6928 22.6667 24.3536 22.6667 24C22.6667 23.6464 22.5262 23.3072 22.2761 23.0572C22.0261 22.8071 21.687 22.6667 21.3333 22.6667ZM10.6667 12C11.452 11.9999 12.22 12.231 12.8748 12.6644C13.5297 13.0978 14.0425 13.7144 14.3493 14.4373L14.4387 14.6667H26.6667C27.0065 14.667 27.3334 14.7972 27.5805 15.0305C27.8276 15.2638 27.9763 15.5826 27.9962 15.9219C28.0161 16.2611 27.9058 16.5952 27.6876 16.8558C27.4695 17.1164 27.1601 17.2839 26.8227 17.324L26.6667 17.3333H14.44C14.1712 18.0937 13.6789 18.7551 13.0276 19.2308C12.3764 19.7065 11.5966 19.9744 10.7905 19.9991C9.98436 20.0239 9.18956 19.8046 8.5103 19.3698C7.83104 18.935 7.29902 18.3051 6.984 17.5627L6.89333 17.3333H5.33333C4.99349 17.333 4.66662 17.2028 4.41951 16.9695C4.17239 16.7362 4.02369 16.4174 4.00377 16.0781C3.98385 15.7389 4.09423 15.4048 4.31235 15.1442C4.53047 14.8836 4.83987 14.7161 5.17733 14.676L5.33333 14.6667H6.89333C7.16918 13.8865 7.68022 13.211 8.35602 12.7334C9.03183 12.2558 9.83913 11.9996 10.6667 12ZM10.6667 14.6667C10.313 14.6667 9.97391 14.8071 9.72386 15.0572C9.47381 15.3072 9.33333 15.6464 9.33333 16C9.33333 16.3536 9.47381 16.6928 9.72386 16.9428C9.97391 17.1929 10.313 17.3333 10.6667 17.3333C11.0203 17.3333 11.3594 17.1929 11.6095 16.9428C11.8595 16.6928 12 16.3536 12 16C12 15.6464 11.8595 15.3072 11.6095 15.0572C11.3594 14.8071 11.0203 14.6667 10.6667 14.6667ZM21.3333 4C23.0747 4 24.5573 5.11333 25.1067 6.66667H26.6667C27.0203 6.66667 27.3594 6.80714 27.6095 7.05719C27.8595 7.30724 28 7.64638 28 8C28 8.35362 27.8595 8.69276 27.6095 8.94281C27.3594 9.19286 27.0203 9.33333 26.6667 9.33333H25.1067C24.8312 10.114 24.3203 10.7901 23.6445 11.2683C22.9687 11.7465 22.1612 12.0033 21.3333 12.0033C20.5054 12.0033 19.6979 11.7465 19.0221 11.2683C18.3463 10.7901 17.8355 10.114 17.56 9.33333H5.33333C4.97971 9.33333 4.64057 9.19286 4.39052 8.94281C4.14048 8.69276 4 8.35362 4 8C4 7.64638 4.14048 7.30724 4.39052 7.05719C4.64057 6.80714 4.97971 6.66667 5.33333 6.66667H17.56C17.8358 5.88646 18.3469 5.21101 19.0227 4.73341C19.6985 4.25581 20.5058 3.99957 21.3333 4ZM21.3333 6.66667C20.9797 6.66667 20.6406 6.80714 20.3905 7.05719C20.1405 7.30724 20 7.64638 20 8C20 8.35362 20.1405 8.69276 20.3905 8.94281C20.6406 9.19286 20.9797 9.33333 21.3333 9.33333C21.687 9.33333 22.0261 9.19286 22.2761 8.94281C22.5262 8.69276 22.6667 8.35362 22.6667 8C22.6667 7.64638 22.5262 7.30724 22.2761 7.05719C22.0261 6.80714 21.687 6.66667 21.3333 6.66667Z" fill="#0F766E"/>
+		</svg>
+        </span>
+        <p class="challenge-text">Inntravel’s holidays are <strong>highly customisable </strong>— a key part of their value proposition — making it difficult to apply standard e-commerce patterns without oversimplifying the experience.</p>
+      </div>
+
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.0007 10.6673H22.6673V8.00065C22.6673 4.32065 19.6807 1.33398 16.0007 1.33398C12.3207 1.33398 9.33398 4.32065 9.33398 8.00065V10.6673H8.00065C6.53398 10.6673 5.33398 11.8673 5.33398 13.334V26.6673C5.33398 28.134 6.53398 29.334 8.00065 29.334H24.0007C25.4673 29.334 26.6673 28.134 26.6673 26.6673V13.334C26.6673 11.8673 25.4673 10.6673 24.0007 10.6673ZM12.0007 8.00065C12.0007 5.78732 13.7873 4.00065 16.0007 4.00065C18.214 4.00065 20.0007 5.78732 20.0007 8.00065V10.6673H12.0007V8.00065ZM24.0007 26.6673H8.00065V13.334H24.0007V26.6673ZM16.0007 22.6673C17.4673 22.6673 18.6673 21.4673 18.6673 20.0007C18.6673 18.534 17.4673 17.334 16.0007 17.334C14.534 17.334 13.334 18.534 13.334 20.0007C13.334 21.4673 14.534 22.6673 16.0007 22.6673Z" fill="#0F766E"/>
+		</svg>
+        </span>
+        <p class="challenge-text">The Lemax system defined<strong> what data could be shown and how the booking flow behaved </strong>— including limitations around availability, pricing, and response speed.</p>
+      </div>
+
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.3327 17.3333C18.7472 17.3333 20.1037 17.8952 21.1039 18.8954C22.1041 19.8956 22.666 21.2522 22.666 22.6667V25.3333C22.666 25.687 22.5255 26.0261 22.2755 26.2761C22.0254 26.5262 21.6863 26.6667 21.3327 26.6667C20.9791 26.6667 20.6399 26.5262 20.3899 26.2761C20.1398 26.0261 19.9993 25.687 19.9993 25.3333V22.6667C19.9993 21.9594 19.7184 21.2811 19.2183 20.781C18.7182 20.281 18.0399 20 17.3327 20H7.99935C7.2921 20 6.61383 20.281 6.11373 20.781C5.61363 21.2811 5.33268 21.9594 5.33268 22.6667V25.3333C5.33268 25.687 5.19221 26.0261 4.94216 26.2761C4.69211 26.5262 4.35297 26.6667 3.99935 26.6667C3.64573 26.6667 3.30659 26.5262 3.05654 26.2761C2.80649 26.0261 2.66602 25.687 2.66602 25.3333V22.6667C2.66602 21.2522 3.22792 19.8956 4.22811 18.8954C5.22831 17.8952 6.58486 17.3333 7.99935 17.3333H17.3327ZM25.3327 17.3333C26.3935 17.3333 27.411 17.7548 28.1611 18.5049C28.9113 19.2551 29.3327 20.2725 29.3327 21.3333V24C29.3327 24.3536 29.1922 24.6928 28.9422 24.9428C28.6921 25.1929 28.353 25.3333 27.9993 25.3333C27.6457 25.3333 27.3066 25.1929 27.0565 24.9428C26.8065 24.6928 26.666 24.3536 26.666 24V21.3333C26.666 20.9797 26.5255 20.6406 26.2755 20.3905C26.0254 20.1405 25.6863 20 25.3327 20H23.4447C22.9835 18.9436 22.2563 18.0248 21.334 17.3333H25.3327ZM12.666 4C14.2573 4 15.7834 4.63214 16.9087 5.75736C18.0339 6.88258 18.666 8.4087 18.666 10C18.666 11.5913 18.0339 13.1174 16.9087 14.2426C15.7834 15.3679 14.2573 16 12.666 16C11.0747 16 9.54859 15.3679 8.42337 14.2426C7.29816 13.1174 6.66602 11.5913 6.66602 10C6.66602 8.4087 7.29816 6.88258 8.42337 5.75736C9.54859 4.63214 11.0747 4 12.666 4ZM23.9993 8C25.0602 8 26.0776 8.42143 26.8278 9.17157C27.5779 9.92172 27.9993 10.9391 27.9993 12C27.9993 13.0609 27.5779 14.0783 26.8278 14.8284C26.0776 15.5786 25.0602 16 23.9993 16C22.9385 16 21.9211 15.5786 21.1709 14.8284C20.4208 14.0783 19.9993 13.0609 19.9993 12C19.9993 10.9391 20.4208 9.92172 21.1709 9.17157C21.9211 8.42143 22.9385 8 23.9993 8ZM12.666 6.66667C11.782 6.66667 10.9341 7.01786 10.309 7.64298C9.68387 8.2681 9.33268 9.11594 9.33268 10C9.33268 10.8841 9.68387 11.7319 10.309 12.357C10.9341 12.9821 11.782 13.3333 12.666 13.3333C13.5501 13.3333 14.3979 12.9821 15.023 12.357C15.6482 11.7319 15.9993 10.8841 15.9993 10C15.9993 9.11594 15.6482 8.2681 15.023 7.64298C14.3979 7.01786 13.5501 6.66667 12.666 6.66667ZM23.9993 10.6667C23.6457 10.6667 23.3066 10.8071 23.0565 11.0572C22.8065 11.3072 22.666 11.6464 22.666 12C22.666 12.3536 22.8065 12.6928 23.0565 12.9428C23.3066 13.1929 23.6457 13.3333 23.9993 13.3333C24.353 13.3333 24.6921 13.1929 24.9422 12.9428C25.1922 12.6928 25.3327 12.3536 25.3327 12C25.3327 11.6464 25.1922 11.3072 24.9422 11.0572C24.6921 10.8071 24.353 10.6667 23.9993 10.6667Z" fill="#0F766E"/>
+		</svg>
+
+        </span>
+        <p class="challenge-text">The audience ranges from users who need guidance to those expecting <strong>fast, streamlined digital experiences</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG SENTENCE -->
+  <section class="big-sentence" data-reveal="">
+    <div class="big-sentence-inner">
+      <p>Drop-off was highest <strong>at the PDP</strong> — making it the starting point.</p>
+    </div>
+  </section>
+
+  <!-- ========== PHASE 1 — PDP ========== -->
+  <section class="phase" data-reveal="">
+    <div class="phase-grid">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Phase 1</span>
+        <h3 class="phase-title">Restructuring the PDP to create a clear path forward.</h3>
+        <div class="phase-body">
+          <p>Focused on improving clarity at the point of entry — making key information visible early and helping users understand both the content and the next step.</p>
+          <ul>
+            <li><strong>Gallery over hero image</strong> — to give users a better sense of the full experience</li>
+            <li><strong>Highlights above the fold</strong> — key information surfaced earlier to support quick evaluation</li>
+            <li><strong>Separated Book and Enquire CTAs</strong> — clearer paths based on user intent</li>
+            <li><strong>Pricing surfaced earlier</strong>— no longer hidden below the fold</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-right">
+        <!-- Before / After comparison slider -->
+        <div class="compare-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Before and after PDP comparison" style="--clip: 50%;">
+          <div class="compare-img before">
+		  <img src="oldpdp.svg" alt="PDP Before" loading="lazy";>
+            <span class="compare-ghost">Before</span>
+            <span class="compare-tag before">Before</span>
+          </div>
+          <div class="compare-img after">
+		  <img src="newpdp.svg" alt="PDP After" loading="lazy">
+            <span class="compare-ghost">After</span>
+            <span class="compare-tag after">After</span>
+          </div>
+          <div class="compare-handle">
+            <span class="compare-knob" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip-wide cols-2" data-reveal-stagger="">
+      <div class="stat-card primary">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Flow entry
+        </div>
+        <span class="stat-card-num">+67.8<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">more users started the booking journey vs. baseline.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Deeper engagement
+        </div>
+        <span class="stat-card-num">50<span style="font-size:0.55em; font-weight:400;">%</span> → 70<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">of users scrolled till the itinerary section — a 20pp lift.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG SENTENCE — between Phase 1 and 2 -->
+  <section class="big-sentence" data-reveal="">
+    <div class="big-sentence-inner">
+      <p>
+        More users entered the booking flow, but many <strong>dropped off at the first step</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== PHASE 2 — CHECKOUT ========== -->
+  <section class="phase" data-reveal="">
+    <div class="phase-grid phase-grid-wide">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Phase 2</span>
+        <h3 class="phase-title">Improving the existing checkout experience.</h3>
+        <div class="phase-body">
+          <p>With more users entering the flow, checkout became the main bottleneck. Data showed drop-offs at Step 1 and payment steps.</p>
+          <ul>
+            <li><strong>Grouped related inputs</strong> — reducing cognitive load</li>
+            <li><strong>Replaced recall-heavy inputs</strong> — using in-flow selections (dropdowns, pre-filled options)</li>
+            <li><strong>Combined review and payment</strong> — into a single step  </li>
+            <li><strong>Introduced a call-back option</strong> — as an alternative path</li>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="phase-right">
+        
+        <div class="show-pair">
+          <figure class="show-frame">
+            <span class="show-tag">Before</span>
+            <div class="show-img">
+              <img src="bfold.svg" alt="Old checkout Step 1 — long form">
+              <div class="stack-blur"></div>
+            </div>
+          </figure>
+          <figure class="show-frame">
+            <span class="show-tag after">After</span>
+            <div class="show-img">
+              <img src="bfnew.svg" alt="New checkout Step 1 — simplified">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Two screens become one -->
+    <div class="show-block" data-reveal="">
+      <p class="show-mini-title">Combining review &amp; payment</p>
+      <div class="show-pair step4">
+        <figure class="show-frame">
+          <span class="show-tag">Before — two screens</span>
+          <div class="show-stack">
+            <div class="show-img show-stack-back">
+              <img src="review.svg" alt="Step 4 Review — Before">
+              <div class="stack-blur"></div>
+              <span class="show-mini bottom">Review</span>
+            </div>
+            <div class="show-img show-stack-front">
+              <img src="pay.svg" alt="Step 4 Payment — Before">
+              <div class="stack-blur"></div>
+              <span class="show-mini bottom">Payment</span>
+            </div>
+          </div>
+        </figure>
+        <div class="show-mapping-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+        <figure class="show-frame">
+          <span class="show-tag after">After — one screen</span>
+          <div class="show-img">
+            <img src="combined.svg" alt="Step 4 Combined — After">
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Phase 2 stats -->
+    <div class="stat-strip-wide" data-reveal-stagger="">
+      <span class="stat-strip-label">Across two rounds of A/B testing</span>
+      <div class="stat-card primary">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Completion rate
+        </div>
+        <span class="stat-card-num">+117<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">more journeys completed end-to-end (12% → 26%).</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Call-back path
+        </div>
+        <span class="stat-card-num">~37.5<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">opted in via the newly introduced lead route.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Step 1 entry
+        </div>
+        <span class="stat-card-num">+88.5<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">progressed from the first screen (26% → 49%).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG SENTENCE — before Phase 3 -->
+  <section class="big-sentence" data-reveal="">
+    <div class="big-sentence-inner">
+      <p>
+        As the business shifted towards an <strong>e-commerce model</strong>, the booking experience needed to evolve.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== PHASE 3 — MODERN BOOKING ========== -->
+  <section class="phase phase-with-gallery" data-reveal="">
+    <div class="phase-grid phase-grid-text-only">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Phase 3</span>
+        <h3 class="phase-title">From a legacy form to a modern booking experience.</h3>
+      </div>
+      <div class="phase-right">
+        <div class="phase-body">
+          <p>This phase focused on restructuring the booking flow to support a more flexible,<strong> e-commerce-driven model.</strong></p>
+          <p>Unlike earlier phases, the goal was not immediate uplift, but <strong>enabling a system that could support both direct and customised booking</strong> while allowing the experience to evolve over time.</p>
+          <p>I worked within the constraints of the Lemax system, shaping the experience around what data could be surfaced.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 gallery: 5 screens grid -->
+    <div class="phase-gallery" data-reveal="" data-reveal-stagger="">
+      <figure class="phase-gallery-item">
+        <div class="phase-gallery-frame"><span>Checkout Step 1</span></div>
+        <figcaption>Holiday details</figcaption>
+      </figure>
+      <figure class="phase-gallery-item">
+        <div class="phase-gallery-frame"><span>Travel Details</span></div>
+        <figcaption>Travel details &amp; preferences</figcaption>
+      </figure>
+      <figure class="phase-gallery-item">
+        <div class="phase-gallery-frame"><span>Party Details</span></div>
+        <figcaption>Party composition</figcaption>
+      </figure>
+      <figure class="phase-gallery-item">
+        <div class="phase-gallery-frame"><span>Review &amp; Pay</span></div>
+        <figcaption>Review &amp; payment</figcaption>
+      </figure>
+      <figure class="phase-gallery-item">
+        <div class="phase-gallery-frame"><span>Confirmation</span></div>
+        <figcaption>Booking confirmation</figcaption>
+      </figure>
+    </div>
+    <div class="iterations-progress" data-gallery-progress aria-hidden="true">
+      <div class="iterations-progress-bar"></div>
+    </div>
+  </section>
+  <section class="big-sentence" data-reveal="">
+    <div class="big-sentence-inner">
+      <p>
+        Despite restructuring the flow, conversion remained largely unchanged — suggesting that the issue wasn't just how the flow worked, but whether it <strong>matched user intent</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== PHASE 4 — ENQUIRY ========== -->
+  <section class="phase" data-reveal="">
+    <div class="phase-grid">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Phase 4</span>
+        <h3 class="phase-title">Supporting different levels of user intent.</h3>
+        <div class="phase-body">
+          <p>Not all users were ready to book immediately.</p>
+          <p>Introducing a lightweight enquiry option on the PDP allowed users to act without committing — <strong>capturing demand that was previously lost.</strong></p>
+        <p>This contributed to <strong>an increase in total leads</strong> (bookings + enquiries), expanding conversion beyond the booking flow.</p></div>
+      </div>
+
+      <div class="phase-right">
+        <div class="phase-stage">
+          <img src="enquire.svg" alt="Step 4 Combined — After" width="100%" height="auto">
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 stats -->
+    <div class="stat-strip-wide cols-2" data-reveal-stagger="">
+      <div class="stat-card primary">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Total leads
+        </div>
+        <span class="stat-card-num">+21<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">overall volume captured during the test window.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Quick lead CVR
+        </div>
+        <span class="stat-card-num">15<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">conversion on the new short-form lead path.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG SENTENCE — after Phase 4 -->
+  
+
+  <!-- ========== MY CONTRIBUTION + REFLECTION ========== -->
+  <section class="section-9" data-reveal="">
+
+    <div class="contrib-wrap">
+      <div class="contrib-header">
+        <div class="sh-left">
+          <span class="eyebrow">My Contribution</span>
+          <h2>Staying close to user behaviour, across every phase.</h2>
+        </div>
+        <div class="sh-right">
+          <p class="contrib-lede">
+            This was a collaborative project, and my role remained consistent throughout — staying close to the data and translating user behaviour into design decisions.
+
+          </p>
+        </div>
+      </div>
+
+      <ul class="contrib-list-new" data-reveal-stagger="">
+        <li class="contrib-item-new">
+          <span class="contrib-marker-new">01</span>
+          <p class="contrib-text-new">
+		Shaped the redesign of the PDP to surface key information and improve clarity around pricing  
+         </p>
+        </li>
+        <li class="contrib-item-new">
+          <span class="contrib-marker-new">02</span>
+          <p class="contrib-text-new">
+		Led the restructuring of the checkout flow in Phase 2, introducing in-flow selections to reduce reliance on memory and simplify key steps  
+          </p>
+        </li>
+        <li class="contrib-item-new">
+          <span class="contrib-marker-new">03</span>
+          <p class="contrib-text-new">
+		Led the design decision to combine review and payment into a single step            </p>
+        </li>
+        <li class="contrib-item-new">
+          <span class="contrib-marker-new">04</span>
+          <p class="contrib-text-new">
+		Helped define how an enquiry path is integrated into the booking journey          </p>
+        </li>
+        <li class="contrib-item-new">
+          <span class="contrib-marker-new">05</span>
+          <p class="contrib-text-new">
+		Collaborated with the design team to explore and define the e-commerce booking structure through iterative work in Figma Make          </p>
+      </ul>
+  </section>
+
+  <!-- ========== CLOSING — final section ========== -->
+  <!-- Reflection — editorial transition before closing -->
+  
+  <section class="closing-section" data-reveal>
+    <div class="closing-section-head">
+      <div class="left">
+        <span class="eyebrow">Closing</span>
+        <h3>The booking journey is in a better place — but there's more to do.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Each phase addressed a specific part of the journey, and each one revealed something the next phase needed to solve.</p>
+      </div>
+    </div>
+
+    <div class="reflection-block closing-reflection">
+      <div class="reflection-block-head">
+        <span class="reflection-eyebrow-new">Reflection</span>
+        <span class="reflection-meta-new">Looking back across phases</span>
+      </div>
+      <p class="reflection-text-new">The project highlighted how important it is to <strong>support different decision-making behaviours within the same journey.</strong><br>Not all users arrive ready to book — and designing for both commitment and consideration can significantly improve overall engagement.</p>
+    </div>
+
+    <div class="closing-next" data-reveal-stagger="">
+          <div class="closing-next-card">
+            <span class="closing-next-num">Next 01</span>
+            <p class="closing-next-text">
+              Reducing <strong>friction further</strong> within the checkout flow.
+            </p>
+          </div>
+          <div class="closing-next-card">
+            <span class="closing-next-num">Next 02</span>
+            <p class="closing-next-text">
+              Building <strong>more confidence earlier</strong> in the journey (PDP), before users reach booking.
+            </p>
+          </div>
+        </div>
+
+    <div class="closing-signoff">
+      <span class="closing-avatar">NK</span>
+      <div>
+        <span class="closing-name">Nur Kaya</span>
+        <span class="closing-role">UX/UI Designer · Inntravel</span>
+      </div>
+      <span class="closing-date">Case study · 2024</span>
+    </div>
+  
+  </section>
+
+<script src="inntravel.js" defer></script>
+
+</body>
+</html>

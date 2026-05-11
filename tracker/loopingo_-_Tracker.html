@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cashback Tracker — Loopingo · Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-system.css">
+<link rel="stylesheet" href="tracker.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Nur Kaya</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Work</a>
+      <a href="#">About</a>
+      <a href="#">Writing</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#"><span class="dot"></span> Available</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-backdrop"></div>
+    <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+      </button>
+      <nav class="mobile-menu-links">
+        <a href="#" class="active">Work</a>
+        <a href="#">About</a>
+        <a href="#">Writing</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="mobile-menu-cta" href="#"><span class="dot"></span> Available</a>
+    </aside>
+  </div><!-- CRUMB -->
+  <div class="crumb-row">
+    <div class="crumb">
+      <a href="#">Index</a><span class="sep">→</span>
+      <a href="#">Case Studies</a><span class="sep">→</span>
+      <span class="current">Cashback Tracker</span>
+    </div>
+    <div class="case-index">Case №06 — 2024</div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" data-reveal="">
+    <div class="hero-left">
+      <div class="chip-row">
+        <span class="chip">Service &amp; Product</span>
+        <span class="chip">Dashboard</span>
+      </div>
+
+      <h1 class="title">Cashback Tracker</h1>
+
+      <p class="subtitle">From reactive email support to a <br>structured self-service product.</p>
+      <p class="lede">Loopingo provides performance marketing solutions for online stores, including a cashback product designed to drive customer acquisition. As the product grew, cashback activation and redemption were handled entirely through email, with no structured experience for users.</p>
+      <p class="lede">I designed a self-service platform that introduced a clear flow, enabling users to manage cashback independently.</p>
+
+      <div class="hero-image-mobile">
+        <img src="hero-image.png" alt="Cashback Tracker Dashboard">
+      </div>
+
+      <div class="meta" data-reveal="">
+        <div class="meta-item"><div class="label">Scope</div><div class="value">Self-service redesign<span class="sub"> — cashback platform</span></div></div>
+        <div class="meta-item"><div class="label">Role</div><div class="value">Product Designer</div></div>
+        <div class="meta-item"><div class="label">Team</div><div class="value">PM, Engineers &amp; Marketing</div></div>
+        <div class="meta-item"><div class="label">Duration</div><div class="value">3 Months</div></div>
+      </div>
+    </div>
+    <div class="hero-right" data-reveal="">
+        <div class="hero-img-wrap" style="max-width:580px;"><img src="hero-image.png" alt="Cashback Tracker Dashboard" style="width:100%; height:auto; display:block;"></div>
+    </div>
+  </section>
+  <!-- ==================== DISCOVERY + PROBLEMS ==================== -->
+  <section class="section" data-reveal="">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Discovery + Problems</span>
+        <h3>Where the process breaks down</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Reviewing customer feedback and support interactions revealed that users struggled to understand, track, and complete cashback actions. This led to missed cashback opportunities and increased operational load.</p>
+      </div>
+    </div>
+
+    <span class="problems-label">Problems</span>
+    <div class="findings-3col" data-reveal-stagger="">
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 01</span>
+          <span class="finding-tag">Activation</span>
+        </div>
+        <h4 class="finding-title">Missed cashback rewards.</h4>
+        <p class="finding-text">Incorrect or incomplete activation led to lost rewards — users didn't know they'd missed the window until it was too late.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 02</span>
+          <span class="finding-tag">Conditions</span>
+        </div>
+        <h4 class="finding-title">Confusion around offer rules.</h4>
+        <p class="finding-text">Offer rules were unclear and easy to misunderstand, leading users to make errors that voided their cashback.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 03</span>
+          <span class="finding-tag">Documents</span>
+        </div>
+        <h4 class="finding-title">Wrong or incomplete submissions.</h4>
+        <p class="finding-text">Submissions were often wrong or incomplete — users had no guidance on what was needed or how to format it.</p>
+      </article>
+    </div>
+
+    <div class="findings-3col findings-2col" data-reveal-stagger="" style="margin-top:14px;">
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 04</span>
+          <span class="finding-tag">Visibility</span>
+        </div>
+        <h4 class="finding-title">No way to track progress.</h4>
+        <p class="finding-text">Users couldn't see where they were in the process or what status their cashback claim had reached.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-head">
+          <span class="finding-num">Finding 05</span>
+          <span class="finding-tag">Support</span>
+        </div>
+        <h4 class="finding-title">Every action needed manual help.</h4>
+        <p class="finding-text">Key actions required manual intervention from support — creating bottlenecks and delays for both users and the team.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== THE CHALLENGE ==================== -->
+  <section class="section" data-reveal="">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">The Challenge</span>
+        <h3>Turning a manual process into a product experience</h3>
+        <p class="body-p">Designing a solution required balancing user trust, operational workflows, and system constraints.</p>
+      </div>
+      <div class="right">
+        <ul class="challenge-list" data-reveal-stagger="">
+          <li class="challenge-list-item">
+            <span class="challenge-list-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </span>
+            <div class="challenge-list-content">
+              <h4 class="challenge-list-title">Building user trust</h4>
+              <p class="challenge-list-text">Users were asked to share bank details without understanding why or what would happen next.</p>
+            </div>
+          </li>
+          <li class="challenge-list-item">
+            <span class="challenge-list-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </span>
+            <div class="challenge-list-content">
+              <h4 class="challenge-list-title">Operational fit</h4>
+              <p class="challenge-list-text">The flow had to reduce support load without breaking existing workflows.</p>
+            </div>
+          </li>
+          <li class="challenge-list-item">
+            <span class="challenge-list-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </span>
+            <div class="challenge-list-content">
+              <h4 class="challenge-list-title">System constraints</h4>
+              <p class="challenge-list-text">Backend systems limited what could be shown and validated in real time.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG SENTENCE -->
+  <section class="big-sentence" data-reveal="">
+    <div class="big-sentence-inner">
+      <p>
+        The solution was to turn an email-based support process into a structured product flow that users could <strong>complete themselves</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== USER FLOW ==================== -->
+  <section class="section" data-reveal="">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">User Flow</span>
+        <h3>Defining the cashback journey</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">The new flow defined how users would move through cashback activation, submission, payment validation, and tracking. This was the first time the process became visible to users, replacing an unclear, email-based interaction.</p>
+      </div>
+    </div>
+
+    <div class="userflow-image" data-reveal="">
+      <button class="image-zoom-trigger" type="button" aria-label="Zoom user flow">
+        <img src="userflow.svg" alt="User flow diagram" style="width:100%; height:auto; display:block;">
+        <span class="image-zoom-hint" aria-hidden="true">Tap to zoom</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== WIREFRAMES ==================== -->
+  <section class="phase" data-reveal="">
+    <div class="phase-grid phase-grid-text-only">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Wireframes</span>
+        <h3 class="phase-title">Shaping the dashboard experience</h3>
+      </div>
+      <div class="phase-right">
+        <div class="phase-body">
+          <p>Early wireframes explored the structure of the dashboard: what users needed to see, what information they needed to provide, and how status should be communicated.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wireframe gallery — drag-to-scroll horizontal -->
+    <div class="wf-gallery" data-reveal="">
+      <div class="wf-gallery-track">
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="Waiting_Unlock.svg" alt="Waiting to unlock"></div>
+          <figcaption>Waiting to unlock</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="Shop_Now.svg" alt="Shop now"></div>
+          <figcaption>Shop now</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="Information.svg" alt="Information"></div>
+          <figcaption>Information</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="Documentation_-_Email.svg" alt="Documentation"></div>
+          <figcaption>Documentation</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="Tracking.svg" alt="Tracking"></div>
+          <figcaption>Tracking</figcaption>
+        </figure>
+      </div>
+      <div class="wf-gallery-progress">
+        <div class="wf-gallery-progress-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL DESIGNS ==================== -->
+  <section class="phase" data-reveal="">
+    <div class="phase-grid phase-grid-text-only">
+      <div class="phase-left">
+        <span class="phase-eyebrow">Final Designs</span>
+        <h3 class="phase-title">From process to product</h3>
+      </div>
+      <div class="phase-right">
+        <div class="phase-body">
+          <p>The final design transformed the process into a dashboard-based experience, where users could clearly understand what to do and complete each step with confidence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-grid" data-reveal-stagger="" style="margin-top:64px;">
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Final_designWaiting_Unlock_-_M.svg" alt="Waiting to unlock" style="width:100%; height:auto; display:block;"></div>
+        <div class="screen-caption-block">
+          <span class="screen-caption-num">01</span>
+          <p class="screen-caption-text">Waiting to unlock — clear status while validation is in progress.</p>
+        </div>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Final_designShop.svg" alt="Activation" style="width:100%; height:auto; display:block;"></div>
+        <div class="screen-caption-block">
+          <span class="screen-caption-num">02</span>
+          <p class="screen-caption-text">Activate cashback through a clear and structured entry point.</p>
+        </div>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Final_designInformation.svg" alt="Information" style="width:100%; height:auto; display:block;"></div>
+        <div class="screen-caption-block">
+          <span class="screen-caption-num">03</span>
+          <p class="screen-caption-text">Understand conditions through cleaner, digestible formats.</p>
+        </div>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Final_designDocumentation.svg" alt="Documentation" style="width:100%; height:auto; display:block;"></div>
+        <div class="screen-caption-block">
+          <span class="screen-caption-num">04</span>
+          <p class="screen-caption-text">Submit required documents with guided steps.</p>
+        </div>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Final_designShoppin_Bonus.svg" alt="Shopping Bonus" style="width:100%; height:auto; display:block;"></div>
+        <div class="screen-caption-block">
+          <span class="screen-caption-num">05</span>
+          <p class="screen-caption-text">Track progress and status in real time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="iterations-progress" data-gallery-progress aria-hidden="true">
+      <div class="iterations-progress-bar"></div>
+    </div>
+  </section>
+
+  <!-- ==================== ITERATIONS ==================== -->
+  <section class="section" data-reveal="">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Iterations</span>
+        <h3>What didn't work initially</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Initial designs revealed that users still struggled to understand conditions and submission status.</p>
+      </div>
+    </div>
+
+    <!-- Iteration 1: Conditions redesign -->
+    <div class="iter-block" data-reveal="">
+      <div class="iter-row">
+        <div class="iter-text-col">
+          <span class="iter-num">01</span>
+          <h4 class="iter-block-title">Conditions made tangible</h4>
+          <p class="iter-block-desc">Instead of listing terms and conditions as static text, users were guided through key steps in a more structured format, which they reviewed and accepted at the end.</p>
+        </div>
+        <div class="iter-image-col">
+          <div class="iter-image-plain">
+            <img src="Iteration1.svg" alt="Iteration 1 — Conditions redesign">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Iteration 2: Status feedback (desktop + mobile overlay) -->
+    <div class="iter-block iter-block-divided" data-reveal="">
+      <div class="iter-row">
+        <div class="iter-text-col">
+          <span class="iter-num">02</span>
+          <h4 class="iter-block-title">Clearer status feedback</h4>
+          <p class="iter-block-desc">If documents were received, users saw a success message. If not, they were shown a pending status and prompted to upload missing items.</p>
+        </div>
+        <div class="iter-image-col">
+          <div class="iter-devices-overlay">
+            <figure class="iter-device-desktop-plain">
+              <img src="iteration2-Shopping_Bonus.svg" alt="Iteration 2 — Desktop">
+            </figure>
+            <figure class="iter-device-mobile-overlay">
+              <div class="iter-device-mobile-frame">
+                <img src="iteration2-Shoppin_Bonus-M.svg" alt="Iteration 2 — Mobile">
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CLOSING ==================== -->
+  <!-- ========== MY CONTRIBUTION ========== -->
+  <section class="section" data-reveal>
+    <div class="section-head contrib-head">
+      <div class="left">
+        <span class="eyebrow">My Contribution</span>
+        <h3>End-to-end product design — from discovery to handoff.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">I led the design of the cashback tracker from discovery to final handoff — mapping the existing process, identifying breakdowns, defining the flow, and delivering production-ready specs.</p>
+      </div>
+    </div>
+
+    <ul class="contrib-list-new" data-reveal-stagger>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">01</span>
+        <p class="contrib-text-new">Mapped the <strong>existing email-based tracking process</strong> and identified key breakdowns in the merchant experience.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">02</span>
+        <p class="contrib-text-new">Defined the <strong>user flow and information architecture</strong> for the new dashboard interface.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">03</span>
+        <p class="contrib-text-new">Designed and iterated on the <strong>dashboard UI</strong> based on stakeholder and user feedback.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">04</span>
+        <p class="contrib-text-new">Delivered <strong>production-ready specs</strong> to engineering with detailed interaction documentation.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ========== CLOSING ========== -->
+  <!-- Reflection — editorial transition before closing -->
+  
+  <section class="closing-section" data-reveal>
+    <div class="closing-section-head">
+      <div class="left">
+        <span class="eyebrow">Closing</span>
+        <h3>A clearer view into cashback performance — but there's more to build.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">The tracker gave merchants visibility they never had before. Each iteration surfaced new requirements for automated alerting and deeper analytics.</p>
+      </div>
+    </div>
+
+    <div class="reflection-block closing-reflection">
+      <div class="reflection-block-head">
+        <span class="reflection-eyebrow-new">Reflection</span>
+        <span class="reflection-meta-new">Looking back</span>
+      </div>
+      <p class="reflection-text-new">This project showed that the main issue wasn't <strong>process complexity</strong>, but the <strong>lack of clarity, visibility, and ownership</strong> for users.<br>The platform turned a fragmented, email-based process into a clear product experience, where users could understand what to do and complete actions without relying on support.</p>
+    </div>
+
+    <div class="closing-next" data-reveal-stagger>
+          <div class="closing-next-card">
+            <span class="closing-next-num">Next 01</span>
+            <p class="closing-next-text">Extending the tracker with <strong>automated alerts</strong> for underperforming campaigns.</p>
+          </div>
+          <div class="closing-next-card">
+            <span class="closing-next-num">Next 02</span>
+            <p class="closing-next-text">Building <strong>deeper analytics</strong> to help merchants optimise cashback offers over time.</p>
+          </div>
+        </div>
+
+    <div class="closing-signoff">
+      <span class="closing-avatar">NK</span>
+      <div>
+        <span class="closing-name">Nur Kaya</span>
+        <span class="closing-role">Product Designer · loopingo</span>
+      </div>
+      <span class="closing-date">Case study · 2024</span>
+    </div>
+  
+  </section>
+
+  <!-- IMAGE ZOOM MODAL -->
+  <div class="image-zoom-modal" id="image-zoom-modal" aria-hidden="true">
+    <div class="image-zoom-backdrop"></div>
+    <div class="image-zoom-content" role="dialog" aria-modal="true" aria-label="Zoomed image">
+      <button class="image-zoom-close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+      <div class="image-zoom-scroll">
+        <img class="image-zoom-img" src="" alt="">
+      </div>
+    </div>
+  </div>
+
+<script src="tracker.js" defer></script>
+
+</body>
+</html>

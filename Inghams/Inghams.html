@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rethinking Destination Selection — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-system.css">
+<link rel="stylesheet" href="inghams.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Nur Kaya</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Work</a>
+      <a href="#">About</a>
+      <a href="#">Writing</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#"><span class="dot"></span> Available</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-backdrop"></div>
+    <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+      </button>
+      <nav class="mobile-menu-links">
+        <a href="#" class="active">Work</a>
+        <a href="#">About</a>
+        <a href="#">Writing</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="mobile-menu-cta" href="#"><span class="dot"></span> Available</a>
+    </aside>
+  </div><!-- BREADCRUMB -->
+  <div class="crumb-row">
+    <div class="crumb">
+      <a href="#">Index</a>
+      <span class="sep">/</span>
+      <a href="#">Case Studies</a>
+      <span class="sep">/</span>
+      <span class="current">Destination Selection</span>
+    </div>
+    <div class="case-index">Case №03 — 2025</div>
+  </div>
+
+  <!-- ========== SECTION 1: HERO ========== -->
+  <section class="hero" data-reveal>
+    <div class="hero-left">
+      <div class="chip-row">
+        <span class="chip">Product Design</span>
+        <span class="chip">UX Strategy</span>
+        <span class="chip">Information Architecture</span>
+		<span class="chip">Discorvery Experience </span>
+      </div>
+
+
+      <h1 class="title">Rethinking Destination Selection</h1>
+
+      <p class="subtitle">From recall to discovery, giving users <br>the space to browse and decide.</p>
+
+      <p class="lede">Inghams is a UK-based holiday operator, best known for ski trips, offering destinations across multiple countries, regions, and resorts. I led the redesign of how users select a destination — shifting from search-led behaviour to a more exploratory, decision-driven experience.</p>
+
+      <div class="hero-image-mobile">
+        <img class="asset-img asset-hero" src="HERO_-_NEW.svg" alt="Destination selection redesigned interface">
+      </div>
+
+      <div class="meta" data-reveal="">
+        <div class="meta-item">
+          <div class="label">Scope</div>
+          <div class="value">End-to-end redesign<span class="sub">— destination selection</span></div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Role</div>
+          <div class="value">Product Designer <span class="sub">(lead)</span></div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Team</div>
+          <div class="value">PM, Engineers, Designers, Branding &amp; Marketing</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Duration</div>
+          <div class="value">5 months <span class="sub">— 2 release phases</span></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        
+        <a href="#" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"></path>
+          </svg>
+          View live product
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-center asset-stage-wrap"><img class="asset-img asset-hero" src="HERO_-_NEW.svg" alt="Destination selection redesigned interface"></div>
+  </section>
+  <!-- ========== SECTION 2: CONTEXT ========== -->
+  <section class="section-2" data-reveal="">
+    <div class="stage-wrap asset-stage-wrap"><img class="asset-img asset-old-modal" src="OLD_MODAL.svg" alt="Old destination modal"></div>
+
+    <div class="copy-col">
+      <span class="eyebrow">Context + Opportunity</span>
+
+      <h2 class="sec-title">The experience assumed users knew exactly what they were looking for.</h2>
+
+      <p class="body-p">Users typically begin their journey through<strong> a search widget on the homepage and key landing pages.</strong> Clicking the destination field opens a modal used to select where to go.</p><p class="body-p">Travel products often rely on search, but discovery requires visibility — users can’t choose from options they can’t see.</p>
+
+      <div class="insight-stack">
+        <div class="insight problem">
+          <span class="insight-mark">Problem</span>
+          <span class="insight-text">The interface only exposed<strong> top-level destinations</strong> (Countries). They had to recall or guess what was available there.</span>
+        </div>
+        <div class="insight opportunity">
+          <span class="insight-mark">Opportunity</span>
+          <span class="insight-text">Exposing <strong>the full destination structure</strong> creates the opportunity to support both direct and browsing behaviour.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="big-statement" data-reveal="">
+    <p>Regions and resorts already existed in the system, but users had no clear way to reach them without knowing exactly what to search for.</p>
+  </section>
+
+  <!-- ========== SECTION 3: CHALLENGE + APPROACH ========== -->
+  <section class="section-3" data-reveal="">
+    <div class="challenge">
+      <span class="eyebrow">The Challenge</span>
+      <h3 class="sub-title">Increase flexibility without increasing complexity.</h3>
+      <p class="body-p">The challenge was to introduce a more flexible way of selecting destinations, without increasing complexity <strong>at a high-traffic entry point.</strong> The solution needed to</p>
+
+      <ul class="req-list">
+        <li class="req-item">
+          <span class="req-icon" aria-hidden="true">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9993 2.66602C16.4998 2.66602 16.9931 2.69313 17.4793 2.74735C17.6534 2.76661 17.8219 2.81996 17.9754 2.90436C18.1288 2.98876 18.2641 3.10255 18.3735 3.23924C18.483 3.37593 18.5644 3.53283 18.6133 3.701C18.6621 3.86917 18.6773 4.0453 18.658 4.21935C18.6388 4.39339 18.5854 4.56194 18.501 4.71537C18.4166 4.86879 18.3028 5.00409 18.1661 5.11354C18.0294 5.22299 17.8725 5.30445 17.7044 5.35326C17.5362 5.40207 17.3601 5.41728 17.186 5.39802C14.9887 5.15221 12.7694 5.59527 10.8349 6.66591C8.90045 7.73656 7.34649 9.38187 6.38797 11.3743C5.42945 13.3667 5.11375 15.6077 5.48454 17.7874C5.85532 19.967 6.89427 21.9776 8.45767 23.541C10.0211 25.1044 12.0317 26.1434 14.2113 26.5142C16.391 26.8849 18.632 26.5692 20.6244 25.6107C22.6168 24.6522 24.2621 23.0982 25.3328 21.1638C26.4034 19.2293 26.8465 17.01 26.6007 14.8127C26.5814 14.6386 26.5966 14.4625 26.6454 14.2943C26.6942 14.1262 26.7757 13.9693 26.8852 13.8326C27.1062 13.5565 27.4278 13.3796 27.7793 13.3407C28.1308 13.3018 28.4834 13.4041 28.7595 13.6252C28.8961 13.7346 29.0099 13.8699 29.0943 14.0233C29.1787 14.1768 29.2321 14.3453 29.2513 14.5193C29.3047 15.0056 29.3318 15.4989 29.3327 15.9993C29.3327 23.3633 23.3633 29.3327 15.9993 29.3327C8.63535 29.3327 2.66602 23.3633 2.66602 15.9993C2.66602 8.63535 8.63535 2.66602 15.9993 2.66602ZM15.9567 10.502C16.0446 10.8443 15.9929 11.2075 15.8132 11.5118C15.6334 11.816 15.3402 12.0365 14.998 12.1247C14.0578 12.371 13.2394 12.9509 12.6954 13.7563C12.1514 14.5617 11.919 15.5375 12.0416 16.5016C12.1642 17.4657 12.6334 18.3523 13.3617 18.9959C14.0899 19.6395 15.0275 19.9962 15.9993 19.9993C16.8864 19.9997 17.7485 19.7052 18.4499 19.1621C19.1513 18.6191 19.6522 17.8583 19.874 16.9993C19.9685 16.6638 20.1907 16.3786 20.4929 16.2049C20.7951 16.0312 21.1533 15.9827 21.4908 16.0699C21.8283 16.157 22.1183 16.3729 22.2986 16.6713C22.4789 16.9696 22.5351 17.3267 22.4553 17.666C22.0463 19.2339 21.0805 20.5993 19.7382 21.507C18.396 22.4148 16.7692 22.8028 15.1617 22.5987C13.5542 22.3945 12.0761 21.6121 11.0034 20.3977C9.93065 19.1832 9.33678 17.6197 9.33268 15.9993C9.33245 14.5212 9.82348 13.0849 10.7286 11.9162C11.6337 10.7476 12.9015 9.91289 14.3327 9.54335C14.5023 9.49964 14.6788 9.48977 14.8522 9.51429C15.0256 9.53882 15.1925 9.59726 15.3433 9.68628C15.4941 9.77531 15.6259 9.89317 15.7311 10.0331C15.8364 10.1731 15.913 10.3324 15.9567 10.502ZM24.6713 2.83535C24.9147 2.93625 25.1227 3.107 25.2692 3.32603C25.4156 3.54506 25.4938 3.80255 25.494 4.06602V6.50602H27.9327C28.1963 6.50607 28.4541 6.5843 28.6733 6.73081C28.8925 6.87733 29.0634 7.08554 29.1643 7.32914C29.2651 7.57274 29.2915 7.84079 29.2401 8.09939C29.1887 8.35799 29.0618 8.59555 28.8753 8.78202L24.1593 13.4927C23.9094 13.7427 23.5703 13.8833 23.2167 13.8833H19.9993L17.562 16.322C17.3118 16.5722 16.9725 16.7128 16.6187 16.7128C16.2649 16.7128 15.9255 16.5722 15.6753 16.322C15.4252 16.0718 15.2846 15.7325 15.2846 15.3787C15.2846 15.0249 15.4252 14.6855 15.6753 14.4353L18.114 11.9993V8.78068C18.1141 8.42709 18.2546 8.08801 18.5047 7.83802L23.218 3.12335C23.4045 2.93677 23.6421 2.80969 23.9008 2.75819C24.1595 2.70669 24.4276 2.73308 24.6713 2.83402M22.8273 7.28335L20.7807 9.33268V11.218H22.666L24.714 9.17135H24.1607C23.8071 9.17135 23.4679 9.03087 23.2179 8.78082C22.9678 8.53078 22.8273 8.19164 22.8273 7.83802V7.28335Z" fill="#0F766E"/>
+	</svg>
+          </span>
+          <span class="req-text">Support both known-intent and exploratory users</span>
+        </li>
+        <li class="req-item">
+          <span class="req-icon" aria-hidden="true">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.0013 10.2277C20.0018 11.0552 19.7455 11.8625 19.2679 12.5383C18.7903 13.2141 18.1149 13.7252 17.3347 14.001V16.8944H21.3347C22.3955 16.8944 23.413 17.3158 24.1631 18.0659C24.9132 18.8161 25.3347 19.8335 25.3347 20.8944V22.4544C26.2247 22.7689 26.9748 23.3879 27.4525 24.2021C27.9302 25.0162 28.1047 25.973 27.9451 26.9034C27.7855 27.8338 27.3022 28.6777 26.5805 29.2862C25.8588 29.8946 24.9453 30.2283 24.0013 30.2283C23.0574 30.2283 22.1439 29.8946 21.4222 29.2862C20.7005 28.6777 20.2172 27.8338 20.0576 26.9034C19.898 25.973 20.0725 25.0162 20.5502 24.2021C21.0279 23.3879 21.778 22.7689 22.668 22.4544V20.8944C22.668 20.5407 22.5275 20.2016 22.2775 19.9515C22.0274 19.7015 21.6883 19.561 21.3347 19.561H10.668C10.3144 19.561 9.97525 19.7015 9.7252 19.9515C9.47515 20.2016 9.33467 20.5407 9.33467 20.8944V22.4544C10.2247 22.7689 10.9748 23.3879 11.4525 24.2021C11.9302 25.0162 12.1047 25.973 11.9451 26.9034C11.7855 27.8338 11.3022 28.6777 10.5805 29.2862C9.85883 29.8946 8.94528 30.2283 8.00134 30.2283C7.0574 30.2283 6.14386 29.8946 5.42218 29.2862C4.7005 28.6777 4.21716 27.8338 4.05759 26.9034C3.89803 25.973 4.07251 25.0162 4.5502 24.2021C5.02788 23.3879 5.77802 22.7689 6.66801 22.4544V20.8944C6.66801 19.8335 7.08944 18.8161 7.83958 18.0659C8.58973 17.3158 9.60714 16.8944 10.668 16.8944H14.668V14.001C13.9762 13.7568 13.3649 13.3271 12.9008 12.7588C12.4368 12.1906 12.1379 11.5057 12.0368 10.7791C11.9358 10.0524 12.0364 9.31198 12.3278 8.63868C12.6192 7.96538 13.0901 7.38515 13.689 6.96143C14.2879 6.5377 14.9918 6.28679 15.7237 6.23612C16.4555 6.18545 17.1873 6.33697 17.8389 6.67413C18.4904 7.01128 19.0368 7.52109 19.4182 8.14781C19.7996 8.77453 20.0013 9.49404 20.0013 10.2277ZM16.0013 8.89435C15.6477 8.89435 15.3086 9.03483 15.0585 9.28488C14.8085 9.53492 14.668 9.87406 14.668 10.2277C14.668 10.5813 14.8085 10.9204 15.0585 11.1705C15.3086 11.4205 15.6477 11.561 16.0013 11.561C16.355 11.561 16.6941 11.4205 16.9442 11.1705C17.1942 10.9204 17.3347 10.5813 17.3347 10.2277C17.3347 9.87406 17.1942 9.53492 16.9442 9.28488C16.6941 9.03483 16.355 8.89435 16.0013 8.89435ZM8.00134 24.8944C7.64772 24.8944 7.30858 25.0348 7.05853 25.2849C6.80848 25.5349 6.66801 25.8741 6.66801 26.2277C6.66801 26.5813 6.80848 26.9204 7.05853 27.1705C7.30858 27.4205 7.64772 27.561 8.00134 27.561C8.35496 27.561 8.6941 27.4205 8.94415 27.1705C9.1942 26.9204 9.33467 26.5813 9.33467 26.2277C9.33467 25.8741 9.1942 25.5349 8.94415 25.2849C8.6941 25.0348 8.35496 24.8944 8.00134 24.8944ZM24.0013 24.8944C23.6477 24.8944 23.3086 25.0348 23.0585 25.2849C22.8085 25.5349 22.668 25.8741 22.668 26.2277C22.668 26.5813 22.8085 26.9204 23.0585 27.1705C23.3086 27.4205 23.6477 27.561 24.0013 27.561C24.355 27.561 24.6941 27.4205 24.9442 27.1705C25.1942 26.9204 25.3347 26.5813 25.3347 26.2277C25.3347 25.8741 25.1942 25.5349 24.9442 25.2849C24.6941 25.0348 24.355 24.8944 24.0013 24.8944Z" fill="#0F766E"/>
+		</svg>
+          </span>
+          <span class="req-text">Introduce depth without slowing users down</span>
+        </li>
+        <li class="req-item">
+          <span class="req-icon" aria-hidden="true">
+			<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9993 2.66602C23.3633 2.66602 29.3327 8.63535 29.3327 15.9993C29.3327 23.3633 23.3633 29.3327 15.9993 29.3327C8.63535 29.3327 2.66602 23.3633 2.66602 15.9993C2.66602 8.63535 8.63535 2.66602 15.9993 2.66602ZM15.9993 5.33268C13.1704 5.33268 10.4573 6.45649 8.45688 8.45688C6.45649 10.4573 5.33268 13.1704 5.33268 15.9993C5.33268 18.8283 6.45649 21.5414 8.45688 23.5418C10.4573 25.5422 13.1704 26.666 15.9993 26.666C18.8283 26.666 21.5414 25.5422 23.5418 23.5418C25.5422 21.5414 26.666 18.8283 26.666 15.9993C26.666 13.1704 25.5422 10.4573 23.5418 8.45688C21.5414 6.45649 18.8283 5.33268 15.9993 5.33268ZM21.3327 14.666C21.6725 14.6664 21.9994 14.7965 22.2465 15.0298C22.4936 15.2631 22.6423 15.582 22.6622 15.9212C22.6822 16.2605 22.5718 16.5945 22.3537 16.8551C22.1355 17.1157 21.8261 17.2832 21.4887 17.3233L21.3327 17.3327H10.666C10.3262 17.3323 9.99931 17.2022 9.75219 16.9689C9.50508 16.7356 9.35637 16.4167 9.33645 16.0775C9.31654 15.7382 9.42691 15.4042 9.64503 15.1436C9.86316 14.883 10.1726 14.7155 10.51 14.6753L10.666 14.666H21.3327Z" fill="#0F766E"/>
+			</svg>
+          </span>
+          <span class="req-text">Avoid adding visual or cognitive weight</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="approach-panel">
+      <div class="approach-head">
+        <span class="eyebrow">My Approach</span>
+        <h3 class="sub-title">Start with structure.<br>Build discovery on top.</h3>
+      </div>
+
+      <p class="body-p" style="margin-bottom: 28px;">I proposed splitting the work <strong>into two phases</strong> — validating a structured model first, before expanding into a broader discovery experience.</p>
+	<div class="phases">
+
+  <div class="phase">
+    <div class="phase-title-block">
+      <h4 class="phase-title-new">Phase 1: Structure &amp; Clarity</h4>
+    </div>
+    
+    <div class="phase-content">
+      <div class="phase-desc">
+        Introduce a clear hierarchy — country, region, resort — so users access destinations directly without relying on search.
+      </div>
+
+      <img class="asset-img asset-phase" src="My_approach_-_Phase_1.svg" alt="Phase 1 structure preview">
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-title-block">
+      <h4 class="phase-title-new">Phase 2: Discovery &amp; Intent</h4>
+    </div>
+    
+    <div class="phase-content">
+      <div class="phase-desc">
+        Expand the entry point beyond destination selection — users define what they want and where they go in one flow.
+      </div>
+
+      <img class="asset-img asset-phase" src="My_approach_-_Phase_2.svg" alt="Phase 2 discovery preview">
+    </div>
+  </div>
+
+</div>
+  </section>
+
+  <!-- ========== SECTION 4: WORKSHOP EXPLORATION ========== -->
+  <section class="section-5" data-reveal="">
+    <div class="workshop-head">
+      <div class="left">
+        <span class="eyebrow">Workshop Exploration</span>
+        <h2 class="sec-title">Designing the destination hierarchy
+</h2>
+      </div>
+
+      <div class="right">
+        
+        <p class="body-p">A key decision in Phase 1 was how much of the destination hierarchy to expose. To explore this, I ran a workshop with the team, focusing on the trade-off between simplicity and depth.</p>
+        
+      </div>
+    </div>
+
+    <!-- TWO OPTION CARDS -->
+    <div class="options-row" data-reveal-stagger="">
+
+      <!-- OPTION 1 — NOT CHOSEN -->
+      <article class="option chosen">
+        <div class="option-head">
+          <span class="option-tag">Option 01</span>
+          <span class="declined-pill">Explored</span>
+        </div>
+        <h3 class="option-title">Region level only</h3>
+        <p class="option-desc">More flexibility within the modal, but still reliant on users knowing specific resort
+          names. This may not be enough at the entry point.
+        </p>
+
+        <div class="preview-stage">
+          <img class="asset-img" src="Option_1_Split_View.svg" alt="Option 1 - Split view">
+          <img class="asset-img" src="Option_1_Split_View_-_Open.svg" alt="Option 1 - Split view open">
+        </div>
+
+        <!-- PREVIEW: split view -->
+	
+        <!-- PROS / CONS -->
+        
+
+        <!-- INSIGHT -->
+        
+      </article>
+
+      <!-- OPTION 2 — CHOSEN -->
+      <article class="option chosen">
+        <div class="option-head">
+          <span class="option-tag">Option 02</span>
+          <span class="selected-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Selected
+          </span>
+        </div>
+        <h3 class="option-title">Region + Resort</h3>
+        <p class="option-desc">Exposes the full range of destinations, but is more complex to design. Removes the need
+          for recall or guesswork.</p>
+
+        <div class="preview-stage">
+          <img class="asset-img" src="Option_2_Drill_Down.svg" alt="Option 2 - Drill down">
+          <img class="asset-img" src="Option_2_Drill_Down_-_Open.svg" alt="Option 2 - Drill down open">
+        </div>
+
+        <!-- PROS / CONS -->
+        
+
+        <!-- INSIGHT -->
+        
+      </article>
+
+    </div>
+
+    <!-- FINAL DECISION -->
+    <div class="final-decision">
+      <div class="final-decision-header">
+        <div class="final-decision-label">Final Decision</div>
+        <span class="final-decision-meta">Workshop close</span>
+      </div>
+      <p class="final-decision-body">The team aligned on a <strong>region + resort model</strong>, with the key challenge being how to introduce this depth without overwhelming the interface. The solution was progressive disclosure — <strong>revealing each level only when needed.</strong></p>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5: SELECTIONS TRAY ========== -->
+  <section class="section-6" data-reveal="">
+
+    <div class="tray-head">
+      <div class="left">
+        <span class="eyebrow">Selections Tray Design</span>
+        <h3>How should we show the selection?</h3>
+        <p class="body-p">In the existing experience, <strong>selecting a destination closed the modal immediately</strong>. Adding another destination meant reopening the modal and repeating the process.</p>
+        <p class="body-p"><strong>A persistent selection tray</strong> was added to the bottom of the modal. This allows selections to be reviewed and adjusted before continuing.</p>
+      </div>
+    </div>
+<div class="tray-options" data-reveal-stagger="">
+      <article class="tray-option not-chosen">
+        <div class="tray-option-copy"><div class="tray-label-row"><span class="tray-pill explored">Explored</span></div></div>
+        <div class="tray-preview asset-preview"><img class="asset-img" src="Tray_-Explored.svg" alt="Explored tray option"></div>
+      </article>
+      <article class="tray-option chosen">
+        <div class="tray-option-copy"><div class="tray-label-row"><span class="tray-pill selected">Selected</span></div></div>
+        <div class="tray-preview asset-preview"><img class="asset-img" src="Tray_-_Selected.svg" alt="Selected tray option"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 6: SOLUTION PHASE 1 ========== -->
+  <section class="section-7" data-reveal="">
+
+    <div class="solution-head">
+      <div class="left">
+        <span class="eyebrow">My Approach — Phase 1: Structure &amp; Clarity</span>
+        <h3>A multi-level destination selection experience.</h3>
+      </div>
+      <div class="right">
+        <p class="solution-intro">Users can now navigate through the destination hierarchy (country → region → resort) and select multiple options without starting over. Prototyped the interaction in <strong>Figma Make</strong> to validate the flow before development.</p>
+      </div>
+    </div>
+
+    <!-- DEVICE STRIP: 4 mobile screens -->
+    <div class="device-strip">
+      <div class="device-wrap"><div class="device"><div class="device-screen asset-device-screen"><img onerror="this.style.display='none'" class="asset-img" src="Screen 1.svg" alt="Opening the modal"></div></div><span class="device-caption"><span class="step">01 —</span>Opening the modal</span></div>
+      <div class="device-wrap"><div class="device"><div class="device-screen asset-device-screen"><img onerror="this.style.display='none'" class="asset-img" src="Screen 2.svg" alt="Exploring regions and resorts"></div></div><span class="device-caption"><span class="step">02 —</span>Exploring regions &amp; resorts</span></div>
+      <div class="device-wrap"><div class="device"><div class="device-screen asset-device-screen"><img onerror="this.style.display='none'" class="asset-img" src="Screen 3.svg" alt="Selections on the tray"></div></div><span class="device-caption"><span class="step">03 —</span>Selections on the tray</span></div>
+      <div class="device-wrap"><div class="device"><div class="device-screen asset-device-screen"><img onerror="this.style.display='none'" class="asset-img" src="Screen 4.svg" alt="Confirming the destination"></div></div><span class="device-caption"><span class="step">04 —</span>Confirming the destination</span></div>
+    </div>
+    <div class="iterations-progress" data-gallery-progress aria-hidden="true">
+      <div class="iterations-progress-bar"></div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: KEY FINDINGS ========== -->
+  <section class="section-4" data-reveal="">
+    <div class="findings-head">
+      <div>
+        <span class="eyebrow">Post-Launch Findings</span>
+        <h2 class="sec-title" style="margin-bottom: 0;">Browsing became<br>the primary path.</h2>
+      </div>
+      <div class="findings-head-right">
+        <p class="findings-desc">After launch, I reviewed 45 user sessions to understand how the new flow was actually being used — comparing structured browsing against free-text search and tracking how users moved through the hierarchy.</p>
+        <p class="tldr">This shift <strong>reduced reliance on prior knowledge</strong>, but raised a question — are <strong>popular destination tags</strong> still doing enough?</p>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-row" data-reveal-stagger="">
+      <!-- PRIMARY -->
+      <div class="stat-card primary">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Primary path
+        </div>
+        <span class="stat-card-num">51<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">
+          of users chose the <strong>structured list</strong> to select their destination.
+        </p>
+      </div>
+
+      <!-- SECONDARY -->
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>Depth of exploration</div>
+        <span class="stat-card-num">~33%</span>
+        <p class="stat-card-caption">navigated <strong>beyond country level</strong> (region or resort).</p>
+      </div>
+
+      <!-- TERTIARY -->
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Cross-method behaviour
+        </div>
+        <span class="stat-card-num">13<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">
+          of users <strong>combined both methods</strong> — validating flexibility.
+        </p>
+      </div>
+
+      <!-- QUATERNARY -->
+      <div class="stat-card">
+        <div class="stat-card-label">
+          <span class="dot"></span>
+          Structured preference
+        </div>
+        <span class="stat-card-num">17<span style="font-size:0.55em; font-weight:400;">%</span></span>
+        <p class="stat-card-caption">
+          selected from the <strong>structured list</strong> even when popular destinations were visible.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="big-statement" data-reveal="">
+    <p>This shift reduces reliance on prior knowledge and helps more users engage with the full range of destinations.</p>
+  </section>
+
+  <!-- ========== SECTION 8: PHASE 2 ========== -->
+  <section class="section-8" data-reveal="">
+
+    <div class="phase2-head">
+      <div class="left">
+        <span class="eyebrow">Phase 2: Discovery &amp; Intent</span>
+        <h3>Beyond destination selection</h3>
+        <p class="phase2-intro">This extends the model by introducing a second way to start<strong> — allowing users to
+            begin with what they’re looking for, </strong>while still allowing direct destination selection within a
+          single interaction.</p>
+      </div>
+
+      <div class="right">
+        <div class="phase2-mocks">
+          <img class="asset-img" src="Phase_2_-_Closed.svg" alt="Phase 2 - Closed state">
+          <img class="asset-img" src="Phase_2_-_Open.svg" alt="Phase 2 - Open state">
+        </div>
+      </div>
+    </div>
+
+    <!-- Three considerations -->
+    <div class="considerations" data-reveal-stagger="">
+      <div class="consideration">
+        <span class="consideration-icon">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 5.33328C15.4747 5.33328 14.9546 5.43674 14.4693 5.63776C13.984 5.83878 13.543 6.13342 13.1716 6.50485C12.8001 6.87629 12.5055 7.31724 12.3045 7.80254C12.1035 8.28785 12 8.80799 12 9.33328C12 9.85857 12.1035 10.3787 12.3045 10.864C12.5055 11.3493 12.8001 11.7903 13.1716 12.1617C13.543 12.5331 13.984 12.8278 14.4693 13.0288C14.9546 13.2298 15.4747 13.3333 16 13.3333C17.0609 13.3333 18.0783 12.9119 18.8284 12.1617C19.5786 11.4116 20 10.3941 20 9.33328C20 8.27241 19.5786 7.255 18.8284 6.50485C18.0783 5.75471 17.0609 5.33328 16 5.33328ZM9.33333 9.33328C9.33359 8.07191 9.69169 6.83649 10.366 5.77051C11.0404 4.70453 12.0033 3.85174 13.143 3.31118C14.2827 2.77062 15.5523 2.56448 16.8045 2.71669C18.0566 2.8689 19.2399 3.37323 20.2169 4.17109C21.1939 4.96895 21.9244 6.02761 22.3238 7.22411C22.7231 8.4206 22.7748 9.70584 22.4728 10.9305C22.1709 12.1552 21.5277 13.2691 20.6179 14.1429C19.7082 15.0166 18.5692 15.6143 17.3333 15.8666V22.6666C17.3333 23.0202 17.1929 23.3594 16.9428 23.6094C16.6928 23.8595 16.3536 23.9999 16 23.9999C15.6464 23.9999 15.3072 23.8595 15.0572 23.6094C14.8071 23.3594 14.6667 23.0202 14.6667 22.6666V15.8666C13.1608 15.5592 11.8075 14.741 10.8356 13.5505C9.86371 12.3599 9.33302 10.8701 9.33333 9.33328ZM12.652 21.4666C12.6785 21.6398 12.6707 21.8165 12.6288 21.9866C12.587 22.1568 12.5121 22.317 12.4083 22.4582C12.3046 22.5993 12.174 22.7187 12.0241 22.8093C11.8742 22.9 11.7079 22.9602 11.5347 22.9866C9.83067 23.2453 8.47733 23.6386 7.588 24.0733C5.96133 24.8693 7.86267 25.4413 8.85467 25.7506C10.624 26.3039 13.1507 26.6666 16 26.6666C18.8493 26.6666 21.376 26.3039 23.1453 25.7506C24.144 25.4386 26.0387 24.8706 24.412 24.0733C23.5227 23.6386 22.1693 23.2466 20.4653 22.9866C20.2902 22.9626 20.1216 22.904 19.9694 22.8142C19.8171 22.7244 19.6842 22.6053 19.5784 22.4637C19.4726 22.3221 19.3961 22.1609 19.3531 21.9894C19.3102 21.818 19.3018 21.6397 19.3284 21.465C19.355 21.2902 19.4161 21.1225 19.5081 20.9716C19.6001 20.8207 19.7212 20.6896 19.8643 20.5859C20.0075 20.4822 20.1698 20.408 20.3419 20.3676C20.514 20.3272 20.6923 20.3214 20.8667 20.3506C22.7173 20.6306 24.3627 21.0799 25.5853 21.6786C26.764 22.2559 28 23.2279 28 24.6666C28 25.7479 27.3013 26.5333 26.6213 27.0359C23.7547 29.1533 19.3813 29.3333 16 29.3333C12.9573 29.3333 10.1507 28.9493 8.06 28.2959C6.39333 27.7759 4 26.7493 4 24.6666C4 23.2266 5.236 22.2559 6.41467 21.6799C7.63733 21.0799 9.284 20.6319 11.132 20.3506C11.3052 20.3241 11.4819 20.332 11.652 20.3738C11.8222 20.4156 11.9824 20.4905 12.1236 20.5943C12.2647 20.698 12.3841 20.8286 12.4747 20.9785C12.5654 21.1284 12.6256 21.2934 12.652 21.4666Z" fill="#0F766E"/>
+		</svg>
+        </span>
+        <h4 class="consideration-title">Where to place it</h4>
+        <p class="consideration-desc">We first explored introducing this within the widget, but it added too much complexity at the entry point. Keeping it inside the modal allowed the interaction to expand without affecting the initial step.</p>
+      </div>
+
+      <div class="consideration">
+        <span class="consideration-icon">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.9993 4C16.353 4 16.6921 4.14048 16.9422 4.39052C17.1922 4.64057 17.3327 4.97971 17.3327 5.33333V6.66667H18.3513C18.7651 6.66669 19.1732 6.76301 19.5433 6.948L21.6473 8H26.666C27.0196 8 27.3588 8.14048 27.6088 8.39052C27.8589 8.64057 27.9993 8.97971 27.9993 9.33333C27.9993 9.68696 27.8589 10.0261 27.6088 10.2761C27.3588 10.5262 27.0196 10.6667 26.666 10.6667H26.1567L29.1913 16.7373C29.2847 16.9227 29.3327 17.1267 29.3327 17.3333C29.3327 18.7478 28.7708 20.1044 27.7706 21.1046C26.7704 22.1048 25.4138 22.6667 23.9993 22.6667C22.5849 22.6667 21.2283 22.1048 20.2281 21.1046C19.2279 20.1044 18.666 18.7478 18.666 17.3333C18.666 17.1267 18.714 16.9227 18.8073 16.7373L21.842 10.6667H21.6473C21.2336 10.6666 20.8255 10.5703 20.4553 10.3853L18.3513 9.33333H17.3327V25.3333H21.3327C21.6863 25.3333 22.0254 25.4738 22.2755 25.7239C22.5255 25.9739 22.666 26.313 22.666 26.6667C22.666 27.0203 22.5255 27.3594 22.2755 27.6095C22.0254 27.8595 21.6863 28 21.3327 28H10.666C10.3124 28 9.97325 27.8595 9.72321 27.6095C9.47316 27.3594 9.33268 27.0203 9.33268 26.6667C9.33268 26.313 9.47316 25.9739 9.72321 25.7239C9.97325 25.4738 10.3124 25.3333 10.666 25.3333H14.666V9.33333H13.6473L11.5433 10.3853C11.1732 10.5703 10.7651 10.6666 10.3513 10.6667H10.1567L13.1913 16.7373C13.2841 16.9223 13.3325 17.1264 13.3327 17.3333C13.3327 18.7478 12.7708 20.1044 11.7706 21.1046C10.7704 22.1048 9.41384 22.6667 7.99935 22.6667C6.58486 22.6667 5.22831 22.1048 4.22811 21.1046C3.22792 20.1044 2.66602 18.7478 2.66602 17.3333C2.66624 17.1264 2.71462 16.9223 2.80735 16.7373L5.84202 10.6667H5.33268C4.97906 10.6667 4.63992 10.5262 4.38987 10.2761C4.13982 10.0261 3.99935 9.68696 3.99935 9.33333C3.99935 8.97971 4.13982 8.64057 4.38987 8.39052C4.63992 8.14048 4.97906 8 5.33268 8H10.3513L12.4553 6.948C12.8255 6.76301 13.2336 6.66669 13.6473 6.66667H14.666V5.33333C14.666 4.97971 14.8065 4.64057 15.0565 4.39052C15.3066 4.14048 15.6457 4 15.9993 4ZM7.99935 12.3147L5.34735 17.6173C5.41636 18.2726 5.72551 18.8791 6.21521 19.3199C6.7049 19.7608 7.34046 20.0047 7.99935 20.0047C8.65824 20.0047 9.29379 19.7608 9.78349 19.3199C10.2732 18.8791 10.5823 18.2726 10.6513 17.6173L7.99935 12.3147ZM23.9993 12.3147L21.3473 17.6173C21.4146 18.2544 21.7089 18.8459 22.1764 19.2837C22.6439 19.7216 23.2535 19.9766 23.8935 20.002C24.5336 20.0274 25.1614 19.8216 25.6621 19.4221C26.1629 19.0227 26.5032 18.4563 26.6207 17.8267L26.6513 17.6187L23.9993 12.3147Z" fill="#0F766E"/>
+		</svg>
+
+        </span>
+        <h4 class="consideration-title">Balancing inspiration &amp; control</h4>
+        <p class="consideration-desc">More visual layouts were explored, but they <strong>competed with the selection task. </strong>The interface stays focused on clarity, with inspiration supporting rather than leading.</p>
+      </div>
+
+      <div class="consideration">
+        <span class="consideration-icon">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.66667 8.0013C6.66667 8.7813 8.4 9.38397 8.92533 9.5813C10.672 10.2346 13.1733 10.668 16 10.668C18.8267 10.668 21.3293 10.236 23.0747 9.5813C23.5987 9.38397 25.3333 8.7813 25.3333 8.0013C25.3333 7.2213 23.6 6.61864 23.0747 6.4213C21.328 5.76797 18.8267 5.33464 16 5.33464C13.1733 5.33464 10.6707 5.76664 8.92533 6.4213C8.40133 6.61864 6.66667 7.2213 6.66667 8.0013ZM24.7293 11.784C24.493 11.8895 24.2533 11.9873 24.0107 12.0773C21.896 12.8733 19.064 13.3346 16 13.3346C12.936 13.3346 10.104 12.872 7.98933 12.0786C7.74621 11.9882 7.50609 11.8899 7.26933 11.784C8.25067 14.7346 10.34 17.028 12.8867 18.06C13.8667 18.4546 14.6667 19.412 14.6667 20.6253V26.2933L17.3333 25.6266V20.6253C17.3333 19.412 18.1333 18.456 19.1133 18.06C21.66 17.028 23.7493 14.7346 24.7293 11.784ZM4 8.0013C4 13.6866 7.21867 18.6413 11.8867 20.5306C11.9265 20.5473 11.9618 20.5734 11.9893 20.6066L12 20.6266V26.2933C12.0001 26.6985 12.0925 27.0984 12.2702 27.4625C12.4479 27.8267 12.7063 28.1455 13.0257 28.3949C13.3451 28.6442 13.7171 28.8175 14.1135 28.9016C14.5099 28.9856 14.9202 28.9782 15.3133 28.88L17.98 28.2133C18.5567 28.0692 19.0687 27.7365 19.4347 27.2681C19.8006 26.7997 19.9996 26.2224 20 25.628V20.628L20.0107 20.608C20.0382 20.5747 20.0735 20.5486 20.1133 20.532C24.7827 18.6413 28 13.6866 28 8.0013C28 6.93064 27.4173 6.07064 26.7133 5.44664C26.0067 4.8213 25.0627 4.31864 24.0107 3.92397C21.896 3.13064 19.064 2.66797 16 2.66797C12.936 2.66797 10.104 3.13064 7.98933 3.92397C6.936 4.31864 5.992 4.8213 5.28667 5.44664C4.58267 6.07064 4 6.93064 4 8.0013Z" fill="#0F766E"/>
+		</svg>
+        </span>
+        <h4 class="consideration-title">Defining the right level of input</h4>
+        <p class="consideration-desc">I pushed back on including facilities alongside holiday type and “best for” tags which already covers these broadly, and detailed inputs are more useful later.</p>
+      </div>
+    </div>
+
+    <!-- Targeted user groups -->
+    <div class="targeted-groups" data-reveal-stagger>
+      <div class="targeted-groups-head">
+        <h4 class="targeted-groups-title">Three user types this design supports.</h4>
+      </div>
+      <div class="targeted-groups-grid">
+        <div class="targeted-group">
+          <span class="targeted-group-num">01</span>
+          <p class="targeted-group-text">Those who <strong>know exactly where</strong> to go.</p>
+        </div>
+        <div class="targeted-group">
+          <span class="targeted-group-num">02</span>
+          <p class="targeted-group-text">Those <strong>exploring</strong>, unsure which country fits.</p>
+        </div>
+        <div class="targeted-group">
+          <span class="targeted-group-num">03</span>
+          <p class="targeted-group-text">Those starting with a <strong>holiday type</strong> in mind.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 9: MY CONTRIBUTION ========== -->
+  <!-- ========== MY CONTRIBUTION ========== -->
+  <section class="section section-9" data-reveal>
+    <div class="section-head contrib-head">
+      <div class="left">
+        <span class="eyebrow">My Contribution</span>
+        <h3>Decisions that shaped the outcome.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Leading this project from brief to launch, my focus was on the <strong>decision-making experience</strong> — not just what to show, but how users would move through it.</p>
+      </div>
+    </div>
+
+    <ul class="contrib-list-new" data-reveal-stagger>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">01</span>
+        <p class="contrib-text-new"><strong>Reframed the brief</strong> from increasing discoverability to redesigning how users explore, select, and commit to a destination.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">02</span>
+        <p class="contrib-text-new">Ran the <strong>workshop exploration</strong> and presented direction to the team.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">03</span>
+        <p class="contrib-text-new">Designed the <strong>selection tray</strong> to replace an immediate one-tap action with a <em>considered, reversible decision</em>.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">04</span>
+        <p class="contrib-text-new">Prototyped the interaction in <strong>Figma Make</strong> to validate the flow before development.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">05</span>
+        <p class="contrib-text-new">Proposed and advocated for the <strong>phased approach</strong> to validate the core interaction before expanding.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">06</span>
+        <p class="contrib-text-new">Conducted <strong>post-launch research</strong> independently — reviewing 45 user sessions to understand how the new experience was actually used.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">07</span>
+        <p class="contrib-text-new"><strong>Pushed back</strong> on adding facilities in Phase 2 — protecting simplicity at a critical entry point.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ========== CLOSING ========== -->
+  <section class="closing-section" data-reveal>
+    <div class="closing-section-head">
+      <div class="left">
+        <span class="eyebrow">Closing</span>
+        <h3>From discovery to a system that adapts to user behaviour.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Phase 1 made the destination structure accessible. Phase 2 extends this with behaviour-based entry, supporting the three user types together.</p>
+      </div>
+    </div>
+
+    <div class="reflection-block closing-reflection">
+      <div class="reflection-block-head">
+        <span class="reflection-eyebrow-new">Reflection</span>
+        <span class="reflection-meta-new">A reminder on success metrics</span>
+      </div>
+      <p class="reflection-text-new"><strong>Popular destinations appeared to be working</strong> — users were selecting from them.<br>But once a structured list was available, most users moved to that instead. It was a good reminder that <strong>a feature can look successful simply because there's nothing better alongside it.</strong></p>
+    </div>
+
+    <div class="closing-next" data-reveal-stagger>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 01</span>
+        <p class="closing-next-text"><strong>A/B test popular destination designs</strong> — explore whether alternative layouts better support users alongside the structured list.</p>
+      </div>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 02</span>
+        <p class="closing-next-text"><strong>Measure holiday type adoption</strong> — track how users combine holiday type and destination selection, and how that shapes their decision flow.</p>
+      </div>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 03</span>
+        <p class="closing-next-text"><strong>Layer personalisation</strong> — use browsing history and past bookings to surface relevant destinations and holiday types within popular tags.</p>
+      </div>
+    </div>
+
+    <div class="closing-signoff">
+      <span class="closing-avatar">NK</span>
+      <div>
+        <span class="closing-name">Nur Kaya</span>
+        <span class="closing-role">Product Designer · Inghams</span>
+      </div>
+      <span class="closing-date">Case study · 2025</span>
+    </div>
+  
+  </section>
+
+<script src="inghams.js" defer></script>
+
+</body>
+</html>

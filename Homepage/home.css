@@ -1,0 +1,1003 @@
+/* ============================================================
+   HOME PAGE — Nur Kaya Portfolio  (v6)
+   Aligned with portfolio-system.css patterns:
+   - System eyebrow / chip / pulse-dot reused where possible
+   - Case stat numbers/labels echo .stat-card-num / .stat-card-label
+   - All spacing via system tokens (--gap-*, --pad-card)
+   - All colours via tokens (--ink, --teal, --bg-alt, --line, etc.)
+   ============================================================ */
+
+
+/* ── LOADER ─────────────────────────────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.5s var(--ease-out), visibility 0.5s;
+}
+.loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.loader-word {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 56px);
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.loader-bar {
+  position: relative;
+  width: 180px;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--teal);
+  width: 0;
+  animation: loadBar 1s var(--ease-out) forwards;
+}
+@keyframes loadBar { to { width: 100%; } }
+
+
+/* ── CUSTOM CURSOR ────────────────────────────────────────────
+   "View →" pill that appears only when hovering a case card.
+   Outer element handles position via JS (translate3d + CSS
+   variables, no transition — stays glued to the mouse). */
+.custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+  transform: translate3d(var(--cursor-x), var(--cursor-y), 0);
+  will-change: transform;
+}
+.custom-cursor-text {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  box-shadow: 0 16px 32px -12px rgba(11,18,32,.4);
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.custom-cursor.is-view .custom-cursor-text {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* ── HERO ─────────────────────────────────────────────────────
+   Two-column: text left (eyebrow + statement), small image right. */
+.home-hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  /* padding-top: 160px is a deliberate visual override —
+     larger than --gap-section to balance against the fixed
+     floating topbar (96px combined height) and let the hero
+     image + statement sit comfortably in the centre of the
+     remaining viewport. min-height: calc(100vh - 160px)
+     keeps hero + marquee inside a single viewport at most
+     screen sizes. */
+  padding: 160px var(--page-pad) var(--gap-section);
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.55fr);
+  gap: var(--gap-block);
+  align-items: center;
+}
+.home-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-row);
+}
+.home-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.home-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--teal);
+}
+/* Reuses system .dot pulse pattern. */
+.home-hero-eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: availability-pulse 2.4s ease-in-out infinite;
+}
+.home-hero-divider {
+  width: 56px;
+  height: 1px;
+  background: var(--line);
+}
+.home-hero-meta-text { color: var(--muted); }
+
+.home-hero-statement {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6.6vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 0;
+}
+.home-hero-statement em {
+  font-style: italic;
+  color: var(--teal);
+  font-weight: 400;
+}
+.home-hero-statement {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroStatementUp 0.9s var(--ease-out) 0.15s forwards;
+}
+@keyframes heroStatementUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.home-hero-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 320px;
+  justify-self: end;
+}
+.home-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-frame);
+}
+
+
+/* ── CASES SECTION (marquee + cards together) ─────────────────
+   Marquee sits as the section header (no separate title row),
+   followed directly by the case-list. No top border on first
+   card — marquee already separates the section. */
+.home-cases {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) var(--gap-section);
+}
+
+
+/* ── MARQUEE ──────────────────────────────────────────────────
+   Continuous right-to-left scroll. Two identical rows; the
+   track translates -50% so the second row replaces the first
+   seamlessly. Items separated by small teal dots. */
+.home-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: var(--gap-block) 0 var(--gap-row);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--gap-section);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 60s linear infinite;
+  will-change: transform;
+}
+.marquee-row {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.marquee-item {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 32px;
+  white-space: nowrap;
+}
+.marquee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.home-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+
+/* ── CASE LIST ───────────────────────────────────────────────
+   Editorial horizontal cards with a 3-column row layout:
+   [meta gutter] [content column] [image]. Cards sit as framed
+   blocks with horizontal padding and rounded corners. They are
+   separated by a hairline divider with breathing room on both
+   sides: gap → line → gap → next card. */
+.case-list {
+  display: flex;
+  flex-direction: column;
+}
+.case-divider {
+  height: 1px;
+  background: var(--line);
+  margin: var(--gap-block) 0;
+}
+/* The final divider in the list closes the section visually;
+   the next section provides the vertical rhythm itself, so we
+   don't want to add a 56px gap after it. */
+.case-list .case-divider:last-child {
+  margin-bottom: 0;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1.15fr) minmax(0, 0.9fr);
+  gap: var(--gap-row);
+  padding: 72px 40px;
+  border-radius: var(--radius-frame);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  --mx: 50%;
+  --my: 50%;
+}
+/* Content column. Grid gap handles spacing to the image
+   on the right; no extra padding needed. */
+.case-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-stack);
+}
+
+/* Spotlight overlay — radial glow follows mouse, contained
+   inside the card row. */
+.case-card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--mx) var(--my),
+    rgba(2, 98, 80, 0.05),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.case-card:hover .case-card-spotlight { opacity: 1; }
+
+/* Meta column — case number only. */
+.case-card-meta {
+  display: flex;
+  flex-direction: column;
+}
+.case-card-num {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* Content column. */
+.case-card-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.case-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.case-card-title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
+}
+.case-card-pitch {
+  font-family: 'Switzer', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 50ch;
+}
+.case-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+/* Reuse system .chip; smaller, tighter inside the card so all
+   tags stay on a single line in the constrained content column. */
+.case-card-tags .chip {
+  font-size: 10.5px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* Outcomes — two stat cells side by side. Big number on top,
+   single short label below. Both labels deliberately short so
+   they sit on one line and the cells stay visually balanced. */
+.case-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-block);
+  margin-top: var(--gap-hair);
+  padding-top: var(--gap-stack);
+  border-top: 1px solid var(--line);
+}
+.case-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.case-stat-num {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: clamp(26px, 2.4vw, 32px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.case-stat-num .unit {
+  font-size: 0.55em;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 2px;
+}
+.case-stat-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Image column — preview with optional LIVE pill. No corner
+   year, no link icon. */
+.case-card-image {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-radius: var(--radius-image);
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.case-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+/* When a card has both a static image and a hover GIF, stack
+   them and crossfade on hover. The GIF sits on top, hidden by
+   default; opacity reveals it without restarting playback
+   (display:none would force a reload each time). */
+.case-card-img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  pointer-events: none;
+}
+.case-card:hover .case-card-img-hover {
+  opacity: 1;
+}
+
+.case-card-live {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  background: var(--teal);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.case-card-live-dot {
+  display: none;
+}
+
+/* Mobile-only "View case →" CTA — replaces the hover-only
+   VIEW cursor pill on touch devices. Inline pill, left-aligned
+   inside the card, with the arrow sitting next to the text. */
+.case-card-mobile-cta {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: var(--gap-stack);
+  padding: 12px 18px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--radius-pill);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.case-card-mobile-cta span {
+  font-size: 14px;
+}
+
+/* When custom cursor is active, hide system cursor inside cards. */
+.cursor-active .case-card,
+.cursor-active .case-card * {
+  cursor: none;
+}
+
+
+/* ── SECTION HEAD (shared) ────────────────────────────────────
+   Eyebrow + large title, single column, left-aligned. Title
+   stretches across the section width; line breaks happen
+   naturally based on max-width and content. */
+.home-section-head {
+  max-width: var(--container);
+  margin: 0 auto var(--gap-hair);
+  padding: 0 var(--page-pad);
+  display: flex;
+  flex-direction: column;
+}
+.home-section-head .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--teal);
+  margin-bottom: var(--gap-tight);
+}
+.home-section-head .eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.home-section-title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 32ch;
+}
+.home-section-title em {
+  font-style: italic;
+  color: var(--teal);
+  font-weight: 400;
+}
+/* Paired with .body-p in HTML. We only set the local margin
+   (so it sits right under the title) and a tighter max-width
+   for section intros that need to read at-a-glance. */
+.home-section-intro {
+  margin: var(--gap-stack) 0 0;
+  max-width: 56ch;
+}
+
+
+/* ── PLAYGROUND ───────────────────────────────────────────────
+   A side project showcase. Two-column layout on desktop: the
+   section head sits on the left (eyebrow, title, intro, link)
+   and a continuous horizontal strip of phone-aspect screens
+   loops right-to-left on the right side (paused on hover).
+   The strip uses the same duplicate-track technique as the
+   brand marquee so playback feels endless. On mobile the head
+   sits on top and the marquee runs full width below it. */
+.home-playground {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) var(--gap-section);
+}
+.playground-layout {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  display: grid;
+  /* Head column gets enough room to read comfortably; marquee
+     column takes the rest. min-width:0 lets each cell shrink. */
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  gap: var(--gap-block);
+  align-items: center;
+}
+.playground-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.playground-head .home-section-title {
+  max-width: 16ch;
+}
+.playground-head .home-section-intro {
+  max-width: 42ch;
+}
+.home-playground-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--gap-stack);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+.home-playground-link:hover {
+  color: var(--teal-ink);
+}
+
+.playground-marquee {
+  width: 100%;
+  /* Symmetric vertical padding so the marquee sits visually
+     balanced inside the section, in rhythm with the other
+     sections (Selected work, About). Bottom padding also
+     leaves room for the screen card shadow without it being
+     clipped by overflow:hidden. */
+  padding: var(--gap-row) 0;
+  overflow: hidden;
+  min-width: 0;
+}
+.playground-track {
+  display: flex;
+  width: max-content;
+  animation: playgroundScroll 80s linear infinite;
+  will-change: transform;
+}
+.playground-row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-row);
+  padding-right: var(--gap-row);
+  flex-shrink: 0;
+}
+.playground-screen {
+  height: 420px;
+  width: auto;
+  display: block;
+  border-radius: 20px;
+  background: var(--bg-alt);
+  flex-shrink: 0;
+  box-shadow: 0 16px 40px -16px rgba(11, 18, 32, 0.18);
+}
+@keyframes playgroundScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.playground-marquee:hover .playground-track {
+  animation-play-state: paused;
+}
+
+
+/* ── APPROACH ──────────────────────────────────────────────────
+   Editorial 2x2 grid. Single vertical hairline down the centre
+   plus a horizontal hairline between rows, drawn by the grid
+   background showing through 1px gaps between item cells. */
+.home-approach {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) var(--gap-section);
+}
+/* The approach grid leads with large numerals; the title
+   needs a touch more breathing room above so the section
+   doesn't feel collapsed. */
+.home-approach .home-section-head {
+  margin-bottom: var(--gap-block);
+}
+.approach-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--gap-block);
+  row-gap: var(--gap-block);
+}
+.approach-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tight);
+}
+.approach-num {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 300;
+  font-size: clamp(56px, 5.5vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--teal);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--gap-hair);
+}
+.approach-title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: clamp(20px, 1.6vw, 24px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.approach-text {
+  margin: 0;
+  max-width: 42ch;
+}
+
+
+
+/* ── ABOUT ───────────────────────────────────────────────────
+   Section head sits on top (system .home-section-head rhythm,
+   matching Approach above). The body below is a two-column
+   grid: prose on the left, portrait on the right. Image fills
+   its column height and aligns to the bottom so it anchors
+   the section visually. */
+.home-about {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) var(--gap-section);
+}
+/* About uses the same title → content rhythm as Playground
+   (gap-stack / 24px) so the two sections read consistently. */
+.home-about .home-section-head {
+  margin-bottom: var(--gap-stack);
+}
+.about-body {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--gap-block);
+  align-items: start;
+}
+.about-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-stack);
+}
+.about-p {
+  max-width: 64ch;
+}
+.about-p strong { font-weight: 600; color: var(--teal-ink); }
+.about-p em { font-style: italic; color: var(--teal); }
+
+.about-image {
+  /* Fixed aspect ratio crops the image so its container size
+     no longer depends on the native image proportions. This
+     keeps the column width predictable and lets the image
+     sit visually mid-aligned with the prose horizontally. */
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+  justify-self: center;
+  overflow: hidden;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* ── FOOTER ──────────────────────────────────────────────────
+   Cream closing on the home page. Top: name + statement on
+   the left, three social links stacked right. Middle: a
+   scattered collage of nine small photo cards numbered 01–09.
+   Baseline below the collage. Uses system Satoshi/Switzer
+   pairing throughout. */
+.home-footer {
+  background: var(--bg-alt);
+  color: var(--ink);
+  padding: var(--gap-block) var(--page-pad) 0;
+  margin-top: var(--gap-block);
+  position: relative;
+  overflow: hidden;
+}
+.home-footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--gap-block);
+  align-items: start;
+}
+.home-footer-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-stack);
+}
+.home-footer-name {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.home-footer-statement {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 22ch;
+}
+.home-footer-statement em {
+  font-style: italic;
+  color: var(--teal);
+  font-weight: 400;
+}
+
+.home-footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-tight);
+  justify-self: end;
+}
+.home-footer-links li {
+  margin: 0;
+}
+.home-footer-links a {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s var(--ease-out);
+}
+.home-footer-links a:hover {
+  color: var(--teal);
+}
+
+/* Photo collage — overlapping rotated cards. Each card uses
+   CSS variables for rotation (--r), horizontal position
+   (--x as % of container width) and vertical nudge (--y). */
+.home-footer-collage {
+  position: relative;
+  max-width: var(--container);
+  margin: var(--gap-block) auto 0;
+  height: 220px;
+  pointer-events: none;
+}
+.footer-photo {
+  position: absolute;
+  left: var(--x);
+  bottom: var(--y);
+  width: 120px;
+  background: var(--bg);
+  padding: 8px 8px 24px;
+  border-radius: 4px;
+  box-shadow: 0 12px 28px -8px rgba(11, 18, 32, 0.18);
+  transform: rotate(var(--r));
+  transform-origin: center bottom;
+}
+.footer-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-alt);
+}
+.footer-photo-label {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Switzer', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-footer-baseline {
+  max-width: var(--container);
+  margin: var(--gap-stack) auto 0;
+  padding: var(--gap-stack) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+
+/* ── REDUCED MOTION ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .playground-track { animation: none; }
+  .case-card-spotlight { display: none; }
+  .custom-cursor { display: none !important; }
+  .home-hero-statement { animation: none; opacity: 1; transform: none; }
+}
+
+
+/* ── MOBILE (≤820px) ─────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .custom-cursor { display: none; }
+
+  .home-hero {
+    padding: var(--gap-section) var(--page-pad) var(--gap-block);
+    min-height: auto;
+  }
+  /* Hero image hidden on mobile — text-only intro keeps the
+     viewport tight and avoids the portrait floating awkwardly. */
+  .home-hero-image { display: none; }
+  .home-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-hero-meta {
+    gap: var(--gap-stack);
+    font-size: 10.5px;
+  }
+  .home-hero-divider { width: 32px; }
+  .home-hero-statement {
+    font-size: clamp(40px, 11vw, 60px);
+  }
+
+  .home-marquee {
+    padding: var(--gap-row) 0;
+  }
+  .marquee-item { font-size: 11.5px; padding: 0 20px; }
+
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-stack);
+    padding: var(--gap-stack);
+  }
+  /* Hoist content children up into the card flex flow so we
+     can order them individually (eyebrow, image, title etc.).
+     Mobile order: meta → eyebrow → image → title → pitch →
+     tags → stats → CTA. */
+  .case-card-content {
+    display: contents;
+  }
+  .case-card-meta { order: 1; flex-direction: row; }
+  .case-card-eyebrow { order: 2; }
+  .case-card-image { order: 3; aspect-ratio: 4 / 3; }
+  .case-card-title { order: 4; }
+  .case-card-pitch { order: 5; }
+  .case-card-tags { order: 6; }
+  .case-card-stats { order: 7; }
+  .case-card-mobile-cta { order: 8; }
+
+  .case-card-title { font-size: 26px; }
+  .case-card-pitch { font-size: 14.5px; }
+  .case-card-stats {
+    gap: var(--gap-row);
+  }
+  .case-stat-num { font-size: 18px; }
+  .case-card-spotlight { display: none; }
+  .case-card-mobile-cta { display: inline-flex; }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--gap-block);
+  }
+  .approach-num { font-size: 40px; }
+
+  .playground-layout {
+    grid-template-columns: 1fr;
+    gap: var(--gap-block);
+  }
+  .playground-head .home-section-title,
+  .playground-head .home-section-intro {
+    max-width: none;
+  }
+  .playground-screen { height: 340px; border-radius: 16px; }
+  .playground-row { gap: var(--gap-stack); padding-right: var(--gap-stack); }
+
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: var(--gap-stack);
+  }
+  .about-image {
+    max-width: 240px;
+    align-self: start;
+    justify-self: start;
+    justify-content: flex-start;
+  }
+
+  .home-footer { padding-top: var(--gap-block); }
+  .home-footer-inner {
+    grid-template-columns: 1fr;
+    gap: var(--gap-block);
+  }
+  .home-footer-links { justify-self: start; }
+  .home-footer-collage {
+    height: 180px;
+    margin-top: var(--gap-block);
+  }
+  .footer-photo { width: 88px; }
+  .home-footer-baseline {
+    flex-direction: column;
+    gap: var(--gap-hair);
+    align-items: flex-start;
+    padding: var(--gap-stack) 0;
+  }
+}
+

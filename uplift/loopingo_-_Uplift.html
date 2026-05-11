@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restructuring Uplift — Loopingo · Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-system.css">
+<link rel="stylesheet" href="uplift.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>Nur Kaya</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Work</a>
+      <a href="#">About</a>
+      <a href="#">Writing</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#"><span class="dot"></span> Available</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-backdrop"></div>
+    <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+      </button>
+      <nav class="mobile-menu-links">
+        <a href="#" class="active">Work</a>
+        <a href="#">About</a>
+        <a href="#">Writing</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="mobile-menu-cta" href="#"><span class="dot"></span> Available</a>
+    </aside>
+  </div><!-- CRUMB -->
+  <div class="crumb-row">
+    <div class="crumb">
+      <a href="/">Index</a><span class="sep">→</span>
+      <a href="#">Case Studies</a><span class="sep">→</span>
+      <span class="current">Restructuring Uplift</span>
+    </div>
+    <div class="case-index">Case №05 — 2024</div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" data-reveal>
+    <div class="hero-left">
+      <div class="chip-row">
+        <span class="chip">UX &amp; Interaction Design</span>
+      </div>
+
+      <h1 class="title">Uplift — Cashback &amp; Voucher Widget</h1>
+
+      <p class="subtitle">Bringing partner rewards into the shopping experience — before the decision is made.</p>
+      <p class="lede">Loopingo connects e-commerce stores with partner brands through cashback incentives. Uplift brings these offers <strong>into the shopping experience</strong> — not after checkout. A previous attempt had been shelved after low engagement; my role was to <strong>redesign the experience from the ground up</strong>.</p>
+
+      <div class="hero-image-mobile">
+        <img src="hero.svg" alt="Uplift hero">
+      </div>
+
+      <div class="meta" data-reveal>
+        <div class="meta-item"><div class="label">Scope</div><div class="value">Cashback &amp; voucher integration<span class="sub"> — e-commerce</span></div></div>
+        <div class="meta-item"><div class="label">Role</div><div class="value">Product Designer</div></div>
+        <div class="meta-item"><div class="label">Team</div><div class="value">PM, Engineers &amp; Marketing</div></div>
+        <div class="meta-item"><div class="label">Duration</div><div class="value">7 Months</div></div>
+      </div>
+    </div>
+    <div class="hero-right" data-reveal>
+      <div class="hero-screens single">
+        <div class="hero-screen front">
+          <img src="hero.svg" alt="Uplift hero">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== CONTEXT + OPPORTUNITY ==================== -->
+  <section class="context-section" data-reveal>
+    <div class="context-image">
+      <div class="placeholder" style="aspect-ratio:4/3; min-height:auto;"><span class="ph">Context visual</span></div>
+    </div>
+
+    <div class="copy-col">
+      <span class="eyebrow">Context + Opportunity</span>
+
+      <h2 class="sec-title">Most partner cashback solutions arrive too late to influence anything.</h2>
+
+      <p class="body-p">Cashback platforms like Payback, Shoop, and Cashback World all operate the same way — offers are surfaced <strong>after the purchase is complete</strong>, as a reward for something the user has already decided to do. E-commerce sites do have inline incentives, but these are their own promotions: discount codes, loyalty points, site-specific deals. <strong>Not offers from external partners.</strong></p>
+
+      <div class="insight-stack">
+        <div class="insight problem">
+          <span class="insight-mark">Problem</span>
+          <span class="insight-text">The existing widget had failed once before — the design was outdated, offers were poorly explained, and users had no reason to trust what they were looking at.</span>
+        </div>
+        <div class="insight opportunity">
+          <span class="insight-mark">Opportunity</span>
+          <span class="insight-text">The opportunity was a gap between these two models. Partner cashback rewards, but placed earlier — inside the browsing experience, at the point where a purchase decision is still forming.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-decision context-scope" data-reveal>
+      <div class="final-decision-header">
+        <div class="final-decision-label">Project Scope</div>
+      </div>
+      <p class="final-decision-body">Rethink how and where the cashback widget appears across the shopping journey — and design an experience that's clear enough to earn user trust without disrupting the host site's flow.</p>
+    </div>
+  </section>
+
+<!-- ==================== THE CHALLENGE ==================== -->
+  <!-- section-head: title left, challenge items in right column -->
+  <section class="section challenge-process-section" data-reveal>
+    <div class="challenge-block">
+      <span class="eyebrow">The Challenge</span>
+      <h3 class="sub-title">Designing a solution that works across different e-commerce platforms.</h3>
+      <p class="body-p">A flexible cashback experience that adapts to varied platforms while staying consistent and non-intrusive.</p>
+      <ul class="req-list">
+        <li class="req-item">
+          <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M8 7h8M8 11h5"/></svg></span>
+          <span class="req-text">Fitting into sites we don't control — adapt to various website structures, brand styles, and user journeys.</span>
+        </li>
+        <li class="req-item">
+          <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="req-text">Designing for two audiences simultaneously — partner businesses and their end users.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="process-panel">
+      <span class="eyebrow">Design Process</span>
+      <h3 class="sub-title">A five-step approach from research to validation.</h3>
+      <ul class="process-list">
+        <li class="process-list-item">
+          <span class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+          <div class="process-list-text">
+            <span class="process-list-num">Step 01</span>
+            <span class="process-list-name">Empathize</span>
+          </div>
+        </li>
+        <li class="process-list-item">
+          <span class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+          <div class="process-list-text">
+            <span class="process-list-num">Step 02</span>
+            <span class="process-list-name">Research</span>
+          </div>
+        </li>
+        <li class="process-list-item">
+          <span class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+          <div class="process-list-text">
+            <span class="process-list-num">Step 03</span>
+            <span class="process-list-name">Synthesis</span>
+          </div>
+        </li>
+        <li class="process-list-item">
+          <span class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span>
+          <div class="process-list-text">
+            <span class="process-list-num">Step 04</span>
+            <span class="process-list-name">Design</span>
+          </div>
+        </li>
+        <li class="process-list-item">
+          <span class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <div class="process-list-text">
+            <span class="process-list-num">Step 05</span>
+            <span class="process-list-name">Test</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== DISCOVERY — GUERRILLA TESTING ==================== -->
+  <section class="section discovery-section" data-reveal>
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Discovery — Guerrilla Testing</span>
+        <h3>Testing the old design before changing anything.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Before touching the design, I ran guerrilla testing with <strong>5 people</strong> on the existing widget to understand how it was actually being perceived — not how we assumed it was.</p>
+      </div>
+    </div>
+
+    <div class="findings-grid" data-reveal-stagger style="margin-top:64px;">
+          <article class="finding-card">
+            <div class="finding-card-head">
+              <span class="finding-num">Finding 01</span>
+              <span class="finding-tag">Usability</span>
+            </div>
+            <h4 class="finding-title">Not mobile-friendly.</h4>
+            <p class="finding-text">The widget <strong>covered the entire mobile screen</strong> and wasn't usable with larger fingers.</p>
+          </article>
+          <article class="finding-card">
+            <div class="finding-card-head">
+              <span class="finding-num">Finding 02</span>
+              <span class="finding-tag">Timing</span>
+            </div>
+            <h4 class="finding-title">Overwhelming popup.</h4>
+            <p class="finding-text">Appeared too quickly and <strong>blocked the shopping experience</strong> before users could orient themselves.</p>
+          </article>
+          <article class="finding-card">
+            <div class="finding-card-head">
+              <span class="finding-num">Finding 03</span>
+              <span class="finding-tag">Incentive</span>
+            </div>
+            <h4 class="finding-title">Weak incentive.</h4>
+            <p class="finding-text">Cashback rewards weren't attractive or personalised enough to motivate engagement.</p>
+          </article>
+          <article class="finding-card">
+            <div class="finding-card-head">
+              <span class="finding-num">Finding 04</span>
+              <span class="finding-tag">Clarity</span>
+            </div>
+            <h4 class="finding-title">Confusing interface.</h4>
+            <p class="finding-text">Wrong messages and unclear states left users unsure of what was happening.</p>
+          </article>
+        </div>
+
+    <div class="final-decision" data-reveal>
+      <div class="final-decision-header">
+        <div class="final-decision-label">Outcome</div>
+      </div>
+      <p class="final-decision-body">These findings reframed the brief. <strong>The core problem wasn't visual</strong> — it was trust and clarity.</p>
+    </div>
+  </section>
+  <!-- ==================== PERSONA + JOURNEY MAP ==================== -->
+  <section class="section" data-reveal>
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Persona + Journey Map</span>
+        <h3>From observations to a shared understanding of the user.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Based on the research, I built a persona and user journey map to ground design decisions in <strong>actual behaviour rather than assumptions</strong>.</p>
+      </div>
+    </div>
+
+    <span class="show-mini-title">Persona</span>
+
+    <div class="persona-card" data-reveal>
+      <aside class="persona-sidebar">
+        <div class="persona-identity">
+          <div class="persona-avatar">SP</div>
+          <div>
+            <span class="persona-name">Sara Parker</span>
+            <span class="persona-role">27 · Designer · Berlin</span>
+          </div>
+        </div>
+
+        <div class="persona-snapshot">
+          <div class="persona-stat">
+            <span class="persona-stat-label">Shopping mode</span>
+            <span class="persona-stat-value">Compares before buying</span>
+          </div>
+          <div class="persona-stat">
+            <span class="persona-stat-label">Trigger</span>
+            <span class="persona-stat-value">Clear reward value</span>
+          </div>
+          <div class="persona-stat">
+            <span class="persona-stat-label">Risk</span>
+            <span class="persona-stat-value">Sceptical of vague deals</span>
+          </div>
+          <div class="persona-stat">
+            <span class="persona-stat-label">Need</span>
+            <span class="persona-stat-value">Low-effort reassurance</span>
+          </div>
+        </div>
+
+        <div class="persona-quote">
+          "Show me why this reward is worth it before I leave the product flow."
+        </div>
+      </aside>
+
+      <div class="persona-main">
+        <div class="persona-tags persona-tags-top">
+          <span class="persona-tag">Deal-led</span>
+          <span class="persona-tag">Digitally confident</span>
+          <span class="persona-tag">Trust-sensitive</span>
+        </div>
+        <p class="persona-bg">Sarah shops across fashion, beauty, and home categories. She likes incentives, but too many similar offers make comparison tiring. Cashback becomes motivating only when the amount, timing, and conditions are easy to understand.</p>
+
+        <div class="persona-insight-grid">
+          <div class="persona-insight">
+            <div class="persona-section-title goals">
+              Needs
+            </div>
+            <div class="persona-list-grid">
+              <div class="persona-list-item goal">Recognise the reward without learning a new concept</div>
+              <div class="persona-list-item goal">Compare value quickly while staying in the product journey</div>
+              <div class="persona-list-item goal">See when the reward applies and what happens next</div>
+            </div>
+          </div>
+
+          <div class="persona-insight">
+            <div class="persona-section-title frustrations">
+              Barriers
+            </div>
+            <div class="persona-list-grid">
+              <div class="persona-list-item frust">Vague reward wording feels promotional rather than useful</div>
+              <div class="persona-list-item frust">Pop-ups interrupt before she has purchase intent</div>
+              <div class="persona-list-item frust">Hidden conditions make the offer feel less trustworthy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="show-mini-title" style="margin-top:64px;">User Journey</span>
+
+    <div class="journey-map-image" data-reveal>
+      <button class="image-zoom-trigger" type="button" aria-label="Zoom user journey map">
+        <img src="userjourney.png" alt="User journey map" style="width:100%; height:auto; display:block;">
+        <span class="image-zoom-hint" aria-hidden="true">Tap to zoom</span>
+      </button>
+    </div>
+
+    <div class="final-decision" data-reveal>
+      <div class="final-decision-header">
+        <div class="final-decision-label">Insight</div>
+      </div>
+      <p class="final-decision-body"><strong>Users moved quickly from curiosity to confusion.</strong> The issue wasn't just visibility — it was trust and understanding. Cashback was positioned as a feature, but <strong>not explained as a benefit</strong>. Without clear context, users didn't see it as part of their decision-making.</p>
+    </div>
+  </section>
+
+  <!-- ==================== SOLUTION EXPLORATION ==================== -->
+  <section class="section" data-reveal>
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Solution Exploration</span>
+        <h3>Finding the right position without disrupting the flow.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">Ideation focused on four questions: where in the flow should the widget appear? How prominent should it be? How does it follow the user once a voucher is selected? We explored two directions through low-fidelity wireframes.</p>
+      </div>
+    </div>
+
+    <div class="options-row" data-reveal-stagger>
+      <article class="option not-chosen">
+        <div class="option-head">
+          <span class="option-tag">Option 01</span>
+          <span class="declined-pill">Explored</span>
+        </div>
+        <h3 class="option-title">Overlay — high visibility</h3>
+        <p class="option-desc">A high-visibility approach to capture attention immediately.</p>
+        <div class="option-image"><img src="OverlayOptions.svg" alt="Overlay option wireframes" style="width:100%; height:auto; display:block; border-radius:10px; margin-bottom:24px;"></div>
+        <div class="final-decision option-final-decision">
+          <div class="final-decision-header">
+            <div class="final-decision-label">Insight</div>
+          </div>
+          <p class="final-decision-body">Overlay banners remain visible while users scroll, making them effective for capturing attention. However, they can overlap important content and feel intrusive across different layouts.</p>
+        </div>
+      </article>
+
+      <article class="option chosen">
+        <div class="option-head">
+          <span class="option-tag">Option 02</span>
+          <span class="selected-pill">Selected</span>
+        </div>
+        <h3 class="option-title">Inline — integrated</h3>
+        <p class="option-desc">A more integrated approach within the shopping experience.</p>
+        <div class="option-image"><img src="InlineOptions.svg" alt="Inline option wireframes" style="width:100%; height:auto; display:block; border-radius:10px; margin-bottom:24px;"></div>
+        <div class="final-decision option-final-decision">
+          <div class="final-decision-header">
+            <div class="final-decision-label">Insight</div>
+          </div>
+          <p class="final-decision-body">In-page solutions integrate seamlessly and avoid disrupting user flow. The trade-off is being less attention-grabbing — but stronger visual alignment and clear content compensate.</p>
+        </div>
+      </article>
+    </div>
+
+    <h4 class="objectives-label">Selected Design &amp; Flow</h4>
+    <div class="flow-grid" data-reveal>
+      <div class="flow-image"><img src="SelectedInlineAndFlow.svg" alt="Selected design and flow" style="width:100%; height:auto; display:block;"></div>
+      <div class="flow-points">
+        <p class="body-p"><strong>Positioning</strong> — Relocating from the homepage to the product page for better alignment with the target group's preferences.</p>
+        <p class="body-p"><strong>Inline Widget</strong> — Enhances user experience without distraction. Adds aesthetic charm without blocking functionality.</p>
+        <p class="body-p"><strong>Minimum Order Value</strong> — Progress bar to help users track minimum order value requirement effortlessly and provide a clear indication upon fulfilment.</p>
+        <p class="body-p"><strong>Seamless Integration</strong> — Implemented in small and big baskets to seamlessly display selected coupon through the journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UI DESIGNS ==================== -->
+  <section class="section" data-reveal>
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">UI Designs</span>
+        <h3>Translating the flow into a flexible, production-ready interface.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">With the flow defined, I moved into high fidelity. The primary constraint was <strong>adaptability</strong> — the widget needed to sit within varied partner site layouts without requiring visual changes on their end. The final UI covered all core states: product page, offer selection, basket with active voucher, and checkout.</p>
+      </div>
+    </div>
+    <div class="wf-gallery" data-reveal>
+      <div class="wf-gallery-track">
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="FinalUI1.png" alt="UI Design 01"></div>
+          <figcaption>Uplift Placement in PDP</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="FinalUI2.png" alt="UI Design 02"></div>
+          <figcaption>Voucher Area</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="FinalUI3.png" alt="UI Design 03"></div>
+          <figcaption>PDP w/ MOV</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="FinalUI4.png" alt="UI Design 04"></div>
+          <figcaption>Mini-Basket</figcaption>
+        </figure>
+        <figure class="wf-gallery-item">
+          <div class="wf-gallery-frame"><img src="FinalUI5.png" alt="UI Design 05"></div>
+          <figcaption>Basket</figcaption>
+        </figure>
+      </div>
+      <div class="wf-gallery-progress">
+        <div class="wf-gallery-progress-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== A/B TESTING ==================== -->
+  <section class="phase" data-reveal>
+    <div class="phase-grid">
+      <div class="phase-left">
+        <span class="phase-eyebrow">A/B Testing</span>
+        <h3 class="phase-title">Placement matters — but not as much as we expected.</h3>
+        <div class="phase-body">
+          <p>After development, an A/B test comparing two placements: the widget at the top of the product page versus alongside the pricing area. Top placement drove a <strong>20% higher click-through rate</strong> — more users noticed and opened the widget. But selection rates remained low across both versions. This told us <strong>placement alone wasn't the answer.</strong> Users were seeing the widget, but something else was keeping them from engaging.</p>
+        </div>
+        <div class="stat-strip-wide" style="margin-top:32px; grid-template-columns:minmax(220px, 280px);">
+          <div class="stat-card primary">
+            <div class="stat-card-label"><span class="dot"></span>Top Placement</div>
+            <div class="stat-card-num">~20<span style="font-size:0.55em; font-weight:400;">%</span> <span class="trend">↑</span></div>
+            <p class="stat-card-caption">Higher <strong>click-through rate</strong> compared to side placement.</p>
+          </div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-image" style="display:flex; align-items:center; justify-content:center; height:100%;"><img src="a-btesting.png" alt="A/B testing screens" style="width:100%; height:auto; display:block;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== USER TESTING ==================== -->
+  <section class="phase" data-reveal>
+    <div class="phase-grid user-testing-grid">
+      <div class="phase-left">
+        <span class="phase-eyebrow">User Testing</span>
+        <h3 class="phase-title">What users do vs. what they say they do.</h3>
+        <div class="phase-body">
+          <p>Unmoderated testing conducted with <strong>10 participants</strong> and wrote the test script myself.</p>
+          <p>The session ran in two parts:</p>
+          <ul>
+            <li>First, users browsed <strong>without being told about the widget</strong> — observing natural behaviour.</li>
+            <li>Second, the system was explained and users engaged with it directly.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="user-testing-overlay">
+          <div class="user-testing-main device-frame">
+            <img src="Usertesting1.png" alt="User testing screenshot 1">
+          </div>
+          <div class="user-testing-overlap device-frame">
+            <img src="Usertesting2.png" alt="User testing screenshot 2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Objectives — same challenge-icon / finding pattern -->
+    <h4 class="objectives-label">Objectives</h4>
+    <div class="challenges-grid" data-reveal-stagger>
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </span>
+        <p class="challenge-text">Identify confusion in messaging and interaction</p>
+      </div>
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </span>
+        <p class="challenge-text">Understand how users engage with and move through the journey</p>
+      </div>
+      <div class="challenge-item">
+        <span class="challenge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <p class="challenge-text">Assess whether cashback motivates purchase decisions</p>
+      </div>
+    </div>
+
+    <!-- Feedback — two-column cards: negative left, positive right -->
+    <h4 class="objectives-label">Feedback Results</h4>
+    <div class="feedback-pair" data-reveal>
+      <div class="feedback-card">
+        <div class="feedback-card-head">
+          <span class="feedback-dot negative"></span>
+          <span class="feedback-card-title">What didn't work</span>
+        </div>
+        <ul class="feedback-list">
+          <li>Several users still assumed vouchers belonged to the <strong>current shop, not a partner brand.</strong></li>
+          <li>Users wanted <strong>more information before selecting</strong> but couldn't find it.</li>
+          <li>Some users couldn't find a partner brand they wanted.</li>
+          <li>A flow issue emerged: the widget was <strong>only accessible from the PDP.</strong> If a user removed a voucher in the basket or at checkout, they had to navigate back to reselect — the system didn't follow them through the journey.</li>
+        </ul>
+      </div>
+      <div class="feedback-card">
+        <div class="feedback-card-head">
+          <span class="feedback-dot positive"></span>
+          <span class="feedback-card-title">What worked</span>
+        </div>
+        <ul class="feedback-list">
+          <li>Users saw <strong>genuine value</strong> in the cashback offer.</li>
+          <li>Recognising <strong>partner brand names</strong> increased confidence.</li>
+          <li>Minimum order value tracking and basket state were well-received.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="final-decision" data-reveal>
+      <div class="final-decision-header">
+        <div class="final-decision-label">Key Takeaway</div>
+      </div>
+      <p class="final-decision-body">User feedback was overwhelmingly positive, with many users pointing to the high cashback offers as a key factor in their decision to make purchases on the site. Providing consistency the cashback banner/button throughout the user journey is <strong>critical</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ==================== ITERATIONS ==================== -->
+  <section class="section" data-reveal>
+    <div class="section-head title-only">
+      <div class="left">
+        <span class="eyebrow">Iterations</span>
+        <h3>Small changes, built from real feedback.</h3>
+      </div>
+    </div>
+
+    <div class="screens-grid screens-grid-4" data-reveal-stagger>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Bundle.png" alt="Bundle iteration"></div>
+        <span class="mobile-caption">Bundle</span>
+        <p class="screen-desc">Tested different headline variations, layout options, and colour treatments to find what felt native across partner sites.</p>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="Couponnames.png" alt="Coupon names iteration"></div>
+        <span class="mobile-caption">Coupon Names</span>
+        <p class="screen-desc">Surfaced recognisable brand names upfront — familiarity with partners built immediate confidence in the offer.</p>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="basketplaceholder.png" alt="Basket placeholder iteration"></div>
+        <span class="mobile-caption">Basket Placeholder</span>
+        <p class="screen-desc">Allowed users to add vouchers directly from the basket — removing the need to navigate back to the product page to reselect.</p>
+      </div>
+      <div class="mobile-screen-card">
+        <div class="mobile-frame"><img src="conditions.png" alt="Conditions iteration"></div>
+        <span class="mobile-caption">Conditions</span>
+        <p class="screen-desc">Added a dedicated conditions page to build trust — users could review terms before committing, reducing hesitation.</p>
+      </div>
+    </div>
+    <div class="iterations-progress" data-gallery-progress aria-hidden="true">
+      <div class="iterations-progress-bar"></div>
+    </div>
+
+    <span class="show-mini-title" style="margin-top:48px;">Outcome</span>
+
+    <div class="stat-strip-wide cols-2" data-reveal-stagger>
+      <div class="stat-card primary">
+        <div class="stat-card-label"><span class="dot"></span>Coupon Selection Rate</div>
+        <div class="stat-card-num">~7<span style="font-size:0.55em; font-weight:400;">%</span> <span class="trend">↑</span></div>
+        <p class="stat-card-caption">of website visitors <strong>selected a coupon</strong> from the widget.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label"><span class="dot"></span>Conversion Rate</div>
+        <div class="stat-card-num">~12<span style="font-size:0.55em; font-weight:400;">%</span></div>
+        <p class="stat-card-caption"><strong>completed the purchase</strong> with a coupon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MY CONTRIBUTION ==================== -->
+  <!-- ========== MY CONTRIBUTION ========== -->
+  <section class="section" data-reveal>
+    <div class="section-head title-only">
+      <div class="left">
+        <span class="eyebrow">My Contribution</span>
+        <h3>Restructuring how uplift campaigns reach merchants.</h3>
+      </div>
+    </div>
+
+    <ul class="contrib-list-new" data-reveal-stagger>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">01</span>
+        <p class="contrib-text-new">Led the <strong>discovery phase</strong> — mapping existing workflows and identifying friction points.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">02</span>
+        <p class="contrib-text-new">Explored and workshopped <strong>placement strategies</strong>, then designed the end-to-end flow and UI.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">03</span>
+        <p class="contrib-text-new">Designed the <strong>research script in two phases</strong> — first observing behaviour without revealing the feature, then testing with full context.</p>
+      </li>
+      <li class="contrib-item-new">
+        <span class="contrib-marker-new">04</span>
+        <p class="contrib-text-new">Identified <strong>iteration priorities</strong> from findings and designed the updated components.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Reflection — editorial transition before closing -->
+  
+  <!-- ========== CLOSING ========== -->
+  <section class="closing-section" data-reveal>
+    <div class="closing-section-head">
+      <div class="left">
+        <span class="eyebrow">Closing</span>
+        <h3>A cleaner uplift experience — with room to grow.</h3>
+      </div>
+      <div class="right">
+        <p class="body-p">The redesign resolved the core issues that had caused the first attempt to fail — <strong>clearer attribution, better information, a more integrated placement.</strong> Early numbers confirmed the widget could drive engagement when the experience made sense to users.</p>
+      </div>
+    </div>
+
+    <div class="reflection-block closing-reflection">
+      <div class="reflection-block-head">
+        <span class="reflection-eyebrow-new">Reflection</span>
+        <span class="reflection-meta-new">Looking back</span>
+      </div>
+      <p class="reflection-text-new">This project reminded me how hard trust is to build — and how quickly it can disappear. At first, we thought a visual refresh would solve the problem, but it became clear that <strong>trust comes from copy, structure, and design all working together.</strong> The only way to know if it's working is to keep testing and listening to what users are actually experiencing.</p>
+      <p class="reflection-text-new">It was also my first time running unmoderated online testing. Since we were working with a limited budget, we couldn't talk to participants in real time, and looking back, that definitely affected the depth of some insights. If I did it again, I'd approach the script differently to better understand what users were really thinking.</p>
+    </div>
+
+    <div class="closing-next" data-reveal-stagger>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 01</span>
+        <p class="closing-next-text">Offering <strong>layout and design variants</strong> that partners can select directly from the platform — enabling them to match the widget's look to their own brand without custom development.</p>
+      </div>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 02</span>
+        <p class="closing-next-text">Exploring <strong>automated recommendations</strong> based on campaign history and merchant segment.</p>
+      </div>
+      <div class="closing-next-card">
+        <span class="closing-next-num">Next 03</span>
+        <p class="closing-next-text">Testing <strong>earlier entry points</strong> beyond the product page — starting from search result listings to capture user attention before they've narrowed their choice.</p>
+      </div>
+    </div>
+
+    <div class="closing-signoff">
+      <span class="closing-avatar">NK</span>
+      <div>
+        <span class="closing-name">Nur Kaya</span>
+        <span class="closing-role">Product Designer · loopingo</span>
+      </div>
+      <span class="closing-date">Case study · 2024</span>
+    </div>
+  </section>
+
+  <!-- IMAGE ZOOM MODAL -->
+  <div class="image-zoom-modal" id="image-zoom-modal" aria-hidden="true">
+    <div class="image-zoom-backdrop"></div>
+    <div class="image-zoom-content" role="dialog" aria-modal="true" aria-label="Zoomed image">
+      <button class="image-zoom-close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+      <div class="image-zoom-scroll">
+        <img class="image-zoom-img" src="" alt="">
+      </div>
+    </div>
+  </div>
+
+<script src="uplift.js" defer></script>
+
+
+</body>
+</html>
