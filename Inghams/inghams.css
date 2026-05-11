@@ -761,7 +761,7 @@ h3.sub-title {
 
 .asset-hero {
   padding-top: 0;
-  max-width: 540px;
+  max-width: 460px;
   filter: drop-shadow(0 24px 48px rgba(11,18,32,.10));
 }
 .asset-old-modal {
@@ -908,7 +908,7 @@ h3.sub-title {
   max-width: 100%;
 }
 .asset-hero {
-  max-width: 540px;
+  max-width: 460px;
   width: 100%;
 }
 .asset-old-modal {

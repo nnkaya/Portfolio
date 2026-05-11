@@ -723,7 +723,11 @@ h1.title {
   padding: 0 var(--page-pad) var(--section-gap);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: var(--grid-gap);
+  /* Column gap keeps left text and right image comfortably
+     separated; row gap is intentionally tighter so the meta
+     block sits close to the hero content above it. Format is
+     row-gap / column-gap. */
+  gap: 32px var(--grid-gap);
   /* Vertically center hero-left text against hero-right image
      so neither column floats at the top of its cell — gives
      the row a balanced anchor and prevents a long image from
@@ -843,7 +847,7 @@ h1.title {
 .hero-screens {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 480px;
   aspect-ratio: 5 / 4;
 }
 .hero-screen {
@@ -908,15 +912,18 @@ h1.title {
 /* ── META ── */
 .meta {
   /* The meta block sits as a sibling of .hero-left and
-     .hero-right, spanning the full hero grid. A single 4-col
-     row gives Scope · Team · Role · Duration the same weight
-     and reads cleanly under the title + image above. The
-     column-gap is intentionally generous so the four cells
-     feel evenly spaced rather than crammed together. */
+     .hero-right, spanning the full hero grid. Flex + space-
+     between makes the visible gaps between adjacent cells
+     equal regardless of content length — a 4-col grid with
+     fixed-width cells creates uneven-looking gaps when one
+     cell holds "Product Designer" and the next holds a long
+     team list. flex-wrap lets the row break gracefully on
+     narrow widths. */
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 48px; row-gap: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px 32px;
   margin-top: 0;
   padding-top: 28px;
   border-top: 1px solid var(--line);
@@ -2910,10 +2917,14 @@ h1.title {
     gap: 16px;
   }
   .scroll-up { right: 16px; bottom: 16px; width: 40px; height: 40px; }
-  /* Meta: 4-col on desktop collapses to 2-col on mobile —
-     keeps each cell readable on narrow viewports. */
+  /* Meta: flex collapses to 2-per-row on mobile via explicit
+     flex-basis on each cell — keeps each cell readable on
+     narrow viewports while preserving the flex layout. */
   .meta {
-    grid-template-columns: 1fr 1fr;
-    margin-top: var(--m-loose, 40px);
+    gap: 24px;
+    justify-content: flex-start;
+  }
+  .meta-item {
+    flex: 0 0 calc(50% - 12px);
   }
 }
