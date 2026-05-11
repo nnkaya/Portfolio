@@ -47,6 +47,54 @@
   })();
 
 
+  /* ── SCROLL SPY (active nav link) ───────────────────────────
+     Tracks which top-level homepage section is currently in
+     view and toggles `.is-active` on the matching topbar link
+     (and `.active` on the mobile menu link). Uses scrollY +
+     an offset roughly matching the floating topbar height, so
+     a section is considered "active" once its top edge crosses
+     under the pill. Falls back to the last section when the
+     page is scrolled to the very bottom — otherwise the final
+     section can never reach the offset on tall viewports. */
+  (function scrollSpy() {
+    var ids = ['home', 'work', 'playground', 'approach', 'about', 'contact'];
+    var sections = ids
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    var topLinks = document.querySelectorAll('.topbar-link');
+    var mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+    var offset = 140;
+
+    function setActive(id) {
+      topLinks.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+      });
+      mobileLinks.forEach(function (link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+
+    function onScroll() {
+      var y = window.scrollY + offset;
+      var currentId = sections[0].id;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= y) currentId = sections[i].id;
+      }
+      var atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
+      if (atBottom) currentId = sections[sections.length - 1].id;
+      setActive(currentId);
+    }
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  })();
+
+
   /* ── CURSOR SPOTLIGHT (per-card) ──────────────────────────
      Stronger radial glow on each .case-card on hover. */
   (function spotlight() {
