@@ -11,11 +11,15 @@
   --ink-soft: #475061;
 
   /* Muted — AA-compliant on both --bg (#FAFAF6) and --bg-alt
-     (#EFEFE9). Previously #525E66 hit ~5.7:1 on bg-alt which
-     felt washed out next to images and chips — darkened to
-     ~8.5:1 so the secondary text reads cleanly in both. */
-  --muted: #3D454D;
-  --muted-soft: #9AA1A6;
+     (#EFEFE9). Originally #525E66 (5.7:1 on bg-alt) felt too
+     washed out next to images and chips. Now ~10:1 on white
+     and ~9:1 on bg-alt so secondary text reads cleanly even
+     inside warm-tinted cards.
+     --muted-soft is also pulled down: it's used both as a
+     decorative background AND as text in placeholders/dashes,
+     so we keep it lighter than --muted but readable on bg-alt. */
+  --muted: #2F363D;
+  --muted-soft: #5C656E;
 
   /* Surfaces — warmer, more refined */
   --bg: #FAFAF6;
@@ -2741,20 +2745,36 @@ h1.title {
    ============================================================ */
 
 /* ── WORK LABEL ─────────────────────────────────────────────
-   Small "Work No X" eyebrow that sits above the hero chips.
-   Inherits eyebrow tone (Satoshi, teal, uppercase) and adds
-   a leading tick mark so it doesn't blur into the chips
-   directly below. Sits at the very top of .hero-left. */
+   Small "Work No X" pill that sits at the top of .hero-left,
+   above the chip-row. Outlined pill with a teal status dot
+   so it reads as a fixed identifier rather than another tag
+   in the same row as the chips. */
 .work-label {
-  margin: 8px 0 28px;
+  /* Override eyebrow defaults so the pill chrome controls
+     layout, not the eyebrow's bare typography rhythm. */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+  padding: 6px 14px 6px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 .work-label::before {
   content: '';
   display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: currentColor;
-  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
 }
 
 
@@ -2765,7 +2785,7 @@ h1.title {
    edge it points at. */
 .case-pager {
   max-width: var(--container);
-  margin: 48px auto 0;
+  margin: 96px auto 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
@@ -2879,7 +2899,7 @@ h1.title {
   .case-pager {
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-top: 32px;
+    margin-top: 56px;
   }
   .case-pager-next {
     grid-column: 1;
@@ -2891,4 +2911,5 @@ h1.title {
     gap: 16px;
   }
   .scroll-up { right: 16px; bottom: 16px; width: 40px; height: 40px; }
+  .work-label { margin-bottom: 24px; }
 }

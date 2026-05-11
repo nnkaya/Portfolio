@@ -785,9 +785,9 @@ html { scroll-padding-top: 120px; }
 }
 .home-footer-name {
   font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--teal);
 }
@@ -866,7 +866,11 @@ html { scroll-padding-top: 120px; }
 
 .home-footer-baseline {
   max-width: var(--container);
-  margin: var(--gap-stack) auto 0;
+  /* Larger margin-top pushes the dividing line further down
+     from the photo collage so the photos breathe before the
+     baseline begins. Padding keeps text comfortably away
+     from the line below. */
+  margin: var(--gap-block) auto 0;
   padding: var(--gap-stack) 0;
   display: flex;
   justify-content: space-between;
