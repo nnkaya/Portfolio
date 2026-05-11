@@ -401,10 +401,10 @@ h3.sub-title {
     gap: 12px;
   }
 /* SVG canvas'ı şeffaf (fill="none") — CSS background bunun yerini
-   alıyor. Warm-leaning light gray: minimal saturation ama paletteki
-   warm grays (#BFBFB5, #8C8C82) ailesine ait, beyaz karttan ayrışıyor. */
+   alıyor. Warm-leaning very light gray — beyaz karttan ayrışsın
+   diye yeterli kontrast var ama "dark gri" hissi vermiyor. */
 .preview-stage .asset-img {
-  background: #E8E6E1;
+  background: #F1F0EC;
   border-radius: 16px;
 }
 
