@@ -10,8 +10,11 @@
   --ink: #0A0F1A;
   --ink-soft: #475061;
 
-  /* Muted — AA-compliant on --bg */
-  --muted: #525E66;
+  /* Muted — AA-compliant on both --bg (#FAFAF6) and --bg-alt
+     (#EFEFE9). Previously #525E66 hit ~5.7:1 on bg-alt which
+     felt washed out next to images and chips — darkened to
+     ~8.5:1 so the secondary text reads cleanly in both. */
+  --muted: #3D454D;
   --muted-soft: #9AA1A6;
 
   /* Surfaces — warmer, more refined */
@@ -2093,7 +2096,7 @@ h1.title {
   padding-top: 32px;
   border-top: 1px solid var(--line);
 }
-.closing-section > .closing-signoff { margin-top: 48px; }
+.closing-section > .closing-signoff { margin-top: 32px; }
 .closing-avatar {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--ink); color: #fff;
@@ -2737,6 +2740,24 @@ h1.title {
    CASE STUDY CLOSING — pager, signoff socials, scroll-up
    ============================================================ */
 
+/* ── WORK LABEL ─────────────────────────────────────────────
+   Small "Work No X" eyebrow that sits above the hero chips.
+   Inherits eyebrow tone (Satoshi, teal, uppercase) and adds
+   a leading tick mark so it doesn't blur into the chips
+   directly below. Sits at the very top of .hero-left. */
+.work-label {
+  margin: 8px 0 28px;
+}
+.work-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+
 /* ── PREV / NEXT PAGER ──────────────────────────────────────
    Sits above the closing-signoff. Two minimal cells side by
    side; either can be missing (first/last case). When only
@@ -2744,19 +2765,15 @@ h1.title {
    edge it points at. */
 .case-pager {
   max-width: var(--container);
-  margin: 64px auto 0;
-  padding: 24px 0;
+  margin: 48px auto 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 .case-pager-link {
   display: inline-flex;
   flex-direction: column;
   gap: 6px;
-  padding: 8px 0;
   text-decoration: none;
   color: var(--ink);
   transition: color 0.3s var(--ease-out);

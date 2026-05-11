@@ -785,9 +785,9 @@ html { scroll-padding-top: 120px; }
 }
 .home-footer-name {
   font-family: 'Satoshi', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--teal);
 }
