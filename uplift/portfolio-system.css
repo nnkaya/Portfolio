@@ -883,12 +883,18 @@ h1.title {
 
 /* ── META ── */
 .meta {
+  /* The meta block now sits as a sibling of .hero-left and
+     .hero-right, spanning the full hero grid. A single 4-col
+     row gives Scope / Role / Team / Duration the same weight
+     and reads cleanly under the title + image above. */
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 36px; row-gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 32px; row-gap: 22px;
+  margin-top: var(--gap-block);
   padding-top: 28px;
   border-top: 1px solid var(--line);
-  max-width: 560px;
+  max-width: none;
 }
 .meta-item .label {
   font-family: 'Satoshi', sans-serif;
@@ -2744,40 +2750,6 @@ h1.title {
    CASE STUDY CLOSING — pager, signoff socials, scroll-up
    ============================================================ */
 
-/* ── WORK LABEL ─────────────────────────────────────────────
-   Small "Work No X" pill that sits at the top of .hero-left,
-   above the chip-row. Outlined pill with a teal status dot
-   so it reads as a fixed identifier rather than another tag
-   in the same row as the chips. */
-.work-label {
-  /* Override eyebrow defaults so the pill chrome controls
-     layout, not the eyebrow's bare typography rhythm. */
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 32px;
-  padding: 6px 14px 6px 12px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  color: var(--muted);
-  font-family: 'Satoshi', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.work-label::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--teal);
-  flex-shrink: 0;
-}
-
-
 /* ── PREV / NEXT PAGER ──────────────────────────────────────
    Sits above the closing-signoff. Two minimal cells side by
    side; either can be missing (first/last case). When only
@@ -2911,5 +2883,10 @@ h1.title {
     gap: 16px;
   }
   .scroll-up { right: 16px; bottom: 16px; width: 40px; height: 40px; }
-  .work-label { margin-bottom: 24px; }
+  /* Meta: 4-col on desktop collapses to 2-col on mobile —
+     keeps each cell readable on narrow viewports. */
+  .meta {
+    grid-template-columns: 1fr 1fr;
+    margin-top: var(--m-loose, 40px);
+  }
 }
