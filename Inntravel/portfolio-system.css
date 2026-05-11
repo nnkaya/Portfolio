@@ -987,7 +987,9 @@ h1.title {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 24px 32px;
-  margin-top: 0;
+  /* Some breathing room above the meta divider so the line
+     doesn't crowd the hero content directly above it. */
+  margin-top: 32px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
   max-width: none;

@@ -137,16 +137,14 @@
 /* ══════════════════════════════════════════════════════════
    PAGE-SPECIFIC: Restructuring Uplift
    ══════════════════════════════════════════════════════════ */
-.hero-right {
-    position: relative;
-    align-self: stretch;
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
+/* .hero-right is owned by portfolio-system.css (500×400
+   envelope, align-self end). Uplift-only inner styling for
+   the green-circle hero stays below. */
 .hero-screens.single {
-    aspect-ratio: 4 / 3;
+    /* Match the system envelope (5/4) so the single hero card
+       fills the 500×400 box exactly — keeps Uplift's image at
+       the same size as the other case studies' hero images. */
+    aspect-ratio: 5 / 4;
     position: relative;
     display: flex;
     align-items: center;

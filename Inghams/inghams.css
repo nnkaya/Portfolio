@@ -28,15 +28,9 @@
     margin-bottom: 24px;
   }
 
-.hero {
-    max-width: 1360px;
-    margin: 36px auto 0;
-    padding: 0 var(--page-pad) 112px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 72px;
-    align-items: start;
-  }
+/* Hero grid is owned by portfolio-system.css now so every
+   case study lays out identically. Inghams-only spacing and
+   asset rules stay below. */
 
 .chip {
     display: inline-flex; align-items: center; gap: 8px;

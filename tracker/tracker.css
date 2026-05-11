@@ -147,29 +147,9 @@
     margin-bottom: 24px;
   }
 
-.hero {
-    max-width: 1360px;
-    margin: 36px auto 0;
-    padding: 0 var(--page-pad) 112px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 72px;
-    align-items: start;
-  }
-
-.hero-right {
-    position: relative;
-    align-self: stretch;
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-/* Tracker hero uses a raw image (no frame), capped to a sensible size */
-.hero-img-wrap {
-    max-width: 580px;
-  }
+/* Hero grid + .hero-right envelope are owned by
+   portfolio-system.css so all case studies render identically.
+   The image wrap inside is constrained by the system envelope. */
 
 .section-head .right .body-p strong {
     color: var(--ink); font-weight: 600;
