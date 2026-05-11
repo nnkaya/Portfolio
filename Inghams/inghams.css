@@ -401,10 +401,10 @@ h3.sub-title {
     gap: 12px;
   }
 /* SVG canvas'ı şeffaf (fill="none") — CSS background bunun yerini
-   alıyor. Soft mint ton, beyaz karttan ayrışıyor, frame border'a
-   gerek bırakmıyor. */
+   alıyor. Sistem --bg (#FAFAF6) tonuyla beyaz karttan hafifçe
+   ayrışıyor, frame border'a gerek bırakmıyor. */
 .preview-stage .asset-img {
-  background: #F0F5F1;
+  background: var(--bg);
   border-radius: 16px;
 }
 
