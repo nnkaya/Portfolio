@@ -719,7 +719,10 @@ h1.title {
 }
 
 .hero {
-  margin: 36px auto 0;
+  /* 64px above so every case study hero starts at the same
+     top line, with a touch more air under the floating topbar
+     than the previous 36px. */
+  margin: 64px auto 0;
   padding: 0 var(--page-pad) var(--section-gap);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -733,6 +736,23 @@ h1.title {
      the row a balanced anchor and prevents a long image from
      hanging below a short copy block (or vice versa). */
   align-items: center;
+}
+/* Chip-row sits on its own row above the title+image+image
+   row so the image vertically aligns to the title+content
+   midpoint — not biased upward by the chips that float at
+   the very top of the hero block. */
+.hero > .chip-row { grid-column: 1 / -1; }
+/* hero-left is the title + subtitle + lede column on row 2.
+   The fixed min-height anchors every case study to the same
+   visual envelope: the longest case (Inntravel, ~360px of
+   stacked copy) sets the floor, the shorter ones sit centered
+   inside the same height so the image opposite them centers
+   on a consistent midline. */
+.hero-left {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero-left { padding-top: 4px; }
 
@@ -848,8 +868,12 @@ h1.title {
 .hero-center {
   position: relative;
   width: 100%;
-  max-width: 540px;
-  aspect-ratio: 4 / 3;
+  /* 500 × 400 (5:4) — height matches hero-left min-height so
+     image and content share the same vertical envelope. Sized
+     down from the previous 540 so the image doesn't dominate
+     the row visually. */
+  max-width: 500px;
+  aspect-ratio: 5 / 4;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -2413,6 +2437,13 @@ h1.title {
   /* Hero right column — hidden on mobile (cases use mobile-specific carousels) */
   /* !important needed: case CSS loads after system and re-declares display:flex */
   .hero-right { display: none !important; }
+
+  /* Hero-left desktop min-height collapses on mobile so the
+     column sizes to its natural content height. */
+  .hero-left {
+    min-height: 0;
+    justify-content: flex-start;
+  }
 
   /* Phase grids — uniform breathing room */
   .phase-grid,
