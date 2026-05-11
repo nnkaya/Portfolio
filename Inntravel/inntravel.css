@@ -140,14 +140,14 @@
 
 /* Phase 3 gallery: 5-up grid of screen previews */
 .phase-gallery {
-  /* 6 screens laid out as 3 columns × 2 rows. Auto-flow places
-     the figures left-to-right, top-to-bottom in the order they
-     appear in the markup — no per-child placement needed. */
+  /* 6 screens, 2 columns × 3 rows. Wider columns give each
+     screenshot real presence (≈600px on a 1280 container)
+     instead of the earlier thumbnail-sized 3-col grid. */
   margin-top: 56px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 32px 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 40px 28px;
 }
 .phase-gallery-item {
   margin: 0;
@@ -156,8 +156,10 @@
   gap: 12px;
 }
 .phase-gallery-frame {
-  aspect-ratio: 16 / 10;
-  background: linear-gradient(180deg, #F5F7F4 0%, #EDF1EE 100%);
+  /* Matches the native ratio of the 1440×1024 desktop
+     screenshots so object-fit: cover crops zero pixels. */
+  aspect-ratio: 1440 / 1024;
+  background: var(--bg-alt);
   border: 1px solid var(--line);
   border-radius: var(--radius-image);
   display: flex;
@@ -221,6 +223,15 @@
 .phase-gallery-frame:has(img)::before,
 .phase-gallery-frame:has(img)::after {
   display: none;
+}
+/* Portrait variant — FormPayment is a tall payment form
+   (1440×1732). It needs its own ratio so the frame matches
+   the image and we can still use object-fit: cover without
+   cropping. The taller frame stretches its grid row; the
+   sibling landscape item in the same row keeps its size
+   and the row gracefully grows around it. */
+.phase-gallery-item--portrait .phase-gallery-frame {
+  aspect-ratio: 1440 / 1732;
 }
 .phase-gallery-item figcaption {
   font-family: 'Satoshi', sans-serif;
