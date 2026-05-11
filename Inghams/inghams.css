@@ -761,7 +761,6 @@ h3.sub-title {
 
 .asset-hero {
   padding-top: 0;
-  max-width: 460px;
   filter: drop-shadow(0 24px 48px rgba(11,18,32,.10));
 }
 .asset-old-modal {
@@ -907,8 +906,10 @@ h3.sub-title {
   height: auto;
   max-width: 100%;
 }
+/* Hero envelope (set in portfolio-system.css) bounds the
+   asset-hero. We keep width: 100% so the SVG fills the
+   envelope, and the system rule applies max-width/max-height. */
 .asset-hero {
-  max-width: 460px;
   width: 100%;
 }
 .asset-old-modal {

@@ -833,13 +833,43 @@ h1.title {
 .solution-head .right { padding-top: 44px; }
 
 
-/* ── HERO RIGHT ── */
-.hero-right {
+/* ── HERO IMAGE ENVELOPE ─────────────────────────────────────
+   Universal frame for every work-page hero image. Every case
+   study has its own inner structure (stacked cards, single
+   image, illustration, mockup strip) but they all live inside
+   the same outer envelope so the meta line below stays at a
+   consistent vertical position page to page.
+   - aspect-ratio fixes the envelope's height proportional to
+     its column width — no per-case min-height tuning.
+   - margin-left: auto right-aligns the envelope in its column.
+   - inner children scale to fit so a tall mockup doesn't push
+     the column taller than a wide one. */
+.hero-right,
+.hero-center {
   position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 4 / 3;
+  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-top: 0;
+  justify-content: center;
+}
+.hero-right > *,
+.hero-center > * {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* Naked image children of the envelope (Inghams uses an SVG
+   illustration directly inside .hero-center) — contain so the
+   image never overflows the envelope's height. */
+.hero-center > img,
+.asset-hero {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 
@@ -847,7 +877,7 @@ h1.title {
 .hero-screens {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 100%;
   aspect-ratio: 5 / 4;
 }
 .hero-screen {
