@@ -224,15 +224,6 @@
 .phase-gallery-frame:has(img)::after {
   display: none;
 }
-/* Portrait variant — FormPayment is a tall payment form
-   (1440×1732). It needs its own ratio so the frame matches
-   the image and we can still use object-fit: cover without
-   cropping. The taller frame stretches its grid row; the
-   sibling landscape item in the same row keeps its size
-   and the row gracefully grows around it. */
-.phase-gallery-item--portrait .phase-gallery-frame {
-  aspect-ratio: 1440 / 1732;
-}
 .phase-gallery-item figcaption {
   font-family: 'Satoshi', sans-serif;
   font-size: 13px;
