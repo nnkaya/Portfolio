@@ -12,25 +12,37 @@
 </head>
 <body>
 
-<!-- TOP NAV -->
-  <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark"></span>
-      <span>Nur Kaya</span>
+<!-- TOP NAV — homepage style, in-flow (no scroll effect) -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-container">
+      <a href="../Homepage/index.html" class="topbar-logo">
+        <span class="topbar-logo-mark">N</span>
+        <span class="topbar-logo-text">Nur Kaya</span>
+      </a>
+
+      <nav class="topbar-links" aria-label="Primary">
+        <a href="../Homepage/index.html#home" class="topbar-link">Home</a>
+        <a href="../Homepage/index.html#work" class="topbar-link is-active">Work</a>
+        <a href="../Homepage/index.html#playground" class="topbar-link">Playground</a>
+        <a href="../Homepage/index.html#approach" class="topbar-link">Approach</a>
+        <a href="../Homepage/index.html#about" class="topbar-link">About</a>
+        <a href="../Homepage/index.html#contact" class="topbar-link">Contact</a>
+      </nav>
+
+      <a class="topbar-cta" href="#" aria-label="Resume">
+        <span>Resume</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
     </div>
-    <nav class="nav-links">
-      <a href="#" class="active">Work</a>
-      <a href="#">About</a>
-      <a href="#">Writing</a>
-      <a href="#">Contact</a>
-    </nav>
-    <a class="nav-cta" href="#"><span class="dot"></span> Available</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-    </button>
   </header>
 
   <!-- MOBILE MENU PANEL -->
@@ -43,28 +55,21 @@
         </svg>
       </button>
       <nav class="mobile-menu-links">
-        <a href="#" class="active">Work</a>
-        <a href="#">About</a>
-        <a href="#">Writing</a>
-        <a href="#">Contact</a>
+        <a href="../Homepage/index.html#home">Home</a>
+        <a href="../Homepage/index.html#work" class="active">Work</a>
+        <a href="../Homepage/index.html#playground">Playground</a>
+        <a href="../Homepage/index.html#approach">Approach</a>
+        <a href="../Homepage/index.html#about">About</a>
+        <a href="../Homepage/index.html#contact">Contact</a>
       </nav>
-      <a class="mobile-menu-cta" href="#"><span class="dot"></span> Available</a>
+      <a class="mobile-menu-cta" href="#">Resume <span aria-hidden="true">→</span></a>
     </aside>
-  </div><!-- BREADCRUMB -->
-  <div class="crumb-row">
-    <div class="crumb">
-      <a href="#">Index</a>
-      <span class="sep">/</span>
-      <a href="#">Case Studies</a>
-      <span class="sep">/</span>
-      <span class="current">Destination Selection</span>
-    </div>
-    <div class="case-index">Case №03 — 2025</div>
   </div>
 
   <!-- ========== SECTION 1: HERO ========== -->
   <section class="hero" data-reveal>
     <div class="hero-left">
+      <span class="eyebrow work-label">Work No 1</span>
       <div class="chip-row">
         <span class="chip">Product Design</span>
         <span class="chip">UX Strategy</span>
@@ -102,15 +107,6 @@
         </div>
       </div>
 
-      <div class="actions">
-        
-        <a href="#" class="btn btn-ghost">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"></path>
-          </svg>
-          View live product
-        </a>
-      </div>
     </div>
 
     <div class="hero-center asset-stage-wrap"><img class="asset-img asset-hero" src="HERO_-_NEW.svg" alt="Destination selection redesigned interface"></div>
@@ -190,11 +186,18 @@
     <div class="phase-title-block">
       <h4 class="phase-title-new">Phase 1: Structure &amp; Clarity</h4>
     </div>
-    
+
     <div class="phase-content">
       <div class="phase-desc">
         Introduce a clear hierarchy — country, region, resort — so users access destinations directly without relying on search.
       </div>
+
+      <a href="#" class="phase-cta btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"></path>
+        </svg>
+        View live product
+      </a>
 
       <img class="asset-img asset-phase" src="My_approach_-_Phase_1.svg" alt="Phase 1 structure preview">
     </div>
@@ -237,7 +240,7 @@
     <div class="options-row" data-reveal-stagger="">
 
       <!-- OPTION 1 — NOT CHOSEN -->
-      <article class="option chosen">
+      <article class="option not-chosen">
         <div class="option-head">
           <span class="option-tag">Option 01</span>
           <span class="declined-pill">Explored</span>
@@ -329,7 +332,7 @@
 
     <div class="solution-head">
       <div class="left">
-        <span class="eyebrow">My Approach — Phase 1: Structure &amp; Clarity</span>
+        <span class="eyebrow">Phase 1: Structure &amp; Clarity</span>
         <h3>A multi-level destination selection experience.</h3>
       </div>
       <div class="right">
@@ -570,17 +573,38 @@
       </div>
     </div>
 
+    <nav class="case-pager" aria-label="Case navigation">
+      <span aria-hidden="true"></span>
+      <a class="case-pager-link case-pager-next" href="../Inntravel/Inntravel.html">
+        <span class="case-pager-direction">Next · Work No 2 →</span>
+        <span class="case-pager-title">Rebuilding the Booking Journey</span>
+      </a>
+    </nav>
+
     <div class="closing-signoff">
       <span class="closing-avatar">NK</span>
-      <div>
+      <div class="closing-identity">
         <span class="closing-name">Nur Kaya</span>
-        <span class="closing-role">Product Designer · Inghams</span>
+        <span class="closing-role">Product Designer</span>
       </div>
-      <span class="closing-date">Case study · 2025</span>
+      <ul class="closing-socials">
+        <li><a href="#">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        <li><a href="#">Dribbble <span aria-hidden="true">↗</span></a></li>
+        <li><a href="mailto:hello@nurkaya.com">Email <span aria-hidden="true">↗</span></a></li>
+      </ul>
     </div>
-  
+
   </section>
 
+  <!-- SCROLL-UP -->
+  <button class="scroll-up" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5"/>
+      <path d="M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+<script src="portfolio-system.js" defer></script>
 <script src="inghams.js" defer></script>
 
 </body>

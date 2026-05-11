@@ -95,6 +95,35 @@
   })();
 
 
+  /* ── CASE CARD GIF RESET ───────────────────────────────────
+     The hover GIFs are layered over their static counterparts
+     and crossfade via opacity. Without intervention, the GIF
+     keeps playing while invisible, so the next hover catches
+     it mid-loop. We force a restart from frame 1 on every
+     mouseleave by clearing the src and putting it back on the
+     next mouseenter. The originating src is cached in a data
+     attribute the first time we see the image. */
+  (function caseCardGifReset() {
+    var gifs = document.querySelectorAll('.case-card-img-hover');
+    if (!gifs.length) return;
+    gifs.forEach(function (img) {
+      img.dataset.gifSrc = img.getAttribute('src');
+      var card = img.closest('.case-card');
+      if (!card) return;
+      card.addEventListener('mouseenter', function () {
+        // Only re-set if it was cleared — avoids a fresh
+        // network fetch every time the pointer wiggles.
+        if (!img.getAttribute('src')) {
+          img.setAttribute('src', img.dataset.gifSrc);
+        }
+      });
+      card.addEventListener('mouseleave', function () {
+        img.setAttribute('src', '');
+      });
+    });
+  })();
+
+
   /* ── CURSOR SPOTLIGHT (per-card) ──────────────────────────
      Stronger radial glow on each .case-card on hover. */
   (function spotlight() {

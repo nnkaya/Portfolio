@@ -219,6 +219,13 @@ h3.sub-title {
     grid-row: 2;
     align-self: start;
   }
+  .phase-content .phase-cta {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    justify-self: start;
+    margin-top: 8px;
+  }
   .phase-content .asset-phase {
     grid-column: 2;
     grid-row: 1 / span 2;

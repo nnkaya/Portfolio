@@ -7,6 +7,12 @@
    - All colours via tokens (--ink, --teal, --bg-alt, --line, etc.)
    ============================================================ */
 
+/* Reserve space at the top when anchor-scrolling to a section.
+   The floating topbar is ~66px tall with ~16px above; 120px
+   gives it room plus a touch of breathing room so the section
+   eyebrow/title is never tucked under the pill. */
+html { scroll-padding-top: 120px; }
+
 
 /* ── LOADER ─────────────────────────────────────────────────── */
 .loader {
