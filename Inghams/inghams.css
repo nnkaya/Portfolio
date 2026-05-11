@@ -305,9 +305,9 @@ h3.sub-title {
     transition: transform .25s ease, box-shadow .25s ease;
   }
 
-.option.not-chosen { opacity: .88; }
-
-.option.not-chosen:hover { opacity: 1; }
+/* not-chosen artık tam opacity (1.0) ile render ediliyor — eskiden
+   default 0.88 idi ve sadece hover'da 1.0'a çıkıyordu. Hover state
+   kaldırıldı, "darker" görünüm her zaman varsayılan. */
 
 .option.chosen {
     border-color: var(--teal-light);
