@@ -471,6 +471,28 @@ body.menu-open { overflow: hidden; }
 .crumb .current { color: var(--ink); }
 .case-index { letter-spacing: 0.08em; }
 
+/* Work label row — sits where the old breadcrumb's case-index
+   used to live: top-right above the hero. Reuses the same
+   container width, margin, and typography rhythm as .crumb-row
+   so the page top feels visually consistent with the legacy
+   breadcrumb position. */
+.work-row {
+  max-width: var(--container);
+  margin: 72px auto 0;
+  padding: 0 var(--page-pad);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.work-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 
 /* ── TYPOGRAPHY ── */
 
@@ -700,9 +722,13 @@ h1.title {
   margin: 36px auto 0;
   padding: 0 var(--page-pad) var(--section-gap);
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--grid-gap);
-  align-items: start;
+  /* Vertically center hero-left text against hero-right image
+     so neither column floats at the top of its cell — gives
+     the row a balanced anchor and prevents a long image from
+     hanging below a short copy block (or vice versa). */
+  align-items: center;
 }
 .hero-left { padding-top: 4px; }
 
@@ -806,8 +832,6 @@ h1.title {
 /* ── HERO RIGHT ── */
 .hero-right {
   position: relative;
-  align-self: stretch;
-  min-height: 620px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -883,15 +907,17 @@ h1.title {
 
 /* ── META ── */
 .meta {
-  /* The meta block now sits as a sibling of .hero-left and
+  /* The meta block sits as a sibling of .hero-left and
      .hero-right, spanning the full hero grid. A single 4-col
-     row gives Scope / Role / Team / Duration the same weight
-     and reads cleanly under the title + image above. */
+     row gives Scope · Team · Role · Duration the same weight
+     and reads cleanly under the title + image above. The
+     column-gap is intentionally generous so the four cells
+     feel evenly spaced rather than crammed together. */
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 32px; row-gap: 22px;
-  margin-top: var(--gap-block);
+  column-gap: 48px; row-gap: 22px;
+  margin-top: 0;
   padding-top: 28px;
   border-top: 1px solid var(--line);
   max-width: none;
@@ -2372,7 +2398,8 @@ h1.title {
   .topbar-cta { display: none; }
   /* Logo text stays visible on mobile so the brand reads. */
   .nav-toggle { display: inline-flex; }
-  .crumb-row { display: none; }
+  .crumb-row,
+  .work-row { display: none; }
 
   /* Chip row: scroll horizontally instead of overflowing */
   .chip-row {
