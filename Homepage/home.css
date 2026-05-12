@@ -433,17 +433,20 @@ html { scroll-padding-top: 120px; }
    single short label below. Both labels deliberately short so
    they sit on one line and the cells stay visually balanced. */
 .case-card-stats {
-  /* 2 cell her zaman yan yana. Gap dar — iki stat arasında
-     fazla boşluk olmasın, görsel olarak bir grup gibi okunsun. */
+  /* 2 cell yan yana, sola kümelenmiş, kompakt. Cell'ler content
+     kadar genişlik alır — grid'i doldurmaya zorlanmaz. */
   display: flex;
   flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: var(--gap-row);
   margin-top: var(--gap-hair);
   padding-top: var(--gap-stack);
   border-top: 1px solid var(--line);
 }
 .case-card-stats .case-stat {
-  flex: 1 1 0;
+  /* Content-width compact, ama container'ı aşarsa shrink edip
+     hücre içinde 2. satıra wrap eder (gerekli olduğunda). */
+  flex: 0 1 auto;
   min-width: 0;
 }
 .case-stat {
