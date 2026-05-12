@@ -185,6 +185,8 @@ html { scroll-padding-top: 120px; }
   aspect-ratio: 4 / 5;
   max-width: 320px;
   justify-self: end;
+  /* Float etiketler image bounds dışına taşıyor; overflow visible
+     bunu mümkün kılıyor (default zaten visible). */
 }
 .home-hero-image img {
   width: 100%;
@@ -192,6 +194,76 @@ html { scroll-padding-top: 120px; }
   object-fit: cover;
   display: block;
   border-radius: var(--radius-frame);
+}
+
+/* ── HERO FLOAT PILLS ────────────────────────────────────────
+   Hero portresinin etrafında 3 küçük etiket: "product-minded",
+   "insight-led", "systems-thinking". Hafif rotasyon + sonsuz
+   yumuşak float animasyonu ile ekranı canlandırıyor. */
+.hero-float {
+  position: absolute;
+  z-index: 2;
+  padding: 8px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  box-shadow: 0 14px 28px -14px rgba(11, 18, 32, 0.18);
+  pointer-events: none;
+  opacity: 0;
+  animation: hero-float-in 0.7s var(--ease-out) 0.4s forwards;
+}
+.hero-float--1 {
+  top: -8px;
+  right: -32px;
+  --tilt: -4deg;
+  animation-delay: 0.4s, 2.2s;
+  animation-name: hero-float-in, hero-float-bob-1;
+}
+.hero-float--2 {
+  top: 48%;
+  left: -56%;
+  --tilt: 3deg;
+  color: var(--teal-ink);
+  background: var(--chip);
+  border-color: var(--teal-light);
+  animation-delay: 0.55s, 2.4s;
+  animation-name: hero-float-in, hero-float-bob-2;
+}
+.hero-float--3 {
+  bottom: -10px;
+  left: -42%;
+  --tilt: -2deg;
+  animation-delay: 0.7s, 2.6s;
+  animation-name: hero-float-in, hero-float-bob-3;
+}
+.hero-float {
+  animation-duration: 0.7s, 5s;
+  animation-timing-function: var(--ease-out), ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards, none;
+  transform: rotate(var(--tilt, 0)) translateY(8px);
+}
+@keyframes hero-float-in {
+  to { opacity: 1; transform: rotate(var(--tilt, 0)) translateY(0); }
+}
+@keyframes hero-float-bob-1 {
+  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
+  50%      { transform: rotate(var(--tilt)) translateY(-6px); }
+}
+@keyframes hero-float-bob-2 {
+  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
+  50%      { transform: rotate(var(--tilt)) translateY(-8px); }
+}
+@keyframes hero-float-bob-3 {
+  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
+  50%      { transform: rotate(var(--tilt)) translateY(-5px); }
 }
 
 
@@ -889,6 +961,11 @@ html { scroll-padding-top: 120px; }
   .case-card-spotlight { display: none; }
   .custom-cursor { display: none !important; }
   .home-hero-statement { animation: none; opacity: 1; transform: none; }
+  .hero-float {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--tilt, 0));
+  }
 }
 
 
@@ -902,7 +979,8 @@ html { scroll-padding-top: 120px; }
   }
   /* Hero image hidden on mobile — text-only intro keeps the
      viewport tight and avoids the portrait floating awkwardly. */
-  .home-hero-image { display: none; }
+  .home-hero-image,
+  .hero-float { display: none; }
   .home-hero-grid {
     grid-template-columns: 1fr;
   }
