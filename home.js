@@ -35,6 +35,11 @@
     if (!el) return;
 
     var SESSION_KEY = 'nk_unlocked';
+    // Tracks whether the loader animation has already played in
+    // this tab. Once it has, subsequent navigations back to the
+    // homepage (from a case page, for example) skip straight to
+    // the content instead of replaying the wordmark + bar.
+    var LOADER_SHOWN_KEY = 'nk_loader_shown';
     // SHA-256 hex of the gate password. Empty string = no gate.
     // Current password: "portfolio26"
     var PASSWORD_HASH = '28f0ee33f463deb755ce881ff9987ab2e6cf13844f03246eaf775680d2ca0f92';
@@ -43,7 +48,19 @@
       setTimeout(function () { el.classList.add('is-done'); }, delay || 0);
     }
 
+    function markLoaderShown() {
+      try { sessionStorage.setItem(LOADER_SHOWN_KEY, 'true'); } catch (_) {}
+    }
+
     function runStandardLoader() {
+      // If we've already played the loader in this tab session,
+      // skip the animation entirely so internal navigation feels
+      // instant.
+      if (sessionStorage.getItem(LOADER_SHOWN_KEY) === 'true') {
+        el.classList.add('is-done');
+        return;
+      }
+      markLoaderShown();
       if (reduceMotion) { el.classList.add('is-done'); return; }
       window.addEventListener('load', function () { fadeOut(600); });
       fadeOut(1400);
@@ -79,6 +96,7 @@
       sha256hex(input.value).then(function (hash) {
         if (hash === PASSWORD_HASH) {
           sessionStorage.setItem(SESSION_KEY, 'true');
+          markLoaderShown();
           el.classList.remove('is-locked');
           gateForm.hidden = true;
           fadeOut(150);
