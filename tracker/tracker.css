@@ -399,7 +399,7 @@
   z-index: 2;
 }
 .iter-device-mobile-frame {
-  background: #fff;
+  background: var(--white);
   border-radius: 22px;
   padding: 6px;
   box-shadow:
@@ -606,7 +606,7 @@
 }
 .image-zoom-close {
   background: var(--ink);
-  color: #fff;
+  color: var(--white);
 }
 
 @media (max-width: 820px) {
@@ -742,7 +742,7 @@
     position: absolute;
     bottom: 10px; right: 10px;
     background: rgba(11, 18, 32, 0.65);
-    color: #fff;
+    color: var(--white);
     font-family: 'Satoshi', sans-serif;
     font-size: 11px;
     font-weight: 500;

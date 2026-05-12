@@ -170,7 +170,7 @@ h3.sub-title {
   gap: 32px;
 }
 .phases > .phase {
-    background: #fff;
+    background: var(--white);
     border-radius: var(--radius-image);
     padding: 18px 20px;
     display: grid;
@@ -278,7 +278,7 @@ h3.sub-title {
 .workshop-head .right .body-p:last-child { margin-bottom: 0; }
 
 .option {
-    background: #fff;
+    background: var(--white);
     border-radius: var(--radius-frame);
     padding: 32px 32px 28px;
     display: flex;
@@ -345,7 +345,7 @@ h3.sub-title {
 /* Option borders are gone, so the .chosen state is communicated
    only by the "Selected" pill above — the card stays plain white. */
 .option.chosen {
-    background: #fff;
+    background: var(--white);
   }
 
 .option-head {
@@ -637,7 +637,7 @@ h3.sub-title {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: var(--white);
     border-radius: 28px;
     overflow: hidden;
     display: flex;
@@ -871,7 +871,7 @@ h3.sub-title {
   padding: 22px 24px 24px;
   border: 1px solid var(--line);
   border-radius: var(--card-radius);
-  background: #fff;
+  background: var(--white);
 }
 .targeted-group-num {
   font-family: 'Satoshi', sans-serif;

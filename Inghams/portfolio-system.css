@@ -26,6 +26,7 @@
   /* Surfaces — warmer, more refined */
   --bg: #FAFAF6;
   --bg-alt: #EFEFE9;
+  --white: #FFFFFF;
   --line: #DCDCD3;
   --line-soft: #E6E6DE;
 
@@ -438,7 +439,7 @@ img {
   border: 1px solid var(--ink);
   border-radius: var(--radius-pill);
   background: var(--ink);
-  color: #fff;
+  color: var(--white);
   font-family: 'Satoshi', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -954,8 +955,8 @@ h1.title {
   letter-spacing: 0.12em; text-transform: uppercase;
   pointer-events: none;
 }
-.hero-screen.back .hero-screen-label { background: rgba(11,18,32,.55); color: #fff; }
-.hero-screen.front .hero-screen-label { background: rgba(2,98,80,.85); color: #fff; }
+.hero-screen.back .hero-screen-label { background: rgba(11,18,32,.55); color: var(--white); }
+.hero-screen.front .hero-screen-label { background: rgba(2,98,80,.85); color: var(--white); }
 
 /* Single hero image variant */
 .hero-single {
@@ -1043,7 +1044,7 @@ h1.title {
   max-width: calc((100% - 32px) / 3 * 2 + 16px);
 }
 .finding-card {
-  background: #FFFFFF;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--card-radius);
   padding: var(--pad-card);
@@ -1110,7 +1111,7 @@ h1.title {
 
 .opportunity-block {
   padding: 24px 28px;
-  background: #FFFFFF;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--card-radius);
   margin-top: 64px; margin-bottom: 64px;
@@ -1119,7 +1120,7 @@ h1.title {
 .opportunity-text { color: var(--ink-soft); max-width: 720px; }
 
 .evolved-callout {
-  background: #FFFFFF;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 24px 28px;
@@ -1355,8 +1356,8 @@ h1.title {
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   pointer-events: none; z-index: 3;
 }
-.compare-tag.before { left: 16px; background: rgba(11,18,32,.62); color: #fff; }
-.compare-tag.after { right: 16px; background: rgba(2,98,80,.92); color: #fff; }
+.compare-tag.before { left: 16px; background: rgba(11,18,32,.62); color: var(--white); }
+.compare-tag.after { right: 16px; background: rgba(2,98,80,.92); color: var(--white); }
 .compare-ghost {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
@@ -1368,7 +1369,7 @@ h1.title {
 .compare-handle {
   position: absolute; top: 0; bottom: 0;
   left: var(--clip, 50%); transform: translateX(-50%);
-  width: 3px; background: #fff;
+  width: 3px; background: var(--white);
   box-shadow: 0 0 0 1px rgba(11,18,32,.08);
   z-index: 4; pointer-events: none;
 }
@@ -1376,7 +1377,7 @@ h1.title {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 48px; height: 48px; border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 0 0 1px rgba(11,18,32,.06), 0 8px 24px -4px rgba(11,18,32,.22);
   display: flex; align-items: center; justify-content: center;
   gap: 6px;
@@ -1784,7 +1785,7 @@ h1.title {
   gap: 12px;
 }
 .mobile-frame {
-  background: #fff;
+  background: var(--white);
   border-radius: 24px;
   padding: 8px;
   box-shadow: 0 0 0 1px var(--line), 0 8px 24px -12px rgba(11,18,32,.10);
@@ -2001,7 +2002,7 @@ h1.title {
 }
 .closing-next-card {
   padding: var(--pad-card);
-  background: #FFFFFF;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--card-radius);
   transition: border-color 0.25s ease, transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
@@ -2219,7 +2220,7 @@ h1.title {
 .closing-section > .closing-signoff { margin-top: 32px; }
 .closing-avatar {
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--ink); color: #fff;
+  background: var(--ink); color: var(--white);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Satoshi', sans-serif;
   font-weight: 600; font-size: 14px;
@@ -2228,7 +2229,7 @@ h1.title {
 /* Also used as .avatar in Inghams */
 .avatar {
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--ink); color: #fff;
+  background: var(--ink); color: var(--white);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Satoshi', sans-serif;
   font-weight: 600; font-size: 14px;
@@ -2328,7 +2329,7 @@ h1.title {
 .carousel-btn {
   width: 36px; height: 36px;
   border: 1px solid var(--line); border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   font-family: 'Satoshi', sans-serif;
   font-size: 14px; color: var(--ink);
   cursor: pointer;
@@ -2399,7 +2400,7 @@ h1.title {
 }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -8px rgba(11,18,32,.18); }
 .btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary { background: var(--ink); color: var(--white); }
 .btn-ghost { color: var(--ink); border: 1px solid var(--line); background: transparent; }
 .btn svg { width: 14px; height: 14px; }
 

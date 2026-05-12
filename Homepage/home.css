@@ -512,7 +512,7 @@ html { scroll-padding-top: 120px; }
   gap: 6px;
   padding: 5px 10px 5px 8px;
   background: var(--teal);
-  color: #FFFFFF;
+  color: var(--white);
   border-radius: var(--radius-pill);
   font-family: 'Satoshi', sans-serif;
   font-size: 10.5px;
