@@ -197,9 +197,10 @@ html { scroll-padding-top: 120px; }
 }
 
 /* ── HERO FLOAT PILLS ────────────────────────────────────────
-   Hero portresinin etrafında 3 küçük etiket: "product-minded",
-   "insight-led", "systems-thinking". Hafif rotasyon + sonsuz
-   yumuşak float animasyonu ile ekranı canlandırıyor. */
+   Hero portresinin etrafında 3 statik pill etiket. Floating
+   animasyonu yok; sadece tilt + sabit pozisyon. Konumlar
+   kullanıcının işaretlediği yerlere göre: üst (kafanın hizası),
+   sağ kenar ortası, sol-alt köşe. */
 .hero-float {
   position: absolute;
   z-index: 2;
@@ -216,54 +217,27 @@ html { scroll-padding-top: 120px; }
   white-space: nowrap;
   box-shadow: 0 14px 28px -14px rgba(11, 18, 32, 0.18);
   pointer-events: none;
-  opacity: 0;
-  animation: hero-float-in 0.7s var(--ease-out) 0.4s forwards;
 }
 .hero-float--1 {
-  top: -8px;
-  right: -32px;
-  --tilt: -4deg;
-  animation-delay: 0.4s, 2.2s;
-  animation-name: hero-float-in, hero-float-bob-1;
+  /* Üst — image'in tepesinin üzerinde, hafif sola yatık */
+  top: -18px;
+  left: 18%;
+  transform: rotate(-10deg);
 }
 .hero-float--2 {
-  top: 48%;
-  left: -56%;
-  --tilt: 3deg;
+  /* Sağ — image'in dışında, sağ-orta hizasında, sağa yatık */
+  top: 46%;
+  right: -52%;
+  transform: rotate(16deg);
   color: var(--teal-ink);
   background: var(--chip);
   border-color: var(--teal-light);
-  animation-delay: 0.55s, 2.4s;
-  animation-name: hero-float-in, hero-float-bob-2;
 }
 .hero-float--3 {
-  bottom: -10px;
-  left: -42%;
-  --tilt: -2deg;
-  animation-delay: 0.7s, 2.6s;
-  animation-name: hero-float-in, hero-float-bob-3;
-}
-.hero-float {
-  animation-duration: 0.7s, 5s;
-  animation-timing-function: var(--ease-out), ease-in-out;
-  animation-iteration-count: 1, infinite;
-  animation-fill-mode: forwards, none;
-  transform: rotate(var(--tilt, 0)) translateY(8px);
-}
-@keyframes hero-float-in {
-  to { opacity: 1; transform: rotate(var(--tilt, 0)) translateY(0); }
-}
-@keyframes hero-float-bob-1 {
-  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
-  50%      { transform: rotate(var(--tilt)) translateY(-6px); }
-}
-@keyframes hero-float-bob-2 {
-  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
-  50%      { transform: rotate(var(--tilt)) translateY(-8px); }
-}
-@keyframes hero-float-bob-3 {
-  0%, 100% { transform: rotate(var(--tilt)) translateY(0); }
-  50%      { transform: rotate(var(--tilt)) translateY(-5px); }
+  /* Sol-alt — image'in alt kısmında, sola yatık */
+  bottom: -16px;
+  left: -28%;
+  transform: rotate(-12deg);
 }
 
 
@@ -961,11 +935,6 @@ html { scroll-padding-top: 120px; }
   .case-card-spotlight { display: none; }
   .custom-cursor { display: none !important; }
   .home-hero-statement { animation: none; opacity: 1; transform: none; }
-  .hero-float {
-    animation: none;
-    opacity: 1;
-    transform: rotate(var(--tilt, 0));
-  }
 }
 
 
