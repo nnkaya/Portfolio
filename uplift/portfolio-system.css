@@ -1416,6 +1416,12 @@ h1.title {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
+/* Hemen üstünde .show-mini-title (örn. "Outcome") varsa,
+   default 64px margin-top'u daha sıkı bir değere düşür —
+   başlık ve stat box'lar bir grup olarak görünür. */
+.show-mini-title + .stat-strip-wide {
+  margin-top: var(--gap-stack);
+}
 /* When the strip lives directly inside a phase-body context (right after
    a paragraph), it's a tighter rhythm — body → stat is not a section
    break, just continuation of the same thought. */
