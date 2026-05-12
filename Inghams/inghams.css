@@ -305,8 +305,8 @@ h3.sub-title {
 /* ── DESIGN PRINCIPLES ──────────────────────────────────────
    .section-3 (Challenge + Approach) içinde son element. 2-col
    parent grid'inde full-width (1/-1), approach-panel altında.
-   Liste 3-col yatay yerine dikey stack — her ilke kendi
-   satırında, icon solda + metin sağda. */
+   3-col yatay liste — her ilke kendi sütununda, icon solda +
+   metin sağda. */
 .section-3 .design-principles {
   grid-column: 1 / -1;
   margin-top: 56px;
@@ -319,9 +319,9 @@ h3.sub-title {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 .principle {
   display: grid;
@@ -1244,10 +1244,9 @@ h3.sub-title {
   .tray-label-row { gap: 6px !important; padding: 0 !important; }
   .tray-pill { font-size: 10px !important; padding: 3px 8px !important; }
 
-  /* Design Principles — already vertical on desktop; mobile
-     just shrinks the icon box. */
+  /* Design Principles — desktop 3-col → mobile 1-col stack. */
   .section-3 .design-principles { margin-top: var(--m-block); }
-  .principles-grid { gap: 16px; }
+  .principles-grid { grid-template-columns: 1fr; gap: 18px; }
   .principle { grid-template-columns: 56px 1fr; gap: 14px; }
   .principle-icon { width: 56px; height: 56px; }
   .principle-icon img,
