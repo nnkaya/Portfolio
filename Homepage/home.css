@@ -433,11 +433,11 @@ html { scroll-padding-top: 120px; }
    single short label below. Both labels deliberately short so
    they sit on one line and the cells stay visually balanced. */
 .case-card-stats {
-  /* 2 cell her zaman yan yana — uzun label'ler cell içinde
-     wrap eder, asla alt satıra düşmez. */
+  /* 2 cell her zaman yan yana. Gap dar — iki stat arasında
+     fazla boşluk olmasın, görsel olarak bir grup gibi okunsun. */
   display: flex;
   flex-wrap: nowrap;
-  gap: var(--gap-block);
+  gap: var(--gap-row);
   margin-top: var(--gap-hair);
   padding-top: var(--gap-stack);
   border-top: 1px solid var(--line);
