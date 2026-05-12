@@ -151,39 +151,7 @@
   })();
 
   // Wireframe gallery — drag-to-scroll + progress bar
-  (function() {
-    document.querySelectorAll('.wf-gallery').forEach(function(gallery) {
-      var track = gallery.querySelector('.wf-gallery-track');
-      var progressBar = gallery.querySelector('.wf-gallery-progress-bar');
-      var isDown = false;
-      var startX, scrollLeft;
-
-      track.addEventListener('mousedown', function(e) {
-        isDown = true;
-        startX = e.pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-      });
-      track.addEventListener('mouseleave', function() { isDown = false; });
-      track.addEventListener('mouseup', function() { isDown = false; });
-      track.addEventListener('mousemove', function(e) {
-        if (!isDown) return;
-        e.preventDefault();
-        var x = e.pageX - track.offsetLeft;
-        var walk = (x - startX) * 1.5;
-        track.scrollLeft = scrollLeft - walk;
-      });
-
-      function updateProgress() {
-        var maxScroll = track.scrollWidth - track.clientWidth;
-        if (maxScroll <= 0) return;
-        var progress = track.scrollLeft / maxScroll;
-        // Bar is 25% wide, translate across remaining 75% (300% of bar width)
-        progressBar.style.transform = 'translateX(' + (progress * 300) + '%)';
-      }
-      track.addEventListener('scroll', updateProgress, { passive: true });
-      updateProgress();
-    });
-  })();
+  // Handler portfolio-system.js'e taşındı, paylaşımlı.
 // Image zoom modal
 (function() {
   var modal = document.getElementById('image-zoom-modal');
