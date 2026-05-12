@@ -603,7 +603,6 @@ h2.sec-title {
 
 .option {
     background: #fff;
-    border: 1px solid var(--line);
     border-radius: var(--radius-frame);
     padding: 28px 28px;
     display: flex;
@@ -648,10 +647,9 @@ h2.sec-title {
   margin: 0;
 }
 
-.option.not-chosen { opacity: .88; }
-
+/* not-chosen tam opacity ile render — eskiden 0.88 idi,
+   Inghams ile aynı davranış. */
 .option.chosen {
-    border-color: var(--teal-light);
     background: #fff;
   }
 
@@ -901,7 +899,6 @@ h2.sec-title {
 }
 .option {
   background: #fff;
-  border: 1px solid var(--line);
   border-radius: var(--radius-frame);
   padding: 32px 32px 28px;
   display: flex;
