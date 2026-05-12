@@ -155,11 +155,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 75%;
-    height: 110%;
-    transform: translate(-50%, -50%) rotate(90deg);
+    width: 78%;
+    height: 108%;
+    /* Daha yamuk/asymmetric oval — basit rotate yerine skew +
+       asymmetric border-radius. Form daha organik, "elle çizilmiş"
+       hissi veriyor. */
+    transform: translate(-50%, -50%) rotate(72deg) skewX(-10deg);
     background: var(--chip);
-    border-radius: 50%;
+    border-radius: 56% 44% 60% 40% / 50% 56% 44% 50%;
     z-index: 0;
     pointer-events: none;
   }
