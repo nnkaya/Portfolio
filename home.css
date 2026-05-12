@@ -877,17 +877,22 @@ html { scroll-padding-top: 120px; }
   /* Fixed aspect ratio crops the image so its container size
      no longer depends on the native image proportions. This
      keeps the column width predictable and lets the image
-     sit visually mid-aligned with the prose horizontally. */
+     sit visually mid-aligned with the prose horizontally.
+     Bumped from 360px to 480px so the portrait reads as a
+     substantial counterweight to the bio prose. */
   width: 100%;
-  max-width: 360px;
-  aspect-ratio: 360 / 290;
+  max-width: 480px;
+  aspect-ratio: 480 / 360;
   align-self: center;
   justify-self: center;
   overflow: hidden;
 }
 .about-image img {
   width: 100%;
-  height: 65%;
+  /* Image takes 90% of the container height instead of 65%, so
+     it occupies more of the visible frame and feels weightier
+     against the prose column. */
+  height: 90%;
   object-fit: cover;
   object-position: center;
   display: block;
