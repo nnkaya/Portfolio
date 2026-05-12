@@ -8,9 +8,8 @@
 :root {
   /* Ink */
   --ink: #0A0F1A;
-  /* --ink-soft koyulaştırıldı (önceki #475061 → #2A323D) — body
-     copy ve secondary metinde okunabilirlik için, özellikle bg
-     ve bg-alt üzerinde. */
+  /* --ink-soft darkened (was #475061 → #2A323D) for readability
+     in body copy + secondary text, especially over bg/bg-alt. */
   --ink-soft: #2A323D;
 
   /* Muted — AA-compliant on both --bg (#FAFAF6) and --bg-alt
@@ -1416,9 +1415,9 @@ h1.title {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
-/* Hemen üstünde .show-mini-title (örn. "Outcome") varsa,
-   default 64px margin-top'u daha sıkı bir değere düşür —
-   başlık ve stat box'lar bir grup olarak görünür. */
+/* When a .show-mini-title (e.g. "Outcome") sits directly above
+   the strip, tighten the default 64px margin so the heading
+   and its stats read as a single group. */
 .show-mini-title + .stat-strip-wide {
   margin-top: var(--gap-stack);
 }
@@ -1511,8 +1510,8 @@ h1.title {
   font-weight: 500;
   margin-left: 6px;
 }
-/* Inline %/unit spans (HTML'de style ile yazılmış, .unit class'ı
-   yok) — yine de "%" karakterinden önce nefes alanı verelim. */
+/* Inline %/unit spans written via inline style in HTML (no
+   .unit class) — still give the "%" some breathing room. */
 .stat-card-num > span { margin-left: 6px; }
 .case-stat-num > span { margin-left: 6px; }
 .stat-card-label {
@@ -2519,9 +2518,8 @@ h1.title {
     padding-bottom: var(--m-section) !important;
   }
   .hero { padding-bottom: 48px !important; }
-  /* Mobile'da topbar pill ile chip-row arasında daha çok nefes
-     alanı: desktop 64px → mobile 96px. Pill'ler artık topbar'a
-     yapışmıyor. */
+  /* More room between the topbar pill and the chip-row on
+     mobile: desktop 64px → mobile 96px. */
   .hero { margin-top: 96px !important; }
   .closing-section { padding-bottom: 48px !important; padding-top: 8px !important; }
   /* Big statements: rhythm comes from previous section's padding-bottom only.
@@ -2718,9 +2716,9 @@ h1.title {
   .closing-next { margin-top: 32px !important; }
   .closing-signoff { margin-top: 32px !important; }
   .closing-section > .closing-signoff { margin-top: 32px !important; }
-  /* Mobile: avatar + identity (name & title) yan yana ilk satırda,
-     social links bir alt satıra wrap eder. Yatay alan dar olsa da
-     "NK · Nur Kaya / Product Designer" tek bakışta okunabilir. */
+  /* Mobile: avatar + identity sit on the first row; social
+     links wrap to a second row. Keeps "NK · Nur Kaya / Product
+     Designer" readable at a glance on narrow widths. */
   .closing-signoff {
     flex-direction: row;
     flex-wrap: wrap;
@@ -2731,8 +2729,8 @@ h1.title {
     flex-basis: 100%;
     margin-top: 4px;
   }
-  /* Eski .contrib-signoff (kullanılmıyor ama tarihsel sebeple var)
-     hâlâ dikey stack edebilir. */
+  /* Legacy .contrib-signoff (unused but kept for historical
+     reasons) can still stack vertically. */
   .contrib-signoff {
     flex-direction: column;
     align-items: flex-start;
@@ -3044,8 +3042,8 @@ h1.title {
     align-items: flex-start;
     text-align: left;
   }
-  /* Mobile pager: sadece "← Previous" / "Next →" görünür. Work
-     numarası ve case başlığı kalabalık yapıyordu, ikisi de gizli. */
+  /* Mobile pager: only "← Previous" / "Next →" remain visible.
+     The work number suffix and case title are noise here. */
   .case-pager-suffix,
   .case-pager-title { display: none; }
 

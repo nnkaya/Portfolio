@@ -185,8 +185,8 @@ html { scroll-padding-top: 120px; }
   aspect-ratio: 4 / 5;
   max-width: 320px;
   justify-self: end;
-  /* Float etiketler image bounds dışına taşıyor; overflow visible
-     bunu mümkün kılıyor (default zaten visible). */
+  /* Float pills sit outside the image bounds — overflow stays
+     visible (default) so they don't get clipped. */
 }
 .home-hero-image img {
   width: 100%;
@@ -197,10 +197,8 @@ html { scroll-padding-top: 120px; }
 }
 
 /* ── HERO FLOAT PILLS ────────────────────────────────────────
-   Hero portresinin etrafında 3 statik pill etiket. Floating
-   animasyonu yok; sadece tilt + sabit pozisyon. Konumlar
-   kullanıcının işaretlediği yerlere göre: üst (kafanın hizası),
-   sağ kenar ortası, sol-alt köşe. */
+   Three static labels positioned around the hero portrait.
+   Tilt + fixed placement, no float animation. */
 .hero-float {
   position: absolute;
   z-index: 2;
@@ -218,19 +216,16 @@ html { scroll-padding-top: 120px; }
   box-shadow: 0 14px 28px -14px rgba(11, 18, 32, 0.18);
   pointer-events: none;
 }
-/* Konumlar kullanıcının işaretlediği yerlere göre — hepsi image'ın
-   üst/sağ taraflarına dağılmış. translateX değerleri pill'in kendi
-   genişliğine göre (viewport'a değil) → image scale değişirken
-   overhang oranı sabit, daima viewport içinde kalır. */
+/* translateX values are pill-relative (not viewport-relative)
+   so the overhang ratio stays constant as the image scales —
+   pills never drift outside the viewport. */
 .hero-float--1 {
-  /* Top-left — image üstünden taşar, sol tarafta */
   top: 17px;
   left: -10%;
   transform: rotate(-14deg);
   transform-origin: left center;
 }
 .hero-float--2 {
-  /* Top-right — sağ-üst, image sağ kenarından %40 pill-width dışa */
   top: 3%;
   right: 0;
   transform: translateX(40%) rotate(18deg);
@@ -240,7 +235,6 @@ html { scroll-padding-top: 120px; }
   border-color: var(--teal-light);
 }
 .hero-float--3 {
-  /* Bottom-right — alt-sağ köşeden dışa sarkar */
   bottom: -12px;
   right: 0;
   transform: translateX(28%) rotate(-22deg);
@@ -433,8 +427,6 @@ html { scroll-padding-top: 120px; }
    single short label below. Both labels deliberately short so
    they sit on one line and the cells stay visually balanced. */
 .case-card-stats {
-  /* 2 cell yan yana, sola kümelenmiş. Label'ler tek satırda
-     kalır (wrap yok), iki stat arasında belirgin padding. */
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -444,8 +436,6 @@ html { scroll-padding-top: 120px; }
   border-top: 1px solid var(--line);
 }
 .case-card-stats .case-stat {
-  /* Cell content-width, max-width yok → wrap zorlamaz. Label'in
-     kendisi white-space: nowrap ile alt satıra inmez. */
   flex: 0 0 auto;
 }
 .case-card-stats .case-stat-label {
@@ -796,8 +786,8 @@ html { scroll-padding-top: 120px; }
 }
 .about-p {
   max-width: 64ch;
-  /* body-p'den miras alınan margin-bottom: var(--gap-stack) (24px)
-     sıfırlanıyor — about-prose flex gap (12px) tek başına yeterli. */
+  /* Zero out body-p's inherited margin-bottom (24px) — the
+     about-prose flex gap (12px) handles spacing on its own. */
   margin-bottom: 0;
 }
 .about-p strong { font-weight: 600; color: var(--teal-ink); }

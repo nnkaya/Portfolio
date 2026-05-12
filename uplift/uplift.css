@@ -157,9 +157,8 @@
     left: 50%;
     width: 78%;
     height: 108%;
-    /* Daha yamuk/asymmetric oval — basit rotate yerine skew +
-       asymmetric border-radius. Form daha organik, "elle çizilmiş"
-       hissi veriyor. */
+    /* Skew + asymmetric border-radius instead of a plain rotated
+       oval — gives the shape a hand-drawn, organic feel. */
     transform: translate(-50%, -50%) rotate(72deg) skewX(-10deg);
     background: var(--chip);
     border-radius: 56% 44% 60% 40% / 50% 56% 44% 50%;
@@ -390,9 +389,8 @@ h2.sec-title {
   text-transform: uppercase;
   color: var(--muted);
 }
-/* Inline alt-açıklama — process-list-name içinde "Test — A/B
-   testing..." gibi. Block değil, yan satırda akar, hafif daha
-   açık tonda. */
+/* Inline subtitle — sits next to process-list-name (e.g. "Test
+   — A/B testing..."). Flows inline rather than as its own block. */
 .process-list-sub {
   font-family: 'Switzer', sans-serif;
   font-size: 12.5px;
@@ -661,8 +659,8 @@ h2.sec-title {
   margin: 0;
 }
 
-/* not-chosen tam opacity ile render — eskiden 0.88 idi,
-   Inghams ile aynı davranış. */
+/* not-chosen renders at full opacity — was 0.88 before. Matches
+   the Inghams pattern. */
 .option.chosen {
     background: #fff;
   }

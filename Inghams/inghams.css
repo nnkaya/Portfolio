@@ -297,16 +297,16 @@ h3.sub-title {
     transition: transform .25s ease, box-shadow .25s ease;
   }
 
-/* not-chosen artık tam opacity (1.0) ile render ediliyor — eskiden
-   default 0.88 idi ve sadece hover'da 1.0'a çıkıyordu. Hover state
-   kaldırıldı, "darker" görünüm her zaman varsayılan. */
+/* not-chosen now renders at full opacity by default (was 0.88
+   with hover bumping to 1.0). The "darker" hover look is the
+   permanent state. */
 
 
 /* ── DESIGN PRINCIPLES ──────────────────────────────────────
-   .section-3 (Challenge + Approach) içinde son element. 2-col
-   parent grid'inde full-width (1/-1), approach-panel altında.
-   3-col yatay liste — her ilke kendi sütununda, icon solda +
-   metin sağda. */
+   Last element inside .section-3 (Challenge + Approach), spanning
+   the full 2-col parent grid (1/-1) under the approach panel.
+   Horizontal 3-column list: each principle gets its own column,
+   icon on the left, text on the right. */
 .section-3 .design-principles {
   grid-column: 1 / -1;
 }
@@ -352,9 +352,8 @@ h3.sub-title {
   margin: 0;
 }
 
-/* Option border'ları kaldırıldığı için .chosen state artık yalnızca
-   üstündeki "Selected" pill ile belirtiliyor — kart background'u
-   beyaz, ekstra vurgu yok. */
+/* Option borders are gone, so the .chosen state is communicated
+   only by the "Selected" pill above — the card stays plain white. */
 .option.chosen {
     background: #fff;
   }
@@ -445,9 +444,9 @@ h3.sub-title {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-/* SVG'lerin kendi canvas bg ve frame'i var — CSS background veya
-   border-radius eklemek köşelerde overlap/cut oluşturuyordu. SVG
-   tek görsel kaynak olarak bırakıldı. */
+/* The SVGs carry their own canvas bg and frame — adding a CSS
+   background or border-radius caused corner overlap/clipping.
+   SVG remains the single visual source. */
 
 .prow-bar.sub {
     height: 3px;
@@ -595,9 +594,9 @@ h3.sub-title {
 .solution-head {
     margin-bottom: var(--header-mb);
   }
-/* .solution-cta stil tanımı portfolio-system.css'e taşındı —
-   diğer case study'lerde de ("View live product" linki) aynı
-   görünümle kullanılabilsin diye. */
+/* .solution-cta has been moved to portfolio-system.css so other
+   case studies can reuse the same "View live product" link
+   styling. */
 
 .device-strip {
     display: grid;
