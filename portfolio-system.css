@@ -333,11 +333,13 @@ img {
 
 
 /* ── HAMBURGER (mobile only) ──
-   Plain SVG icon, no chip background. The button still has a
-   tap target of 40×40 so finger taps land comfortably. */
+   Plain SVG icon, no chip background. The button keeps a
+   generous 44×44 tap target so finger taps land comfortably,
+   and the icon itself reads at 30px for clear visibility on
+   the mobile pill. */
 .nav-toggle {
   display: none;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   background: transparent;
   border: 0;
   padding: 0;
@@ -349,8 +351,8 @@ img {
 }
 .nav-toggle:hover { color: var(--teal); }
 .nav-toggle svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   display: block;
 }
 
@@ -2256,6 +2258,15 @@ h1.title {
   font-family: 'Satoshi', sans-serif;
   font-weight: 600; font-size: 14px;
   flex-shrink: 0;
+  /* Anchor variant — when wrapped in <a>, the NK monogram acts
+     as a logo link back to the homepage. Reset link defaults and
+     add a teal-on-hover affordance. */
+  text-decoration: none;
+  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+a.closing-avatar:hover {
+  background: var(--teal);
+  transform: translateY(-1px);
 }
 /* Also used as .avatar in Inghams */
 .avatar {
@@ -2550,11 +2561,10 @@ h1.title {
     padding-bottom: var(--m-section) !important;
   }
   .hero { padding-bottom: 48px !important; }
-  /* Mobile case hero sits closer to the floating topbar — the
-     chip-row immediately follows the pill instead of being
-     pushed far down the viewport. Used to be 96px; the tighter
-     56px keeps the eyebrow line within first-glance reach. */
-  .hero { margin-top: 56px !important; }
+  /* Mobile case hero sits right under the floating topbar so
+     the chip-row eyebrow is reachable as soon as the page
+     paints. */
+  .hero { margin-top: 24px !important; }
   .closing-section { padding-bottom: 48px !important; padding-top: 8px !important; }
   /* Big statements: rhythm comes from previous section's padding-bottom only.
      No padding-top — keeps gap symmetric with all other section breaks. */
@@ -2761,7 +2771,9 @@ h1.title {
   }
   .closing-signoff .closing-socials {
     flex-basis: 100%;
-    margin-top: 4px;
+    /* Drop the socials onto their own line with proper
+       breathing room from the avatar + identity above. */
+    margin-top: 24px;
   }
   /* Legacy .contrib-signoff (unused but kept for historical
      reasons) can still stack vertically. */

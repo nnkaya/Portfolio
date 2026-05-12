@@ -97,9 +97,12 @@
         if (hash === PASSWORD_HASH) {
           sessionStorage.setItem(SESSION_KEY, 'true');
           markLoaderShown();
-          el.classList.remove('is-locked');
           gateForm.hidden = true;
-          fadeOut(150);
+          // Instantly hide the loader — no fade, no flash of the
+          // progress bar reappearing after .is-locked is removed.
+          // Reuses the pre-paint skip class which applies
+          // display:none on the loader.
+          document.documentElement.classList.add('loader-skip');
         } else {
           if (error) error.hidden = false;
           input.value = '';
