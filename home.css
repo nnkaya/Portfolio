@@ -1047,16 +1047,16 @@ html { scroll-padding-top: 120px; }
     grid-template-columns: 1fr;
   }
   .home-hero-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--gap-tight);
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     font-size: 10.5px;
   }
-  /* Mobile order: "Portfolio 2026" above "Product Designer
-     based in Berlin". Divider is decorative on desktop only. */
-  .home-hero-divider { display: none; }
-  .home-hero-meta-text { order: 1; }
-  .home-hero-eyebrow { order: 2; }
+  /* Mobile order matches desktop: "Based in Berlin" then
+     divider then "Portfolio 2026", sitting side by side on
+     one line. */
+  .home-hero-divider { display: inline-block; width: 18px; }
   .home-hero-statement {
     font-size: clamp(34px, 16vw, 60px);
   }
@@ -1100,6 +1100,11 @@ html { scroll-padding-top: 120px; }
   }
   .case-stat { min-width: 0; }
   .case-stat-num { font-size: 18px; }
+  /* On mobile, drop the nowrap on stat labels so longer strings
+     (e.g. "Explored beyond country") can break onto a second
+     line instead of getting truncated/overflowing the narrow
+     column. */
+  .case-card-stats .case-stat-label { white-space: normal; }
   .case-card-spotlight { display: none; }
   .case-card-mobile-cta { display: inline-flex; }
 
@@ -1124,12 +1129,9 @@ html { scroll-padding-top: 120px; }
     grid-template-columns: 1fr;
     gap: var(--gap-stack);
   }
-  .about-image {
-    max-width: 240px;
-    align-self: start;
-    justify-self: start;
-    justify-content: flex-start;
-  }
+  /* About image hidden on mobile — bio prose alone reads more
+     focused without the portrait competing for vertical space. */
+  .about-image { display: none; }
 
   /* Desktop strips the margin above the footer entirely;
      mobile re-adds breathing room so the footer doesn't

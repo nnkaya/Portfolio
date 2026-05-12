@@ -1348,7 +1348,15 @@ h2.sec-title {
     gap: 0;
   }
   .context-section .copy-col { display: contents; }
-  .context-section .copy-col .eyebrow { order: 1; }
+  /* Force the eyebrow to the left edge of the section — without
+     this it inherits stretch behaviour from the flex container
+     and can render centered behind the .context-image which is
+     centered via auto margins on mobile. */
+  .context-section .copy-col .eyebrow {
+    order: 1;
+    align-self: flex-start;
+    text-align: left;
+  }
   .context-section .copy-col .sec-title { order: 2; }
   .context-section .copy-col .body-p { order: 3; margin-bottom: var(--m-block); }
   .context-section .context-image { order: 4; margin-bottom: var(--m-block); }

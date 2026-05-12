@@ -1172,11 +1172,13 @@ h3.sub-title {
   .workshop-head .right { padding-top: 0 !important; }
   .options-row { grid-template-columns: 1fr; gap: var(--m-block); }
   .option { padding: 24px 20px; }
-  /* Stack the two option SVGs vertically */
+  /* Stack the two option SVGs vertically. More breathing room
+     between the two SVGs on mobile so each preview reads as a
+     distinct frame instead of bleeding into the next. */
   .option .preview-stage {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 28px;
   }
   .option .preview-stage .asset-img {
     width: 100%;
