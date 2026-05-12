@@ -218,32 +218,33 @@ html { scroll-padding-top: 120px; }
   box-shadow: 0 14px 28px -14px rgba(11, 18, 32, 0.18);
   pointer-events: none;
 }
-/* Konumlar tamamen image bounds içinde — negatif left yok (metinle
-   overlap riski yok), sağa taşma minimal (page-pad buffer'ı içinde
-   kalıyor). Pill'ler image'a "yapışık" durur, viewport scale ettikçe
-   image ile birlikte küçülürler. */
+/* Konumlar kullanıcının işaretlediği yerlere göre — hepsi image'ın
+   üst/sağ taraflarına dağılmış. translateX değerleri pill'in kendi
+   genişliğine göre (viewport'a değil) → image scale değişirken
+   overhang oranı sabit, daima viewport içinde kalır. */
 .hero-float--1 {
-  /* Üst-sağ — image'in tepesinde, sağ kenara yaslı */
-  top: -16px;
-  right: 0;
-  transform: rotate(-10deg);
-  transform-origin: right top;
+  /* Top-left — image'in üst kenarında, sol tarafa yakın */
+  top: -10px;
+  left: 4%;
+  transform: rotate(-12deg);
+  transform-origin: left top;
 }
 .hero-float--2 {
-  /* Sağ — image'in sağ kenarına yapışık, image içinden taşmaz */
-  top: 44%;
+  /* Top-right — image sağ kenarından dışarı taşar (pill'in %25'i) */
+  top: 14%;
   right: 0;
-  transform: translateX(28%) rotate(16deg);
+  transform: translateX(25%) rotate(18deg);
   transform-origin: left center;
   color: var(--teal-ink);
   background: var(--chip);
   border-color: var(--teal-light);
 }
 .hero-float--3 {
-  /* Sol-alt — image içinde, soldan %8 inset (negatif yok). */
-  bottom: -14px;
-  left: 8%;
-  transform: rotate(-12deg);
+  /* Bottom-right — alt-sağ köşeden dışarı sarkar */
+  bottom: -8px;
+  right: 0;
+  transform: translateX(18%) rotate(-18deg);
+  transform-origin: right top;
 }
 
 
