@@ -218,25 +218,31 @@ html { scroll-padding-top: 120px; }
   box-shadow: 0 14px 28px -14px rgba(11, 18, 32, 0.18);
   pointer-events: none;
 }
+/* Konumlar tamamen image bounds içinde — negatif left yok (metinle
+   overlap riski yok), sağa taşma minimal (page-pad buffer'ı içinde
+   kalıyor). Pill'ler image'a "yapışık" durur, viewport scale ettikçe
+   image ile birlikte küçülürler. */
 .hero-float--1 {
-  /* Üst — image'in tepesinin üzerinde, hafif sola yatık */
-  top: -18px;
-  left: 18%;
+  /* Üst-sağ — image'in tepesinde, sağ kenara yaslı */
+  top: -16px;
+  right: 0;
   transform: rotate(-10deg);
+  transform-origin: right top;
 }
 .hero-float--2 {
-  /* Sağ — image'in dışında, sağ-orta hizasında, sağa yatık */
-  top: 46%;
-  right: -52%;
-  transform: rotate(16deg);
+  /* Sağ — image'in sağ kenarına yapışık, image içinden taşmaz */
+  top: 44%;
+  right: 0;
+  transform: translateX(28%) rotate(16deg);
+  transform-origin: left center;
   color: var(--teal-ink);
   background: var(--chip);
   border-color: var(--teal-light);
 }
 .hero-float--3 {
-  /* Sol-alt — image'in alt kısmında, sola yatık */
-  bottom: -16px;
-  left: -28%;
+  /* Sol-alt — image içinde, soldan %8 inset (negatif yok). */
+  bottom: -14px;
+  left: 8%;
   transform: rotate(-12deg);
 }
 
