@@ -8,7 +8,10 @@
 :root {
   /* Ink */
   --ink: #0A0F1A;
-  --ink-soft: #475061;
+  /* --ink-soft koyulaştırıldı (önceki #475061 → #2A323D) — body
+     copy ve secondary metinde okunabilirlik için, özellikle bg
+     ve bg-alt üzerinde. */
+  --ink-soft: #2A323D;
 
   /* Muted — AA-compliant on both --bg (#FAFAF6) and --bg-alt
      (#EFEFE9). Originally #525E66 (5.7:1 on bg-alt) felt too

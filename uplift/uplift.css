@@ -387,11 +387,15 @@ h2.sec-title {
   text-transform: uppercase;
   color: var(--muted);
 }
+/* Inline alt-açıklama — process-list-name içinde "Test — A/B
+   testing..." gibi. Block değil, yan satırda akar, hafif daha
+   açık tonda. */
 .process-list-sub {
   font-family: 'Switzer', sans-serif;
   font-size: 12.5px;
+  font-weight: 400;
   color: var(--muted);
-  margin-top: 2px;
+  margin-left: 4px;
   line-height: 1.4;
 }
 .process-list-name {
