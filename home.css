@@ -59,6 +59,81 @@ html { scroll-padding-top: 120px; }
 }
 @keyframes loadBar { to { width: 100%; } }
 
+/* When the gate is active, suppress the auto-progress bar so it
+   doesn't distract from the password form sitting beneath it. */
+.loader.is-locked .loader-bar { display: none; }
+
+/* ── PASSWORD GATE ────────────────────────────────────────────
+   Sits inside .loader-inner, below the wordmark. Minimal form:
+   a small uppercase label, a single text input with a hairline
+   underline, an inline submit button, and an error line that
+   only appears on a wrong attempt. Designed to feel like an
+   extension of the loader, not a modal. */
+.password-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: min(320px, 80vw);
+  margin: 0;
+}
+.password-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.password-gate input[type="password"] {
+  width: 100%;
+  padding: 10px 4px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s var(--ease-out);
+}
+.password-gate input[type="password"]:focus {
+  border-bottom-color: var(--teal);
+}
+.password-gate button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.password-gate button:hover {
+  background: var(--teal);
+  transform: translateY(-1px);
+}
+.password-error {
+  margin: 0;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warn);
+}
+
 
 /* ── CUSTOM CURSOR ────────────────────────────────────────────
    "View →" pill that appears only when hovering a case card.

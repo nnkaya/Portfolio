@@ -12,11 +12,18 @@
 </head>
 <body>
 
-<!-- LOADER -->
+<!-- LOADER + PASSWORD GATE -->
 <div class="loader" id="loader">
   <div class="loader-inner">
     <span class="loader-word">Nur Kaya</span>
     <span class="loader-bar"></span>
+
+    <form class="password-gate" id="password-gate" autocomplete="off" hidden>
+      <label for="password-input" class="password-label">Enter password to view portfolio</label>
+      <input type="password" id="password-input" name="p" autocomplete="off" required spellcheck="false">
+      <button type="submit">Enter <span aria-hidden="true">→</span></button>
+      <p class="password-error" id="password-error" hidden>Incorrect password</p>
+    </form>
   </div>
 </div>
 

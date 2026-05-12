@@ -13,20 +13,82 @@
   var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
 
-  /* ── LOADER ─────────────────────────────────────────────────
-     Fades out shortly after window 'load'. Fallback timer
-     covers the case where 'load' has already fired. */
-  (function loader() {
+  /* ── LOADER + PASSWORD GATE ─────────────────────────────────
+     Two modes:
+       1. If sessionStorage flag set (already unlocked this tab)
+          or no password configured → behave like the original
+          loader (auto-fade after 600 ms / window load).
+       2. Otherwise show the password form, keep the loader in
+          place until the correct password is entered. Hash
+          (SHA-256 hex) is compared client-side. This is a
+          polite barrier, not real security — anyone determined
+          can bypass via DevTools. Good enough to block search
+          engines and casual browsing.
+
+     To set/change the password locally: paste this in a browser
+     console, then replace PASSWORD_HASH below with the result.
+       crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_PASSWORD'))
+         .then(b => console.log([...new Uint8Array(b)]
+           .map(x => x.toString(16).padStart(2,'0')).join(''))); */
+  (function loaderAndGate() {
     var el = document.getElementById('loader');
     if (!el) return;
-    if (reduceMotion) {
-      el.classList.add('is-done');
+
+    var SESSION_KEY = 'nk_unlocked';
+    // SHA-256 hex of the gate password. Empty string = no gate.
+    // Current password: "portfolio26"
+    var PASSWORD_HASH = '28f0ee33f463deb755ce881ff9987ab2e6cf13844f03246eaf775680d2ca0f92';
+
+    function fadeOut(delay) {
+      setTimeout(function () { el.classList.add('is-done'); }, delay || 0);
+    }
+
+    function runStandardLoader() {
+      if (reduceMotion) { el.classList.add('is-done'); return; }
+      window.addEventListener('load', function () { fadeOut(600); });
+      fadeOut(1400);
+    }
+
+    var alreadyUnlocked = sessionStorage.getItem(SESSION_KEY) === 'true';
+    var gateForm = document.getElementById('password-gate');
+
+    // No password configured, no form, or already unlocked → skip gate
+    if (!PASSWORD_HASH || !gateForm || alreadyUnlocked) {
+      runStandardLoader();
       return;
     }
-    window.addEventListener('load', function () {
-      setTimeout(function () { el.classList.add('is-done'); }, 600);
+
+    // Show the gate, suppress the auto progress bar
+    el.classList.add('is-locked');
+    gateForm.hidden = false;
+    var input = document.getElementById('password-input');
+    var error = document.getElementById('password-error');
+    if (input) input.focus();
+
+    function sha256hex(text) {
+      var data = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', data).then(function (buf) {
+        return Array.from(new Uint8Array(buf)).map(function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    }
+
+    gateForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      sha256hex(input.value).then(function (hash) {
+        if (hash === PASSWORD_HASH) {
+          sessionStorage.setItem(SESSION_KEY, 'true');
+          el.classList.remove('is-locked');
+          gateForm.hidden = true;
+          fadeOut(150);
+        } else {
+          if (error) error.hidden = false;
+          input.value = '';
+          input.focus();
+        }
+      });
     });
-    setTimeout(function () { el.classList.add('is-done'); }, 1400);
   })();
 
 
