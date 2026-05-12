@@ -444,10 +444,14 @@ html { scroll-padding-top: 120px; }
   border-top: 1px solid var(--line);
 }
 .case-card-stats .case-stat {
-  /* Content-width compact, ama container'ı aşarsa shrink edip
-     hücre içinde 2. satıra wrap eder (gerekli olduğunda). */
+  /* Cell genişliği max-width ile sınırlı — Inghams'in uzun
+     label'leri ("Preferred structured destination browsing" /
+     "Explored beyond country-level search") doğal olarak 2.
+     satıra wrap eder. Inntravel/Uplift kısa label'leri tek
+     satırda kalır. */
   flex: 0 1 auto;
   min-width: 0;
+  max-width: 180px;
 }
 .case-stat {
   display: flex;
