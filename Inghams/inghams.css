@@ -303,22 +303,18 @@ h3.sub-title {
 
 
 /* ── DESIGN PRINCIPLES ──────────────────────────────────────
-   "My Contribution"'dan önce gelen beige panel. Eyebrow + 3
-   ilke kartı yatay sıralı, her kartta chip-bg ikon + kısa metin.
-   Yapı .approach-panel (bg-alt) ile aynı sıcak tona oturuyor. */
+   "Workshop Exploration"'dan önce gelen kısa section. Eyebrow
+   + 3 ilke kartı yatay sıralı, panel bg yok — section sayfa bg
+   üzerinde direkt akar. Icon box ölçüleri sistem standardı
+   (.req-icon ile aynı: 64×64 chip-bg kutu, 32×32 ikon). */
 .design-principles {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--page-pad) 112px;
 }
-.design-principles-panel {
-  background: var(--bg-alt);
-  border-radius: var(--radius-frame);
-  padding: 36px 40px;
-}
-.design-principles-panel .eyebrow {
+.design-principles .eyebrow {
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .principles-grid {
   list-style: none;
@@ -330,13 +326,13 @@ h3.sub-title {
 }
 .principle {
   display: grid;
-  grid-template-columns: 48px 1fr;
+  grid-template-columns: 64px 1fr;
   gap: 18px;
   align-items: center;
 }
 .principle-icon {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -344,9 +340,10 @@ h3.sub-title {
   border-radius: var(--radius-card);
   flex-shrink: 0;
 }
-.principle-icon img {
-  width: 24px;
-  height: 24px;
+.principle-icon img,
+.principle-icon svg {
+  width: 32px;
+  height: 32px;
   display: block;
 }
 .principle-text {
@@ -1250,8 +1247,11 @@ h3.sub-title {
 
   /* Design Principles — 3 col → 1 col stack on mobile */
   .design-principles { padding-bottom: var(--m-section); }
-  .design-principles-panel { padding: 24px 20px; }
   .principles-grid { grid-template-columns: 1fr; gap: 18px; }
+  .principle { grid-template-columns: 56px 1fr; gap: 16px; }
+  .principle-icon { width: 56px; height: 56px; }
+  .principle-icon img,
+  .principle-icon svg { width: 26px; height: 26px; }
 
   /* ── SECTION 7: My Approach Phase 1 — device strip → snap carousel (Uplift Iterations style) ── */
   .solution-head {
