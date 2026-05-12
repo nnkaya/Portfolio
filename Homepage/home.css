@@ -433,25 +433,23 @@ html { scroll-padding-top: 120px; }
    single short label below. Both labels deliberately short so
    they sit on one line and the cells stay visually balanced. */
 .case-card-stats {
-  /* 2 cell yan yana, sola kümelenmiş, kompakt. Cell'ler content
-     kadar genişlik alır — grid'i doldurmaya zorlanmaz. */
+  /* 2 cell yan yana, sola kümelenmiş. Label'ler tek satırda
+     kalır (wrap yok), iki stat arasında belirgin padding. */
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: var(--gap-row);
+  gap: var(--gap-block);
   margin-top: var(--gap-hair);
   padding-top: var(--gap-stack);
   border-top: 1px solid var(--line);
 }
 .case-card-stats .case-stat {
-  /* Cell genişliği max-width ile sınırlı — Inghams'in uzun
-     label'leri ("Preferred structured destination browsing" /
-     "Explored beyond country-level search") doğal olarak 2.
-     satıra wrap eder. Inntravel/Uplift kısa label'leri tek
-     satırda kalır. */
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: 210px;
+  /* Cell content-width, max-width yok → wrap zorlamaz. Label'in
+     kendisi white-space: nowrap ile alt satıra inmez. */
+  flex: 0 0 auto;
+}
+.case-card-stats .case-stat-label {
+  white-space: nowrap;
 }
 .case-stat {
   display: flex;
