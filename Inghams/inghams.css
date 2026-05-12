@@ -289,7 +289,6 @@ h3.sub-title {
 
 .option {
     background: #fff;
-    border: 1px solid var(--line);
     border-radius: var(--radius-frame);
     padding: 32px 32px 28px;
     display: flex;
@@ -302,8 +301,10 @@ h3.sub-title {
    default 0.88 idi ve sadece hover'da 1.0'a çıkıyordu. Hover state
    kaldırıldı, "darker" görünüm her zaman varsayılan. */
 
+/* Option border'ları kaldırıldığı için .chosen state artık yalnızca
+   üstündeki "Selected" pill ile belirtiliyor — kart background'u
+   beyaz, ekstra vurgu yok. */
 .option.chosen {
-    border-color: var(--teal-light);
     background: #fff;
   }
 
@@ -543,10 +544,33 @@ h3.sub-title {
 .solution-head {
     margin-bottom: var(--header-mb);
   }
-/* "View live product" CTA, solution-intro paragrafının altında —
-   solution-head .right kolonunda start-aligned, hafif üst boşluk. */
+/* "View live product" — button değil, inline text link.
+   solution-intro paragrafının altında, ikonla birlikte. */
 .solution-head .solution-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin-top: 24px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--teal);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+.solution-head .solution-cta:hover {
+  color: var(--teal-ink);
+}
+.solution-head .solution-cta svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
 }
 
 .device-strip {
