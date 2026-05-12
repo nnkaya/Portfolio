@@ -551,22 +551,9 @@
     padding: 0 56px 80px;
   }
 
-.contrib-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-    gap: 72px;
-    align-items: start;
-    margin-bottom: 48px;
-  }
-  .contrib-header .left {
-    padding-top: 4px;
-  }
-  .contrib-header .right {
-    padding-top: 32px;
-    max-width: 720px;
-  }
-
-.contrib-header .left .eyebrow { margin-bottom: 20px; }
+/* Contribution section now uses the system .section-head.contrib-head
+   layout (matching Inghams / Tracker). Local override removed so the
+   right-column paragraph aligns identically across all case studies. */
 
 /* Case-only override: add a 56px gap before the reflection block. */
 .contrib-list-new { margin-bottom: 56px; }
@@ -668,7 +655,6 @@
   .tray-head,
   .solution-head,
   .phase2-head,
-  .contrib-header,
   .contribution-header,
   .closing-section-head,
   .phase-gallery,
