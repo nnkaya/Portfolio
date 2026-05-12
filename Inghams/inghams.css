@@ -32,17 +32,7 @@
    case study lays out identically. Inghams-only spacing and
    asset rules stay below. */
 
-.chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--chip);
-    color: var(--teal-ink);
-    padding: 7px 14px;
-    border-radius: var(--radius-pill);
-    font-family: 'Satoshi', sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
+/* .chip lives in portfolio-system.css */
 
 .actions {
     display: flex; gap: 12px;
@@ -1065,12 +1055,7 @@ h3.sub-title {
 
 
 /* ── RESTORED: Options Row + WF Gallery ── */
-.options-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
+/* .options-row lives in portfolio-system.css */
 
 .hero-image-mobile { display: none; }
 .iterations-progress { display: none; }

@@ -957,12 +957,7 @@ h2.sec-title {
 }
 
 /* ── RESTORED: Options Row + WF Gallery ── */
-.options-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
+/* .options-row lives in portfolio-system.css */
 .wf-gallery-track {
   display: flex;
   gap: 24px;
