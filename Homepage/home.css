@@ -779,7 +779,9 @@ html { scroll-padding-top: 120px; }
 .about-prose {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-stack);
+  /* Paragraphs sit tighter so the two-paragraph version reads as
+     one continuous bio rather than two separate blocks. */
+  gap: 12px;
 }
 .about-p {
   max-width: 64ch;
