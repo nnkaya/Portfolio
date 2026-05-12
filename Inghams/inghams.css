@@ -303,14 +303,14 @@ h3.sub-title {
 
 
 /* ── DESIGN PRINCIPLES ──────────────────────────────────────
-   "Workshop Exploration"'dan önce gelen kısa section. Eyebrow
-   + 3 ilke kartı yatay sıralı, panel bg yok — section sayfa bg
-   üzerinde direkt akar. Icon box ölçüleri sistem standardı
-   (.req-icon ile aynı: 64×64 chip-bg kutu, 32×32 ikon). */
+   3. section konumunda (Context+Opp ile Challenge+Approach
+   arasında). Sistem section pattern'i: var(--container)
+   max-width + var(--section-gap) (140px) bottom padding —
+   .section-2, .section-3 vb. ile aynı dikey ritim. */
 .design-principles {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 var(--page-pad) 112px;
+  padding: 0 var(--page-pad) var(--section-gap);
 }
 .design-principles .eyebrow {
   display: block;
