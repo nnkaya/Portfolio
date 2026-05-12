@@ -224,14 +224,14 @@ html { scroll-padding-top: 120px; }
    overhang oranı sabit, daima viewport içinde kalır. */
 .hero-float--1 {
   /* Top-left — image üstünden taşar, sol tarafta */
-  top: -18px;
-  left: 6%;
+  top: 17px;
+  left: -10%;
   transform: rotate(-14deg);
   transform-origin: left center;
 }
 .hero-float--2 {
   /* Top-right — sağ-üst, image sağ kenarından %40 pill-width dışa */
-  top: 8%;
+  top: 3%;
   right: 0;
   transform: translateX(40%) rotate(18deg);
   transform-origin: left center;
@@ -241,7 +241,7 @@ html { scroll-padding-top: 120px; }
 }
 .hero-float--3 {
   /* Bottom-right — alt-sağ köşeden dışa sarkar */
-  bottom: -22px;
+  bottom: -12px;
   right: 0;
   transform: translateX(28%) rotate(-22deg);
   transform-origin: left center;
