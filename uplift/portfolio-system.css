@@ -985,8 +985,8 @@ h1.title {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px 32px;
+  justify-content: flex-end;
+  gap: 24px 56px;
   /* Some breathing room above the meta divider so the line
      doesn't crowd the hero content directly above it. */
   margin-top: 32px;
