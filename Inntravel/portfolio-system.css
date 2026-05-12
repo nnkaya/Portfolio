@@ -985,7 +985,7 @@ h1.title {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 24px 56px;
   /* Some breathing room above the meta divider so the line
      doesn't crowd the hero content directly above it. */
@@ -1500,8 +1500,12 @@ h1.title {
 .stat-card-num .unit {
   font-size: 0.62em;
   font-weight: 500;
-  margin-left: 1px;
+  margin-left: 6px;
 }
+/* Inline %/unit spans (HTML'de style ile yazılmış, .unit class'ı
+   yok) — yine de "%" karakterinden önce nefes alanı verelim. */
+.stat-card-num > span { margin-left: 6px; }
+.case-stat-num > span { margin-left: 6px; }
 .stat-card-label {
   font-family: 'Satoshi', sans-serif;
   font-size: 12px;

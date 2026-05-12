@@ -458,7 +458,7 @@ html { scroll-padding-top: 120px; }
   font-size: 0.55em;
   font-weight: 500;
   color: var(--muted);
-  margin-left: 2px;
+  margin-left: 6px;
 }
 .case-stat-label {
   font-family: 'Satoshi', sans-serif;
