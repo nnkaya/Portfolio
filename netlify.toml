@@ -1,0 +1,66 @@
+# ─── Netlify configuration ────────────────────────────────────
+# Pure static site — Netlify serves files as-is, with the
+# /[folder]/index.html → /[folder]/ behaviour by default.
+
+[build]
+  publish = "."
+
+# Legacy redirects — anyone landing on the old folder URLs
+# (e.g. shared links from earlier iterations) gets bounced to
+# the new clean URL.
+[[redirects]]
+  from = "/Homepage/*"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/Inghams/Inghams.html"
+  to = "/inghams/"
+  status = 301
+
+[[redirects]]
+  from = "/Inghams/*"
+  to = "/inghams/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/Inntravel/Inntravel.html"
+  to = "/inntravel/"
+  status = 301
+
+[[redirects]]
+  from = "/Inntravel/*"
+  to = "/inntravel/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/uplift/loopingo_-_Uplift.html"
+  to = "/uplift/"
+  status = 301
+
+[[redirects]]
+  from = "/tracker/loopingo_-_Tracker.html"
+  to = "/tracker/"
+  status = 301
+
+# ─── Asset caching headers ───────────────────────────────────
+# Images and fonts can sit in the CDN for a year.
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
