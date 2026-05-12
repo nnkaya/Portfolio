@@ -303,14 +303,13 @@ h3.sub-title {
 
 
 /* ── DESIGN PRINCIPLES ──────────────────────────────────────
-   3. section konumunda (Context+Opp ile Challenge+Approach
-   arasında). Sistem section pattern'i: var(--container)
-   max-width + var(--section-gap) (140px) bottom padding —
-   .section-2, .section-3 vb. ile aynı dikey ritim. */
-.design-principles {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 var(--page-pad) var(--section-gap);
+   .section-3 (Challenge + Approach) içinde son element. 2-col
+   parent grid'inde full-width (1/-1), approach-panel altında.
+   Liste 3-col yatay yerine dikey stack — her ilke kendi
+   satırında, icon solda + metin sağda. */
+.section-3 .design-principles {
+  grid-column: 1 / -1;
+  margin-top: 56px;
 }
 .design-principles .eyebrow {
   display: block;
@@ -320,9 +319,9 @@ h3.sub-title {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .principle {
   display: grid;
@@ -1245,10 +1244,11 @@ h3.sub-title {
   .tray-label-row { gap: 6px !important; padding: 0 !important; }
   .tray-pill { font-size: 10px !important; padding: 3px 8px !important; }
 
-  /* Design Principles — 3 col → 1 col stack on mobile */
-  .design-principles { padding-bottom: var(--m-section); }
-  .principles-grid { grid-template-columns: 1fr; gap: 18px; }
-  .principle { grid-template-columns: 56px 1fr; gap: 16px; }
+  /* Design Principles — already vertical on desktop; mobile
+     just shrinks the icon box. */
+  .section-3 .design-principles { margin-top: var(--m-block); }
+  .principles-grid { gap: 16px; }
+  .principle { grid-template-columns: 56px 1fr; gap: 14px; }
   .principle-icon { width: 56px; height: 56px; }
   .principle-icon img,
   .principle-icon svg { width: 26px; height: 26px; }
