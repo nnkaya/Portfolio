@@ -223,28 +223,28 @@ html { scroll-padding-top: 120px; }
    genişliğine göre (viewport'a değil) → image scale değişirken
    overhang oranı sabit, daima viewport içinde kalır. */
 .hero-float--1 {
-  /* Top-left — image'in üst kenarında, sol tarafa yakın */
-  top: -10px;
-  left: 4%;
-  transform: rotate(-12deg);
-  transform-origin: left top;
+  /* Top-left — image üstünden taşar, sol tarafta */
+  top: -18px;
+  left: 6%;
+  transform: rotate(-14deg);
+  transform-origin: left center;
 }
 .hero-float--2 {
-  /* Top-right — image sağ kenarından dışarı taşar (pill'in %25'i) */
-  top: 14%;
+  /* Top-right — sağ-üst, image sağ kenarından %40 pill-width dışa */
+  top: 8%;
   right: 0;
-  transform: translateX(25%) rotate(18deg);
+  transform: translateX(40%) rotate(18deg);
   transform-origin: left center;
   color: var(--teal-ink);
   background: var(--chip);
   border-color: var(--teal-light);
 }
 .hero-float--3 {
-  /* Bottom-right — alt-sağ köşeden dışarı sarkar */
-  bottom: -8px;
+  /* Bottom-right — alt-sağ köşeden dışa sarkar */
+  bottom: -22px;
   right: 0;
-  transform: translateX(18%) rotate(-18deg);
-  transform-origin: right top;
+  transform: translateX(28%) rotate(-22deg);
+  transform-origin: left center;
 }
 
 
