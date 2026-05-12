@@ -2506,6 +2506,10 @@ h1.title {
     padding-bottom: var(--m-section) !important;
   }
   .hero { padding-bottom: 48px !important; }
+  /* Mobile'da topbar pill ile chip-row arasında daha çok nefes
+     alanı: desktop 64px → mobile 96px. Pill'ler artık topbar'a
+     yapışmıyor. */
+  .hero { margin-top: 96px !important; }
   .closing-section { padding-bottom: 48px !important; padding-top: 8px !important; }
   /* Big statements: rhythm comes from previous section's padding-bottom only.
      No padding-top — keeps gap symmetric with all other section breaks. */
@@ -2701,9 +2705,21 @@ h1.title {
   .closing-next { margin-top: 32px !important; }
   .closing-signoff { margin-top: 32px !important; }
   .closing-section > .closing-signoff { margin-top: 32px !important; }
-  /* Signoff stacks vertically on mobile — avatar/name/role/date don't
-     fit comfortably in a single row on narrow viewports. */
-  .closing-signoff,
+  /* Mobile: avatar + identity (name & title) yan yana ilk satırda,
+     social links bir alt satıra wrap eder. Yatay alan dar olsa da
+     "NK · Nur Kaya / Product Designer" tek bakışta okunabilir. */
+  .closing-signoff {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+  .closing-signoff .closing-socials {
+    flex-basis: 100%;
+    margin-top: 4px;
+  }
+  /* Eski .contrib-signoff (kullanılmıyor ama tarihsel sebeple var)
+     hâlâ dikey stack edebilir. */
   .contrib-signoff {
     flex-direction: column;
     align-items: flex-start;
@@ -3015,6 +3031,11 @@ h1.title {
     align-items: flex-start;
     text-align: left;
   }
+  /* Mobile pager: sadece "← Previous" / "Next →" görünür. Work
+     numarası ve case başlığı kalabalık yapıyordu, ikisi de gizli. */
+  .case-pager-suffix,
+  .case-pager-title { display: none; }
+
   .closing-socials {
     margin: 0;
     gap: 16px;
