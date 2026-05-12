@@ -301,6 +301,62 @@ h3.sub-title {
    default 0.88 idi ve sadece hover'da 1.0'a çıkıyordu. Hover state
    kaldırıldı, "darker" görünüm her zaman varsayılan. */
 
+
+/* ── DESIGN PRINCIPLES ──────────────────────────────────────
+   "My Contribution"'dan önce gelen beige panel. Eyebrow + 3
+   ilke kartı yatay sıralı, her kartta chip-bg ikon + kısa metin.
+   Yapı .approach-panel (bg-alt) ile aynı sıcak tona oturuyor. */
+.design-principles {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) 112px;
+}
+.design-principles-panel {
+  background: var(--bg-alt);
+  border-radius: var(--radius-frame);
+  padding: 36px 40px;
+}
+.design-principles-panel .eyebrow {
+  display: block;
+  margin-bottom: 24px;
+}
+.principles-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.principle {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+.principle-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--chip);
+  border-radius: var(--radius-card);
+  flex-shrink: 0;
+}
+.principle-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.principle-text {
+  font-family: 'Switzer', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
 /* Option border'ları kaldırıldığı için .chosen state artık yalnızca
    üstündeki "Selected" pill ile belirtiliyor — kart background'u
    beyaz, ekstra vurgu yok. */
@@ -1191,6 +1247,11 @@ h3.sub-title {
   }
   .tray-label-row { gap: 6px !important; padding: 0 !important; }
   .tray-pill { font-size: 10px !important; padding: 3px 8px !important; }
+
+  /* Design Principles — 3 col → 1 col stack on mobile */
+  .design-principles { padding-bottom: var(--m-section); }
+  .design-principles-panel { padding: 24px 20px; }
+  .principles-grid { grid-template-columns: 1fr; gap: 18px; }
 
   /* ── SECTION 7: My Approach Phase 1 — device strip → snap carousel (Uplift Iterations style) ── */
   .solution-head {
