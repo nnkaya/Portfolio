@@ -29,6 +29,11 @@ html { scroll-padding-top: 120px; }
   visibility: hidden;
   pointer-events: none;
 }
+/* Set by an inline <head> script when the loader has already
+   played in this tab session. Removes the loader from the
+   render tree before paint so subsequent in-tab navigations
+   never flash the wordmark. */
+.loader-skip .loader { display: none; }
 .loader-inner {
   display: flex;
   flex-direction: column;

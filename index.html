@@ -9,6 +9,16 @@
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="portfolio-system.css">
 <link rel="stylesheet" href="home.css">
+<!-- Loader pre-paint check: if the loader already played in this
+     tab session, set a class on <html> before the body renders so
+     the loader is hidden with display:none — no flash, no fade. -->
+<script>
+  try {
+    if (sessionStorage.getItem('nk_loader_shown') === 'true') {
+      document.documentElement.classList.add('loader-skip');
+    }
+  } catch (_) {}
+</script>
 </head>
 <body>
 
