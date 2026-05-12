@@ -544,34 +544,9 @@ h3.sub-title {
 .solution-head {
     margin-bottom: var(--header-mb);
   }
-/* "View live product" — button değil, inline text link.
-   solution-intro paragrafının altında, ikonla birlikte. */
-.solution-head .solution-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 0;
-  background: none;
-  border: 0;
-  color: var(--teal);
-  font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  transition: color 0.2s ease;
-}
-.solution-head .solution-cta:hover {
-  color: var(--teal-ink);
-}
-.solution-head .solution-cta svg {
-  width: 12px;
-  height: 12px;
-  flex-shrink: 0;
-}
+/* .solution-cta stil tanımı portfolio-system.css'e taşındı —
+   diğer case study'lerde de ("View live product" linki) aynı
+   görünümle kullanılabilsin diye. */
 
 .device-strip {
     display: grid;

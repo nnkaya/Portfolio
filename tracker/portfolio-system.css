@@ -2856,6 +2856,37 @@ h1.title {
    CASE STUDY CLOSING — pager, signoff socials, scroll-up
    ============================================================ */
 
+/* ── VIEW LIVE PRODUCT LINK ─────────────────────────────────
+   Inline text link with trailing external-link icon. Used in
+   work pages (Inghams Phase 1, Inntravel Phase 3, …) to point
+   at the deployed product. Underlined teal text, no button
+   chrome — sits alongside body copy. */
+.solution-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--teal);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+.solution-cta:hover { color: var(--teal-ink); }
+.solution-cta svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+
 /* ── PREV / NEXT PAGER ──────────────────────────────────────
    Sits above the closing-signoff. Two minimal cells side by
    side; either can be missing (first/last case). When only
