@@ -568,14 +568,8 @@
 
 .contrib-header .left .eyebrow { margin-bottom: 20px; }
 
-.contrib-list-new {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 56px;
-    border-top: 1px solid var(--line);
-  }
+/* Case-only override: add a 56px gap before the reflection block. */
+.contrib-list-new { margin-bottom: 56px; }
 
 .reflection-block-head {
     display: flex;

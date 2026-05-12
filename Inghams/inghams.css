@@ -742,14 +742,9 @@ h3.sub-title {
     padding: 0 var(--page-pad) 80px;
   }
 
-.contrib-list-new {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 56px;
-    border-top: 1px solid var(--line);
-  }
+/* Case-only override: add a 56px gap before the reflection block
+   (system defaults to 0). */
+.contrib-list-new { margin-bottom: 56px; }
 
 .reflection-block {
     position: relative;
