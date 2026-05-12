@@ -3048,14 +3048,18 @@ h1.title {
     gap: 16px;
   }
   .scroll-up { right: 16px; bottom: 16px; width: 40px; height: 40px; }
-  /* Meta: flex collapses to 2-per-row on mobile via explicit
-     flex-basis on each cell — keeps each cell readable on
-     narrow viewports while preserving the flex layout. */
+  /* Meta: cell'ler içerik kadar genişler, gerektiğinde alt satıra
+     wrap eder. Sabit %50 basis yok — uzun metin (örn. "PM,
+     Engineers, Designers, QA & Data Analyst") daha geniş cell
+     alır, kısa metin daha dar cell'de oturur. min-width: 0 ile
+     text proper wrap'lar (overflow yok). */
   .meta {
     gap: 24px;
     justify-content: flex-start;
   }
   .meta-item {
-    flex: 0 0 calc(50% - 12px);
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
   }
 }
