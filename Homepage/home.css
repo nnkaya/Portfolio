@@ -785,6 +785,9 @@ html { scroll-padding-top: 120px; }
 }
 .about-p {
   max-width: 64ch;
+  /* body-p'den miras alınan margin-bottom: var(--gap-stack) (24px)
+     sıfırlanıyor — about-prose flex gap (12px) tek başına yeterli. */
+  margin-bottom: 0;
 }
 .about-p strong { font-weight: 600; color: var(--teal-ink); }
 .about-p em { font-style: italic; color: var(--teal); }
