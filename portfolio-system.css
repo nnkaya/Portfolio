@@ -1527,14 +1527,14 @@ h1.title {
 }
 .stat-card.primary .stat-card-num { color: var(--teal-ink); }
 .stat-card-num .trend {
-  /* Scaled relative to the stat number so the arrow grows with
-     the headline. Used to be a fixed 14px which felt undersized
-     against the 32-44px number. */
+  /* Sits at the start of the number row, so the directional
+     glyph reads first and the value follows. Scaled relative
+     to the stat number so the arrow grows with the headline. */
   font-size: 0.7em;
   font-weight: 600;
   color: var(--teal);
   line-height: 1;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 .stat-card-num .from-to {
   display: inline-flex;
