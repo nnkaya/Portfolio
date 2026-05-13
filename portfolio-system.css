@@ -486,6 +486,11 @@ img {
 
 body.menu-open { overflow: hidden; }
 
+/* Utility — keep a token like "e-commerce" or "high-consideration"
+   on a single line so the hyphen never lands at a line break,
+   which reads as an accidental word split. */
+.nowrap { white-space: nowrap; }
+
 
 /* ── BREADCRUMB ── */
 .crumb-row {
@@ -2944,7 +2949,7 @@ a.closing-avatar:hover {
   border: 0;
   color: var(--teal);
   font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-decoration: underline;
@@ -2954,8 +2959,8 @@ a.closing-avatar:hover {
 }
 .solution-cta:hover { color: var(--teal-ink); }
 .solution-cta svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 

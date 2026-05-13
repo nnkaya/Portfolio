@@ -495,11 +495,11 @@ html { scroll-padding-top: 120px; }
   flex-wrap: wrap;
   gap: 6px;
 }
-/* Reuse system .chip; smaller, tighter inside the card so all
-   tags stay on a single line in the constrained content column. */
+/* Reuse the system .chip — same typographic scale (12.5px /
+   7px 14px) used inside case study hero chip-rows, so a pill
+   reads identically across the portfolio. Wrapping is allowed
+   inside the case-card content column. */
 .case-card-tags .chip {
-  font-size: 10.5px;
-  padding: 4px 10px;
   white-space: nowrap;
 }
 
@@ -943,7 +943,9 @@ html { scroll-padding-top: 120px; }
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: var(--gap-block);
+  /* Tighter than --gap-block (56px) so the social pills read as
+     a single group, not three disconnected anchors. */
+  gap: 28px;
   align-items: center;
 }
 .home-footer-links li {
@@ -1152,7 +1154,7 @@ html { scroll-padding-top: 120px; }
   }
   .home-footer-links {
     justify-self: start;
-    gap: var(--gap-stack);
+    gap: 18px;
   }
   .home-footer-collage {
     height: 180px;
