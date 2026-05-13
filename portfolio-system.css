@@ -1527,11 +1527,14 @@ h1.title {
 }
 .stat-card.primary .stat-card-num { color: var(--teal-ink); }
 .stat-card-num .trend {
-  font-size: 14px;
-  font-weight: 500;
+  /* Scaled relative to the stat number so the arrow grows with
+     the headline. Used to be a fixed 14px which felt undersized
+     against the 32-44px number. */
+  font-size: 0.7em;
+  font-weight: 600;
   color: var(--teal);
   line-height: 1;
-  margin-left: 8px;
+  margin-left: 10px;
 }
 .stat-card-num .from-to {
   display: inline-flex;
