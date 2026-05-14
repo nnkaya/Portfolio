@@ -337,13 +337,13 @@
     margin-bottom: 0;
   }
 
-/* Phase 3 gallery — the source screenshots are landscape but
-   slightly taller than the shared 16:10 frame. Use a 4:3 frame
-   (a mid-point between 16:10 and 4:5) with object-fit:contain
-   so screens stay fully visible without the heavy vertical
-   padding the previous 4:5 introduced. */
+/* Phase 3 gallery — fixed frame height so the screenshots sit
+   in a consistent landscape band regardless of viewport width.
+   object-fit:contain keeps the entire shot visible inside the
+   434px frame. */
 .phase-with-gallery .wf-gallery-frame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
+    height: 434px;
   }
 .phase-with-gallery .wf-gallery-frame img {
     object-fit: contain;
