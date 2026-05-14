@@ -337,13 +337,13 @@
     margin-bottom: 0;
   }
 
-/* Phase 3 gallery — the source screenshots are taller than the
-   shared 16:10 frame, so object-fit:cover was clipping the
-   bottom of each screen. Switch to contain inside a taller
-   aspect-ratio (4:5) so the entire screenshot is visible with
-   a clean letterbox on the bg-alt frame. */
+/* Phase 3 gallery — the source screenshots are landscape but
+   slightly taller than the shared 16:10 frame. Use a 4:3 frame
+   (a mid-point between 16:10 and 4:5) with object-fit:contain
+   so screens stay fully visible without the heavy vertical
+   padding the previous 4:5 introduced. */
 .phase-with-gallery .wf-gallery-frame {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
   }
 .phase-with-gallery .wf-gallery-frame img {
     object-fit: contain;

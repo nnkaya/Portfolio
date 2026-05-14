@@ -431,13 +431,13 @@ html { scroll-padding-top: 120px; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  /* Wider radius + higher peak alpha so the spotlight reads as
-     a real light source on hover. Previously felt too subtle. */
+  /* Mid-strength spotlight — visible enough to read as a real
+     hover light but not so strong it competes with the case
+     content underneath. */
   background: radial-gradient(
-    460px circle at var(--mx) var(--my),
-    rgba(2, 98, 80, 0.12),
-    rgba(2, 98, 80, 0.04) 45%,
-    transparent 70%
+    400px circle at var(--mx) var(--my),
+    rgba(2, 98, 80, 0.08),
+    transparent 65%
   );
   opacity: 0;
   transition: opacity 0.4s var(--ease-out);
