@@ -337,6 +337,19 @@
     margin-bottom: 0;
   }
 
+/* Phase 3 gallery — the source screenshots are taller than the
+   shared 16:10 frame, so object-fit:cover was clipping the
+   bottom of each screen. Switch to contain inside a taller
+   aspect-ratio (4:5) so the entire screenshot is visible with
+   a clean letterbox on the bg-alt frame. */
+.phase-with-gallery .wf-gallery-frame {
+    aspect-ratio: 4 / 5;
+  }
+.phase-with-gallery .wf-gallery-frame img {
+    object-fit: contain;
+    object-position: center;
+  }
+
 .phase-grid.phase-grid-wide .phase-right .show-mini-title {
     margin: 0 0 28px;
   }

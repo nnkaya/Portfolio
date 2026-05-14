@@ -775,13 +775,33 @@ h2.sec-title {
 
 .flow-points {
     max-width: 420px;
+    /* Switched from <div> to <ol> so each point reads as a
+       numbered step. List markers sit outside in their own
+       gutter; the body-p inside each <li> keeps the system
+       paragraph rhythm. */
+    list-style: decimal-leading-zero outside;
+    padding-left: 2.6em;
+    margin: 0;
+    color: var(--teal);
+  }
+.flow-points > li {
+    margin-bottom: 24px;
+    padding-left: 6px;
+  }
+.flow-points > li:last-child {
+    margin-bottom: 0;
+  }
+.flow-points > li::marker {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--teal);
   }
 .flow-points .body-p {
     max-width: none;
-    margin-bottom: 24px;
-  }
-.flow-points .body-p:last-child {
     margin-bottom: 0;
+    color: var(--ink-soft);
   }
 .flow-image {
     width: 100%;
