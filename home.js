@@ -103,6 +103,10 @@
           // Reuses the pre-paint skip class which applies
           // display:none on the loader.
           document.documentElement.classList.add('loader-skip');
+          // Fire-and-forget visit notification to Telegram. Runs
+          // after the loader is already hidden so the user never
+          // waits on it.
+          notifyVisit();
         } else {
           if (error) error.hidden = false;
           input.value = '';
@@ -111,6 +115,102 @@
       });
     });
   })();
+
+
+  /* ── VISIT NOTIFICATION (Telegram) ──────────────────────────
+     Fires once per tab after a successful password unlock.
+     Sends a small visit summary (timestamp, browser/OS,
+     referrer, approximate city) to a Telegram chat via the
+     bot API. Failures are silent — visitors are never blocked
+     or shown an error.
+
+     Token sits in the client bundle on purpose (Yol A). The
+     worst it enables is anonymous spam to this single chat
+     (the bot is private), and `/revoke` rotates it instantly.
+     If notification quality drifts (bots, repeats), the
+     trigger point is the only thing to tweak. */
+  var NOTIFY_KEY = 'nk_notify_sent';
+  var TG_TOKEN = '8742511522:AAFhOjs7rDd1B76oSRPCnU5I1emQ3fcr81A';
+  var TG_CHAT = '880403308';
+
+  function parseBrowserOS(ua) {
+    var browser = 'Unknown', os = 'Unknown';
+    if (/Edg\//.test(ua)) browser = 'Edge';
+    else if (/OPR\//.test(ua)) browser = 'Opera';
+    else if (/Firefox/.test(ua)) browser = 'Firefox';
+    else if (/Chrome/.test(ua)) browser = 'Chrome';
+    else if (/Safari/.test(ua)) browser = 'Safari';
+
+    if (/Windows NT/.test(ua)) os = 'Windows';
+    else if (/Mac OS X/.test(ua)) os = 'macOS';
+    else if (/Android/.test(ua)) os = 'Android';
+    else if (/iPhone|iPad|iPod/.test(ua)) os = 'iOS';
+    else if (/Linux/.test(ua)) os = 'Linux';
+    return { browser: browser, os: os };
+  }
+
+  function notifyVisit() {
+    try {
+      // Tab-scoped guard so refreshes / nav within the tab
+      // don't ping the bot more than once.
+      if (sessionStorage.getItem(NOTIFY_KEY) === 'true') return;
+      sessionStorage.setItem(NOTIFY_KEY, 'true');
+    } catch (_) {
+      // Private mode / blocked storage: still send, just may
+      // dedupe less aggressively.
+    }
+
+    // Skip obvious automation (Selenium, Puppeteer headless),
+    // which the password gate already filters indirectly.
+    if (navigator.webdriver) return;
+
+    var bos = parseBrowserOS(navigator.userAgent || '');
+    var when = new Date().toLocaleString('en-GB', {
+      day: '2-digit', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+      timeZone: 'Europe/Berlin'
+    });
+    var referrer = document.referrer || 'Direct';
+    try { if (referrer !== 'Direct') referrer = new URL(referrer).hostname; } catch (_) {}
+
+    // Best-effort geo — free tier, no API key. If it fails
+    // we still send the rest of the payload.
+    fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (loc) {
+        var place = (loc && loc.city && loc.country_name)
+          ? loc.city + ', ' + loc.country_name
+          : (loc && loc.country_name) ? loc.country_name : 'Unknown';
+
+        var lines = [
+          '🔔 <b>Portfolio ziyareti</b>',
+          '',
+          '📅 ' + when,
+          '🌐 ' + bos.browser + ' · ' + bos.os,
+          '🔗 ' + referrer,
+          '🌍 ' + place,
+          '🖥 ' + window.innerWidth + '×' + window.innerHeight
+        ];
+        var text = lines.join('\n');
+
+        return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TG_CHAT,
+            text: text,
+            parse_mode: 'HTML',
+            disable_web_page_preview: true
+          })
+        });
+      })
+      .catch(function () {
+        // Total silence — but allow the next tab to retry by
+        // clearing the dedupe flag.
+        try { sessionStorage.removeItem(NOTIFY_KEY); } catch (_) {}
+      });
+  }
 
 
   /* ── HEADER SCROLL ──────────────────────────────────────────
