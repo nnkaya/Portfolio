@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/Homepage/:path*",                 "destination": "/:path*",            "permanent": true },
+    { "source": "/Inghams/Inghams.html",            "destination": "/inghams/",          "permanent": true },
+    { "source": "/Inghams/:path*",                  "destination": "/inghams/:path*",    "permanent": true },
+    { "source": "/Inntravel/Inntravel.html",        "destination": "/inntravel/",        "permanent": true },
+    { "source": "/Inntravel/:path*",                "destination": "/inntravel/:path*",  "permanent": true },
+    { "source": "/uplift/loopingo_-_Uplift.html",   "destination": "/uplift/",           "permanent": true },
+    { "source": "/tracker/loopingo_-_Tracker.html", "destination": "/tracker/",          "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico|woff|woff2)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
