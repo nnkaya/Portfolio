@@ -153,6 +153,23 @@
   .cmt .q{ font-size:0.92em; font-weight:600; line-height:1.3; letter-spacing:-0.01em; }
   .cmt .t{ font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); margin-top:0.45em; }
 
+  /* the hero comment, larger */
+  .cmt.big{ max-width:15.5em; padding:1.05em 1.2em; z-index:4;
+    box-shadow:0 1.6em 3em oklch(0.5 0.08 320 / .18); border-color:oklch(0.88 0.03 320); }
+  .cmt.big .av{ width:2.2em; height:2.2em; }
+  .cmt.big .nm{ font-size:0.74em; }
+  .cmt.big .q{ font-size:1.28em; }
+  .cmt.big .t{ font-size:0.66em; }
+
+  /* small comments, compact single-line */
+  .cmt.sm{ display:flex; align-items:center; gap:0.55em; padding:0.52em 0.85em; max-width:none; }
+  .cmt.sm .dot{ width:0.95em; height:0.95em; border-radius:50%; flex:none; }
+  .cmt.sm .cq{ font-size:0.86em; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; }
+  .dot.tk{ background:oklch(0.16 0.01 300); }
+  .dot.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 45%, #c13584 78%, #5b51d8); }
+  .dot.fb{ background:#1877f2; }
+  .dot.wa{ background:#25d366; }
+
   .tag{
     padding:0.6em 0.95em; display:flex; align-items:center; gap:0.55em;
     font-size:0.82em; font-weight:600; width:max-content;
@@ -160,18 +177,27 @@
   .tag .pip{ width:0.55em; height:0.55em; border-radius:50%; background:var(--grad); }
   .tag small{ font-family:var(--mono); font-weight:400; font-size:0.82em; color:var(--ink-faint); }
 
-  /* channels */
-  .channels{ display:flex; gap:0.5em; padding:0.6em; }
-  .ch{ width:2.2em; height:2.2em; border-radius:0.7em; display:grid; place-items:center; }
-  .ch svg{ width:1.25em; height:1.25em; }
-  .ch.tk{ background:oklch(0.16 0.01 300); }
-  .ch.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 40%, #c13584 75%, #5b51d8); }
-  .ch.fb{ background:#1877f2; }
-  .ch.wa{ background:#25d366; }
+  /* channel sources: the origin rail on the left */
+  .chdot{
+    position:absolute; transform:translate(-50%,-50%); z-index:2;
+    width:2.6em; height:2.6em; border-radius:0.9em; display:grid; place-items:center;
+    box-shadow:0 0.7em 1.6em oklch(0.5 0.06 300 / .22), inset 0 1px 0 oklch(1 0 0 / .3);
+    border:2.5px solid var(--bg);
+  }
+  .chdot svg{ width:1.45em; height:1.45em; }
+  .chdot.tk{ background:oklch(0.16 0.01 300); }
+  .chdot.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 40%, #c13584 75%, #5b51d8); }
+  .chdot.fb{ background:#1877f2; }
+  .chdot.wa{ background:#25d366; }
+  .srclabel{
+    position:absolute; transform:translate(-50%,-50%); z-index:2;
+    font-family:var(--mono); font-size:0.62em; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink-faint); white-space:nowrap;
+  }
 
   /* orb */
   .orb{
-    position:absolute; left:45%; top:46%; transform:translate(-50%,-50%); z-index:3;
+    position:absolute; left:53%; top:47%; transform:translate(-50%,-50%); z-index:3;
     width:8.4em; height:8.4em; border-radius:50%;
     background:radial-gradient(circle at 38% 32%, oklch(0.72 0.2 320), oklch(0.5 0.26 292) 55%, oklch(0.4 0.22 288));
     display:grid; place-items:center; color:#fff; text-align:center;
@@ -188,7 +214,7 @@
 
   /* dashboard */
   .dash{
-    left:79.5%; top:39%; width:14.5em; padding:0.95em;
+    left:80%; top:52%; width:14.5em; padding:0.95em;
   }
   .dash .dh{ display:flex; justify-content:space-between; align-items:baseline; }
   .dash .dh .k{ font-family:var(--mono); font-size:0.62em; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); }
@@ -209,8 +235,8 @@
 
   /* converted toast */
   .toast{
-    left:75%; top:85%; width:13em; padding:0.72em 0.85em;
-    display:flex; align-items:center; gap:0.7em; z-index:4;
+    left:80%; top:19%; width:13.5em; padding:0.72em 0.85em;
+    display:flex; align-items:center; gap:0.7em; z-index:5;
   }
   .toast .tick{ width:2em; height:2em; border-radius:50%; background:var(--green-bg); display:grid; place-items:center; flex:none; }
   .toast .tick svg{ width:1em; height:1em; }
@@ -284,59 +310,58 @@
           <stop offset="1" stop-color="oklch(0.52 0.25 289)"/>
         </linearGradient>
       </defs>
-      <path class="wire"      d="M198 96 C 250 135, 250 185, 258 212"/>
-      <path class="wire-flow" d="M198 96 C 250 135, 250 185, 258 212"/>
-      <path class="wire"      d="M196 236 C 230 238, 244 239, 256 239"/>
-      <path class="wire-flow" d="M196 236 C 230 238, 244 239, 256 239"/>
-      <path class="wire"      d="M210 366 C 250 335, 252 295, 262 268"/>
-      <path class="wire-flow" d="M210 366 C 250 335, 252 295, 262 268"/>
-      <path class="wire"      d="M336 232 C 378 214, 406 205, 438 202"/>
-      <path class="wire-flow" d="M336 232 C 378 214, 406 205, 438 202"/>
-      <path class="wire"      d="M312 298 C 340 360, 390 402, 430 424"/>
-      <path class="wire-flow" d="M312 298 C 340 360, 390 402, 430 424"/>
+      <path class="wire"      d="M62 116 C 165 140, 235 205, 296 232"/>
+      <path class="wire-flow" d="M62 116 C 165 140, 235 205, 296 232"/>
+      <path class="wire"      d="M62 208 C 165 205, 240 235, 296 246"/>
+      <path class="wire-flow" d="M62 208 C 165 205, 240 235, 296 246"/>
+      <path class="wire"      d="M62 300 C 165 298, 240 272, 298 256"/>
+      <path class="wire-flow" d="M62 300 C 165 298, 240 272, 298 256"/>
+      <path class="wire"      d="M62 392 C 175 378, 250 292, 302 266"/>
+      <path class="wire-flow" d="M62 392 C 175 378, 250 292, 302 266"/>
+      <path class="wire"      d="M404 244 C 416 245, 426 246, 436 247"/>
+      <path class="wire-flow" d="M404 244 C 416 245, 426 246, 436 247"/>
     </svg>
 
-    <!-- comment: Canada -->
-    <div class="node cmt float an" style="left:18%; top:16%">
-      <div class="top">
-        <span class="av" style="background:oklch(0.72 0.13 250)"></span>
-        <span class="nm">@lauren_k</span>
-      </div>
-      <div class="q">Do you ship to Canada?</div>
-      <div class="t">TikTok · 5m ago</div>
+    <!-- channel sources: where the messages come from -->
+    <div class="srclabel an" style="left:7.5%; top:9%">Messages in</div>
+    <div class="chdot tk an" style="left:6.3%; top:22%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></div>
+    <div class="chdot ig an" style="left:6.3%; top:40%"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></div>
+    <div class="chdot wa an" style="left:6.3%; top:58%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3zm0 2a7 7 0 11-3.7 12.9l-.3-.2-2.4.6.6-2.3-.2-.3A7 7 0 0112 5zm3.9 9.3c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.6.8c-.1.1-.2.2-.4.1a5.7 5.7 0 01-2.8-2.4c-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.7.7-.7 1.7-.1 2.9a9.3 9.3 0 003.6 3.4c1.5.6 2 .6 2.8.5.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1z"/></svg></div>
+    <div class="chdot fb an" style="left:6.3%; top:76%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.5c-2.7 0-3.7 1.4-3.7 3.7v1.8H9V11h1.8v9h3.2v-9h2.3l.4-2.5z"/></svg></div>
+
+    <!-- small comment: Canada (TikTok) -->
+    <div class="node cmt sm float an" style="left:26%; top:19%">
+      <span class="dot tk"></span><span class="cq">Do you ship to Canada?</span>
     </div>
 
-    <!-- comment: how much (hero) -->
-    <div class="node cmt b float an" style="left:17%; top:45.5%">
+    <!-- small comment: in stock (Instagram) -->
+    <div class="node cmt sm float b an" style="left:43%; top:26%">
+      <span class="dot ig"></span><span class="cq">Is it in stock? 🙏</span>
+    </div>
+
+    <!-- BIG hero comment: how much (Instagram) -->
+    <div class="node cmt big float an" style="left:28%; top:47%">
       <div class="top">
         <span class="av" style="background:oklch(0.74 0.13 30)"></span>
         <span class="nm">@mia.gzz</span>
       </div>
       <div class="q">How much is this?</div>
-      <div class="t">Instagram · 2m ago</div>
+      <div class="t">Instagram comment · 2m ago</div>
+    </div>
+
+    <!-- small comment: black (WhatsApp) -->
+    <div class="node cmt sm float c an" style="left:27%; top:73%">
+      <span class="dot wa"></span><span class="cq">Available in black?</span>
+    </div>
+
+    <!-- small comment: COD (Facebook) -->
+    <div class="node cmt sm float an" style="left:42%; top:64%">
+      <span class="dot fb"></span><span class="cq">Can I pay on delivery?</span>
     </div>
 
     <!-- +100 tag -->
-    <div class="node tag an" style="left:40%; top:10%">
+    <div class="node tag an" style="left:52%; top:83%">
       <span class="pip"></span>+100 messages <small>/ night</small>
-    </div>
-
-    <!-- comment: black -->
-    <div class="node cmt c float an" style="left:21%; top:73%">
-      <div class="top">
-        <span class="av" style="background:oklch(0.68 0.12 150)"></span>
-        <span class="nm">@deniz.v</span>
-      </div>
-      <div class="q">Is it available in black?</div>
-      <div class="t">WhatsApp · 7m ago</div>
-    </div>
-
-    <!-- channels -->
-    <div class="node channels an" style="left:16%; top:93%">
-      <span class="ch tk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
-      <span class="ch ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
-      <span class="ch fb"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.5c-2.7 0-3.7 1.4-3.7 3.7v1.8H9V11h1.8v9h3.2v-9h2.3l.4-2.5z"/></svg></span>
-      <span class="ch wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3zm0 2a7 7 0 11-3.7 12.9l-.3-.2-2.4.6.6-2.3-.2-.3A7 7 0 0112 5zm3.9 9.3c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.6.8c-.1.1-.2.2-.4.1a5.7 5.7 0 01-2.8-2.4c-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.7.7-.7 1.7-.1 2.9a9.3 9.3 0 003.6 3.4c1.5.6 2 .6 2.8.5.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1z"/></svg></span>
     </div>
 
     <!-- orb -->
