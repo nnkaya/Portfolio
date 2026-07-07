@@ -323,12 +323,13 @@
     .mock{ justify-content:flex-start; }
   }
 
-  /* ============ DUO: sticky shared TikTok card (steps 1 & 2) ============ */
-  .duo{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,84px); align-items:start; }
-  .duo-text .dstep{ min-height:84vh; display:flex; flex-direction:column; justify-content:center; opacity:.34; transition:opacity .5s var(--ease); }
-  .duo-text .dstep:first-child{ min-height:74vh; }
-  .duo-text .dstep.active{ opacity:1; }
-  .duo-visual{ position:sticky; top:0; height:100vh; display:grid; place-items:center; }
+  /* ============ SCROLLY: one sticky deck, panels cross-fade per step ============ */
+  .scrolly{ display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(30px,5vw,84px); max-width:1120px; margin:0 auto; align-items:start; }
+  .dstep{ grid-column:1; min-height:100vh; display:flex; flex-direction:column; justify-content:center; opacity:.32; transition:opacity .5s var(--ease); }
+  .dstep:first-child{ min-height:82vh; }
+  .dstep.active{ opacity:1; }
+  .panel{ grid-column:2; grid-row:1 / -1; position:sticky; top:0; height:100vh; align-self:start; display:grid; place-items:center; opacity:0; transform:translateY(16px) scale(.985); transition:opacity .5s var(--ease), transform .55s var(--ease); pointer-events:none; }
+  .panel.is-active{ opacity:1; transform:none; pointer-events:auto; }
 
   .callout{ margin-top:26px; display:flex; gap:11px; align-items:flex-start; background:oklch(0.965 0.022 305); border:1px solid oklch(0.9 0.03 312); border-radius:14px; padding:14px 16px; max-width:30em; }
   .callout .ck{ width:20px; height:20px; border-radius:50%; background:var(--grad); display:grid; place-items:center; flex:none; margin-top:1px; }
@@ -378,9 +379,9 @@
   @media(prefers-reduced-motion:reduce){ .duo-text .dstep{ opacity:1; } .tt-reply{ transition:none; } }
 
   @media(max-width:900px){
-    .duo{ grid-template-columns:1fr; gap:24px; }
-    .duo-text .dstep, .duo-text .dstep:first-child{ min-height:auto; opacity:1; padding-bottom:4px; }
-    .duo-visual{ position:static; height:auto; display:block; }
+    .scrolly{ display:block; max-width:480px; }
+    .dstep, .dstep:first-child{ min-height:auto; opacity:1; margin-bottom:6px; }
+    .panel{ position:static; height:auto; opacity:1; transform:none; display:block; pointer-events:auto; margin:2px auto 40px; }
     .ttcard{ width:100%; max-width:420px; }
     .ttcard .tt-reply{ grid-template-rows:1fr; opacity:1; }
   }
@@ -543,12 +544,9 @@
     <p class="jsub jrv">Follow the same lead down the page. It never gets dropped, never waits, and never leaves a channel behind.</p>
   </div>
 
-  <div class="jsteps">
+  <div class="scrolly">
 
-    <!-- STEPS 1 & 2 — sticky shared TikTok card -->
-    <div class="duo">
-      <div class="duo-text">
-        <div class="dstep active" data-duo="1">
+    <div class="dstep active" data-step="1">
           <div class="txt">
             <span class="jbadge">1</span>
             <div class="txtbody">
@@ -561,7 +559,7 @@
             <p>Base360 detects the comment the moment it's posted. No delay, no manual monitoring.</p>
           </div>
         </div>
-        <div class="dstep" data-duo="2">
+        <div class="dstep" data-step="2">
           <div class="txt">
             <span class="jbadge">2</span>
             <div class="txtbody">
@@ -574,9 +572,8 @@
             <p>The reply goes live in seconds, before any competitor can slide into the DMs.</p>
           </div>
         </div>
-      </div>
 
-      <div class="duo-visual">
+    <div class="panel is-active" data-panel="tt">
         <div class="mcard ttcard">
           <div class="tt-head">
             <span class="tt-logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
@@ -620,19 +617,23 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- STEP 3 -->
-    <div class="jstep jrv">
-      <div class="txt">
-        <span class="jbadge">3</span>
-        <div class="txtbody">
-          <h3>Straight into the DMs</h3>
-          <p class="jd">It follows up privately, answers every question, and never once sounds like a robot.</p>
+    <!-- STEP 3 — DM -->
+    <div class="dstep" data-step="3">
+          <div class="txt">
+            <span class="jbadge">3</span>
+            <div class="txtbody">
+              <h3>Straight into the DMs</h3>
+              <p class="jd">It follows up privately, answers every question, and never once sounds like a robot.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>Every question answered privately, day or night, until she's ready to buy.</p>
+          </div>
         </div>
-      </div>
-      <div class="mock">
+    <div class="panel" data-panel="dm">
         <div class="mcard dmm">
           <div class="m-head"><span class="m-chip">Instagram DM</span>@maya.k<span class="m-live">agent active</span></div>
           <div class="dm-body">
@@ -643,19 +644,23 @@
             <div class="dm-typing">lume is typing…</div>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- STEP 4 -->
-    <div class="jstep flip jrv">
-      <div class="txt">
-        <span class="jbadge">4</span>
-        <div class="txtbody">
-          <h3>A qualified lead, in the CRM</h3>
-          <p class="jd">The whole conversation becomes a scored lead, waiting for your sales team with full context.</p>
+    <!-- STEP 4 — CRM -->
+    <div class="dstep" data-step="4">
+          <div class="txt">
+            <span class="jbadge">4</span>
+            <div class="txtbody">
+              <h3>A qualified lead, in the CRM</h3>
+              <p class="jd">The whole conversation becomes a scored lead, waiting for your sales team with full context.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>No data entry. High-intent buyers surface to your sales team on their own.</p>
+          </div>
         </div>
-      </div>
-      <div class="mock">
+    <div class="panel" data-panel="crm">
         <div class="mcard crmm">
           <div class="m-head"><span class="m-chip">Base360 CRM</span>new lead<span class="m-live">auto-created</span></div>
           <div class="crm-person">
@@ -675,19 +680,23 @@
             <div><span class="t">21:09</span>scored high intent → routed to sales</div>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- STEP 5 -->
-    <div class="jstep jrv">
-      <div class="txt">
-        <span class="jbadge">5</span>
-        <div class="txtbody">
-          <h3>A call from an AI voice</h3>
-          <p class="jd">When intent runs high, the agent calls to walk her through it. Warm, informed, never pushy.</p>
+    <!-- STEP 5 — call -->
+    <div class="dstep" data-step="5">
+          <div class="txt">
+            <span class="jbadge">5</span>
+            <div class="txtbody">
+              <h3>A call from an AI voice</h3>
+              <p class="jd">When intent runs high, the agent calls to walk her through it. Warm, informed, never pushy.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>A real phone call, placed and handled entirely by AI.</p>
+          </div>
         </div>
-      </div>
-      <div class="mock">
+    <div class="panel" data-panel="call">
         <div class="mcard callm">
           <div class="m-head"><span class="m-chip">AI Voice</span>outbound · 01:12<span class="m-live">on call</span></div>
           <div class="wave" aria-hidden="true">
@@ -699,19 +708,23 @@
             <p><b class="ai">Nova</b>True to size. I'll text you the fit guide the second we hang up.</p>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- STEP 6 -->
-    <div class="jstep flip jrv">
-      <div class="txt">
-        <span class="jbadge">6</span>
-        <div class="txtbody">
-          <h3>Nurtured all the way to the sale</h3>
-          <p class="jd">She is enrolled into email flows and followed up with until the order finally lands.</p>
+    <!-- STEP 6 — nurture -->
+    <div class="dstep" data-step="6">
+          <div class="txt">
+            <span class="jbadge">6</span>
+            <div class="txtbody">
+              <h3>Nurtured all the way to the sale</h3>
+              <p class="jd">She is enrolled into email flows and followed up with until the order finally lands.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>One comment just became a paying customer. Automatically, across every channel.</p>
+          </div>
         </div>
-      </div>
-      <div class="mock">
+    <div class="panel" data-panel="email">
         <div class="mcard nurm">
           <div class="m-head"><span class="m-chip">Marketing</span>lifecycle flow</div>
           <div class="nr"><div><div class="day">DAY 1</div>Welcome to Lume</div><span class="st">opened</span></div>
@@ -722,7 +735,6 @@
             <div><div class="o1">Order #1042 · paid</div><div class="o2">Aera · Oat · $129.00</div></div>
           </div>
         </div>
-      </div>
     </div>
 
   </div>
@@ -735,16 +747,22 @@
   }, { threshold:0.12, rootMargin:"0px 0px -8% 0px" });
   document.querySelectorAll(".jrv").forEach(el=>jio.observe(el));
 
-  // sticky TikTok card: reveal the AI reply as step 2 scrolls to center
-  const duoCard = document.querySelector(".ttcard");
-  const dsteps = [...document.querySelectorAll(".duo-text .dstep")];
-  if(duoCard && dsteps.length){
+  // scrollytelling: one sticky deck; the active panel cross-fades per step,
+  // and the TikTok card reveals its AI reply from step 2 onward
+  const ttcard = document.querySelector(".ttcard");
+  const dsteps = [...document.querySelectorAll(".dstep")];
+  const panels = {};
+  document.querySelectorAll(".panel").forEach(p=>{ panels[p.dataset.panel] = p; });
+  const stepPanel = { 1:"tt", 2:"tt", 3:"dm", 4:"crm", 5:"call", 6:"email" };
+  if(dsteps.length){
     const dio = new IntersectionObserver((es)=>{
       for(const e of es){
         if(e.isIntersecting){
-          const n = +e.target.dataset.duo;
-          duoCard.classList.toggle("show-reply", n>=2);
+          const n = +e.target.dataset.step;
           dsteps.forEach(s=>s.classList.toggle("active", s===e.target));
+          const key = stepPanel[n];
+          for(const k in panels) panels[k].classList.toggle("is-active", k===key);
+          if(ttcard) ttcard.classList.toggle("show-reply", n>=2);
         }
       }
     }, { rootMargin:"-45% 0px -45% 0px", threshold:0 });
