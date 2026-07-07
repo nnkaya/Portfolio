@@ -14,16 +14,16 @@
     --ink: oklch(0.19 0.03 285);
     --ink-soft: oklch(0.47 0.03 288);
     --ink-faint: oklch(0.62 0.025 288);
-    --card: oklch(0.997 0.003 300);
+    --card: oklch(0.998 0.002 300);
     --line: oklch(0.915 0.012 300);
     --line-soft: oklch(0.945 0.01 300);
     --magenta: oklch(0.63 0.26 356);
     --violet: oklch(0.52 0.25 289);
     --violet-deep: oklch(0.45 0.24 288);
     --grad: linear-gradient(102deg, oklch(0.64 0.27 353), oklch(0.51 0.26 291) 92%);
-    --grad-soft: linear-gradient(102deg, oklch(0.97 0.04 350), oklch(0.96 0.045 300));
-    --green: oklch(0.68 0.16 158);
-    --green-bg: oklch(0.96 0.05 160);
+    --green: oklch(0.62 0.15 158);
+    --green-bg: oklch(0.955 0.05 160);
+    --rail: oklch(0.86 0.045 330);
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --sans: "Schibsted Grotesk", system-ui, sans-serif;
     --mono: "Spline Sans Mono", ui-monospace, monospace;
@@ -32,19 +32,17 @@
   body{
     font-family:var(--sans); color:var(--ink);
     background:
-      radial-gradient(60vw 50vh at 88% 8%, oklch(0.95 0.05 340 / .55), transparent 70%),
-      radial-gradient(55vw 55vh at 12% 100%, oklch(0.94 0.05 285 / .5), transparent 70%),
+      radial-gradient(58vw 52vh at 90% 6%, oklch(0.95 0.05 340 / .5), transparent 70%),
+      radial-gradient(52vw 55vh at 8% 102%, oklch(0.94 0.05 285 / .45), transparent 70%),
       linear-gradient(180deg, var(--bg), var(--bg-2));
-    min-height:100svh; -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    min-height:100svh; -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
-  ::selection{ background:oklch(0.63 0.26 356 / .25); }
+  ::selection{ background:oklch(0.63 0.26 356 / .22); }
 
   /* ---- nav ---- */
   nav{
     display:flex; justify-content:space-between; align-items:center;
-    padding:22px clamp(20px,4vw,56px);
-    max-width:1320px; margin:0 auto;
+    padding:22px clamp(20px,4vw,56px); max-width:1360px; margin:0 auto;
   }
   .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:20px; letter-spacing:-0.02em; text-decoration:none; color:var(--ink); }
   .brand .mk{ width:26px; height:26px; border-radius:8px; background:var(--grad); display:grid; place-items:center; box-shadow:0 4px 14px oklch(0.55 0.24 320 / .35); }
@@ -52,43 +50,32 @@
   .nav-links{ display:flex; align-items:center; gap:30px; font-size:14.5px; color:var(--ink-soft); }
   .nav-links a{ text-decoration:none; color:inherit; transition:color .25s var(--ease); }
   .nav-links a:hover{ color:var(--ink); }
-  .nav-demo{
-    background:var(--ink); color:oklch(0.98 0.01 300); text-decoration:none;
-    font-size:14px; font-weight:600; padding:10px 18px; border-radius:999px;
-    transition:transform .3s var(--ease), background .3s var(--ease);
-  }
+  .nav-demo{ background:var(--ink); color:oklch(0.98 0.01 300); text-decoration:none; font-size:14px; font-weight:600; padding:10px 18px; border-radius:999px; transition:transform .3s var(--ease), background .3s var(--ease); }
   .nav-demo:hover{ transform:translateY(-1px); background:oklch(0.28 0.05 288); }
   @media(max-width:760px){ .nav-links a:not(.nav-demo){ display:none; } }
 
   /* ---- hero shell ---- */
   .hero{
-    max-width:1320px; margin:0 auto;
-    padding:clamp(28px,5vh,64px) clamp(20px,4vw,56px) 64px;
-    display:grid; grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);
-    gap:clamp(32px,5vw,72px); align-items:center;
+    max-width:1360px; margin:0 auto;
+    padding:clamp(24px,4vh,54px) clamp(20px,4vw,56px) 60px;
+    display:grid; grid-template-columns:minmax(0,0.86fr) minmax(0,1.14fr);
+    gap:clamp(30px,4vw,64px); align-items:center; min-height:calc(100svh - 90px);
   }
-  @media(max-width:940px){ .hero{ grid-template-columns:1fr; gap:44px; } }
+  @media(max-width:980px){ .hero{ grid-template-columns:1fr; gap:48px; align-items:start; min-height:0; } }
 
   /* ---- copy ---- */
   .badge{
     display:inline-flex; align-items:center; gap:9px;
     font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--violet-deep); background:oklch(0.965 0.03 320); border:1px solid oklch(0.9 0.03 320);
-    padding:7px 14px 7px 10px; border-radius:999px; margin-bottom:clamp(22px,3.5vh,34px);
+    padding:7px 14px 7px 10px; border-radius:999px; margin-bottom:clamp(20px,3vh,30px);
   }
   .badge .d{ width:6px; height:6px; border-radius:50%; background:var(--grad); box-shadow:0 0 0 4px oklch(0.63 0.26 356 / .14); }
-  h1{
-    font-size:clamp(40px,6.2vw,80px); line-height:0.99; font-weight:800; letter-spacing:-0.035em;
-  }
-  h1 .g{
-    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .sub{
-    margin-top:clamp(20px,3vh,30px); font-size:clamp(16.5px,1.35vw,19.5px);
-    line-height:1.6; color:var(--ink-soft); max-width:46ch;
-  }
+  h1{ font-size:clamp(39px,5.6vw,74px); line-height:0.99; font-weight:800; letter-spacing:-0.035em; }
+  h1 .g{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub{ margin-top:clamp(18px,2.6vh,28px); font-size:clamp(16px,1.3vw,19px); line-height:1.6; color:var(--ink-soft); max-width:44ch; }
   .sub b{ color:var(--ink); font-weight:600; }
-  .cta{ margin-top:clamp(26px,3.6vh,38px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .cta{ margin-top:clamp(24px,3.2vh,34px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .btn-primary{
     display:inline-flex; align-items:center; gap:10px; text-decoration:none;
     background:var(--grad); color:oklch(0.99 0.01 320);
@@ -99,163 +86,117 @@
   .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 18px 40px oklch(0.55 0.24 330 / .42); }
   .btn-primary svg{ width:17px; height:17px; transition:transform .32s var(--ease); }
   .btn-primary:hover svg{ transform:translateX(3px); }
-  .btn-ghost{
-    display:inline-flex; align-items:center; gap:11px; text-decoration:none;
-    color:var(--ink); font-size:15.5px; font-weight:500; padding:13px 8px;
-  }
-  .btn-ghost .play{
-    width:38px; height:38px; border-radius:50%; background:var(--card); border:1px solid var(--line);
-    display:grid; place-items:center; box-shadow:0 6px 16px oklch(0.5 0.05 300 / .1);
-    transition:transform .3s var(--ease), border-color .3s var(--ease);
-  }
+  .btn-ghost{ display:inline-flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); font-size:15.5px; font-weight:500; padding:13px 6px; }
+  .btn-ghost .play{ width:38px; height:38px; border-radius:50%; background:var(--card); border:1px solid var(--line); display:grid; place-items:center; box-shadow:0 6px 16px oklch(0.5 0.05 300 / .1); transition:transform .3s var(--ease), border-color .3s var(--ease); }
   .btn-ghost:hover .play{ transform:scale(1.06); border-color:oklch(0.8 0.06 320); }
   .btn-ghost .play svg{ width:13px; height:13px; margin-left:2px; }
-  .trust{
-    margin-top:clamp(30px,4.5vh,46px); display:flex; align-items:center; gap:14px;
-    font-size:13.5px; color:var(--ink-faint);
-  }
-  .avstack{ display:flex; }
-  .avstack span{
-    width:30px; height:30px; border-radius:50%; border:2px solid var(--bg); margin-left:-9px;
-    background-size:cover; font-size:12px; font-weight:700; color:#fff; display:grid; place-items:center;
-  }
-  .avstack span:first-child{ margin-left:0; }
+
+  .chstrip{ margin-top:clamp(28px,4vh,44px); display:flex; align-items:center; gap:16px; }
+  .chstrip .cl{ font-family:var(--mono); font-size:12px; letter-spacing:0.04em; color:var(--ink-faint); text-transform:uppercase; white-space:nowrap; }
+  .chstrip .ics{ display:flex; gap:9px; }
+  .chstrip .ic{ width:32px; height:32px; border-radius:9px; display:grid; place-items:center; box-shadow:0 4px 12px oklch(0.5 0.06 300 / .16); }
+  .chstrip .ic svg{ width:16px; height:16px; }
+  .ic.tk{ background:oklch(0.16 0.01 300); } .ic.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 42%, #c13584 76%, #5b51d8); }
+  .ic.fb{ background:#1877f2; } .ic.wa{ background:#25d366; } .ic.em{ background:oklch(0.55 0.2 25); }
 
   /* ================= VISUAL STAGE ================= */
-  .stage{
-    position:relative; width:100%; max-width:640px; margin-left:auto;
-    aspect-ratio:660/520; container-type:inline-size;
-  }
-  .stage-inner{ position:absolute; inset:0; font-size:2.02cqw; }
-  @media(max-width:940px){ .stage{ margin:0 auto; } }
+  .stage{ position:relative; width:100%; max-width:680px; margin-left:auto; aspect-ratio:680/580; container-type:inline-size; }
+  .stage-inner{ position:absolute; inset:0; font-size:1.98cqw; }
+  @media(max-width:980px){ .stage{ margin:0 auto; } }
 
+  /* rails */
   .wires{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; z-index:1; }
-  .wire{ fill:none; stroke:oklch(0.86 0.03 310); stroke-width:1.4; }
-  .wire-flow{ fill:none; stroke:url(#flowgrad); stroke-width:2.2; stroke-linecap:round;
-    stroke-dasharray:5 12; animation:flow 1.6s linear infinite; }
-  @keyframes flow{ to{ stroke-dashoffset:-34; } }
+  .rail{ fill:none; stroke:var(--rail); stroke-width:1.8; stroke-linecap:round; }
+  .flow{ filter:drop-shadow(0 0 4px oklch(0.63 0.26 356 / .8)); }
 
-  .node{
-    position:absolute; transform:translate(-50%,-50%); z-index:2;
-    background:var(--card); border:1px solid var(--line); border-radius:1em;
-    box-shadow:0 1.1em 2.4em oklch(0.5 0.06 300 / .12);
-  }
-  .float{ animation:float 6s ease-in-out infinite; }
-  .float.b{ animation-duration:7.5s; animation-delay:-2s; }
-  .float.c{ animation-duration:6.8s; animation-delay:-4s; }
+  .node{ position:absolute; transform:translate(-50%,-50%); z-index:2; background:var(--card); border:1px solid var(--line); border-radius:1.1em; box-shadow:0 1.1em 2.6em oklch(0.5 0.06 300 / .13); }
+  .float{ animation:float 7s ease-in-out infinite; }
+  .float.b{ animation-duration:8.5s; animation-delay:-2.5s; }
+  .float.c{ animation-duration:7.8s; animation-delay:-4.5s; }
   @keyframes float{ 0%,100%{ transform:translate(-50%,-50%);} 50%{ transform:translate(-50%,calc(-50% - 7px)); } }
 
-  /* comment bubbles */
-  .cmt{ padding:0.8em 0.95em; width:max-content; max-width:12.5em; }
-  .cmt .top{ display:flex; align-items:center; gap:0.5em; margin-bottom:0.4em; }
-  .cmt .av{ width:1.7em; height:1.7em; border-radius:50%; object-fit:cover; flex:none; }
-  .cmt .nm{ font-family:var(--mono); font-size:0.68em; color:var(--ink-faint); }
-  .cmt .q{ font-size:0.92em; font-weight:600; line-height:1.3; letter-spacing:-0.01em; }
-  .cmt .t{ font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); margin-top:0.45em; }
+  /* big hero comment */
+  .bigcard{ left:23.5%; top:50%; width:16.2em; padding:0.95em 1em; z-index:4; box-shadow:0 1.8em 3.4em oklch(0.5 0.09 320 / .2); }
+  .bhead{ display:flex; align-items:center; gap:0.6em; }
+  .bav{ width:2.35em; height:2.35em; border-radius:50%; object-fit:cover; flex:none; background:oklch(0.8 0.08 20); }
+  .bhead .bt{ flex:1; min-width:0; }
+  .bnm{ font-weight:700; font-size:0.92em; letter-spacing:-0.01em; display:flex; align-items:center; gap:0.3em; }
+  .bnm .vf{ width:0.95em; height:0.95em; border-radius:50%; background:var(--grad); color:#fff; font-size:0.62em; display:grid; place-items:center; }
+  .bsub{ font-family:var(--mono); font-size:0.64em; color:var(--ink-faint); margin-top:0.15em; }
+  .bsrc{ width:1.7em; height:1.7em; border-radius:0.55em; display:grid; place-items:center; flex:none; }
+  .bsrc svg{ width:1em; height:1em; }
+  .bbody{ display:flex; gap:0.75em; margin-top:0.75em; align-items:stretch; }
+  .btext{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .bigcard .q{ font-size:1.18em; font-weight:700; letter-spacing:-0.02em; line-height:1.2; }
+  .bfoot{ margin-top:0.5em; font-family:var(--mono); font-size:0.58em; color:var(--ink-faint); }
+  .bfoot .hi{ color:var(--magenta); }
+  .thumb{ width:3.9em; height:3.9em; border-radius:0.8em; object-fit:cover; flex:none; background:oklch(0.85 0.03 300); }
 
-  /* the hero comment, larger */
-  .cmt.big{ max-width:15.5em; padding:1.05em 1.2em; z-index:4;
-    box-shadow:0 1.6em 3em oklch(0.5 0.08 320 / .18); border-color:oklch(0.88 0.03 320); }
-  .cmt.big .av{ width:2.2em; height:2.2em; }
-  .cmt.big .nm{ font-size:0.74em; }
-  .cmt.big .q{ font-size:1.28em; }
-  .cmt.big .t{ font-size:0.66em; }
+  /* small comments */
+  .scmt{ display:flex; align-items:center; gap:0.6em; padding:0.62em 0.8em; width:max-content; max-width:15em; }
+  .sav{ width:2em; height:2em; border-radius:50%; object-fit:cover; flex:none; background:oklch(0.8 0.06 250); }
+  .ssub{ font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); margin-bottom:0.15em; display:flex; align-items:center; gap:0.4em; }
+  .ssub .cdot{ width:0.7em; height:0.7em; border-radius:0.25em; display:inline-grid; place-items:center; }
+  .ssub .cdot svg{ width:0.5em; height:0.5em; }
+  .sq{ font-size:0.92em; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; }
 
-  /* small comments, compact single-line */
-  .cmt.sm{ display:flex; align-items:center; gap:0.55em; padding:0.52em 0.85em; max-width:none; }
-  .cmt.sm .dot{ width:0.95em; height:0.95em; border-radius:50%; flex:none; }
-  .cmt.sm .cq{ font-size:0.86em; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; }
-  .dot.tk{ background:oklch(0.16 0.01 300); }
-  .dot.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 45%, #c13584 78%, #5b51d8); }
-  .dot.fb{ background:#1877f2; }
-  .dot.wa{ background:#25d366; }
-
-  .tag{
-    padding:0.6em 0.95em; display:flex; align-items:center; gap:0.55em;
-    font-size:0.82em; font-weight:600; width:max-content;
-  }
-  .tag .pip{ width:0.55em; height:0.55em; border-radius:50%; background:var(--grad); }
-  .tag small{ font-family:var(--mono); font-weight:400; font-size:0.82em; color:var(--ink-faint); }
-
-  /* channel sources: the origin rail on the left */
-  .chdot{
-    position:absolute; transform:translate(-50%,-50%); z-index:2;
-    width:2.6em; height:2.6em; border-radius:0.9em; display:grid; place-items:center;
-    box-shadow:0 0.7em 1.6em oklch(0.5 0.06 300 / .22), inset 0 1px 0 oklch(1 0 0 / .3);
-    border:2.5px solid var(--bg);
-  }
-  .chdot svg{ width:1.45em; height:1.45em; }
-  .chdot.tk{ background:oklch(0.16 0.01 300); }
-  .chdot.ig{ background:radial-gradient(circle at 30% 108%, #fdc468, #f56040 40%, #c13584 75%, #5b51d8); }
-  .chdot.fb{ background:#1877f2; }
-  .chdot.wa{ background:#25d366; }
-  .srclabel{
-    position:absolute; transform:translate(-50%,-50%); z-index:2;
-    font-family:var(--mono); font-size:0.62em; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--ink-faint); white-space:nowrap;
-  }
+  /* volume pill */
+  .vpill{ left:45%; top:16%; display:flex; align-items:center; gap:0.5em; background:var(--ink); color:oklch(0.97 0.01 300); border:none; border-radius:999px; padding:0.5em 0.9em; font-size:0.8em; font-weight:600; z-index:3; }
+  .vpill .pulse{ width:0.5em; height:0.5em; border-radius:50%; background:var(--magenta); box-shadow:0 0 0 0 oklch(0.63 0.26 356 / .6); animation:pp 2s ease-out infinite; }
+  @keyframes pp{ 0%{box-shadow:0 0 0 0 oklch(0.63 0.26 356 / .6)} 100%{box-shadow:0 0 0 0.7em oklch(0.63 0.26 356 / 0)} }
 
   /* orb */
   .orb{
-    position:absolute; left:53%; top:47%; transform:translate(-50%,-50%); z-index:3;
-    width:8.4em; height:8.4em; border-radius:50%;
-    background:radial-gradient(circle at 38% 32%, oklch(0.72 0.2 320), oklch(0.5 0.26 292) 55%, oklch(0.4 0.22 288));
+    position:absolute; left:53%; top:50%; transform:translate(-50%,-50%); z-index:3;
+    width:8.8em; height:8.8em; border-radius:50%;
+    background:radial-gradient(circle at 38% 32%, oklch(0.72 0.2 350), oklch(0.55 0.26 350) 42%, oklch(0.47 0.24 300));
     display:grid; place-items:center; color:#fff; text-align:center;
-    box-shadow:0 0 0 0.5em oklch(0.7 0.2 320 / .12), 0 0 3.5em oklch(0.6 0.25 315 / .55), 0 1.4em 3em oklch(0.5 0.24 300 / .4);
+    box-shadow:0 0 0 0.5em oklch(0.7 0.2 340 / .1), 0 0 3.8em oklch(0.62 0.26 345 / .5), 0 1.4em 3em oklch(0.5 0.24 330 / .4);
   }
-  .orb::before{
-    content:""; position:absolute; inset:-0.5em; border-radius:50%;
-    border:1px solid oklch(0.7 0.2 320 / .3); animation:halo 3.4s ease-out infinite;
-  }
-  @keyframes halo{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.35); opacity:0; } }
-  .orb .rob{ width:3em; height:3em; margin-bottom:0.1em; filter:drop-shadow(0 2px 6px oklch(0.3 0.1 300 / .5)); }
-  .orb .lbl{ font-size:0.82em; font-weight:700; letter-spacing:-0.01em; }
-  .orb .desc{ font-family:var(--mono); font-size:0.5em; letter-spacing:0.02em; opacity:.85; margin-top:0.3em; line-height:1.5; }
+  .orb::before{ content:""; position:absolute; inset:-0.5em; border-radius:50%; border:1px solid oklch(0.7 0.2 340 / .3); animation:halo 3.6s ease-out infinite; }
+  @keyframes halo{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.32); opacity:0; } }
+  .orb .rob{ width:2.9em; height:2.9em; margin-bottom:0.05em; filter:drop-shadow(0 2px 6px oklch(0.3 0.1 330 / .5)); }
+  .orb .olbl{ font-size:0.82em; font-weight:700; letter-spacing:-0.01em; }
+  .orb-cap{ position:absolute; left:53%; top:calc(50% + 5.4em); transform:translateX(-50%); z-index:3; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); letter-spacing:0.02em; line-height:1.5; white-space:nowrap; }
+  .orb-cap b{ color:var(--ink); font-weight:500; }
 
   /* dashboard */
-  .dash{
-    left:80%; top:52%; width:14.5em; padding:0.95em;
-  }
-  .dash .dh{ display:flex; justify-content:space-between; align-items:baseline; }
-  .dash .dh .k{ font-family:var(--mono); font-size:0.62em; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); }
-  .dash .up{ font-family:var(--mono); font-size:0.6em; font-weight:500; color:var(--green); background:var(--green-bg); padding:0.25em 0.55em; border-radius:0.5em; }
-  .dash .rev{ font-size:1.85em; font-weight:800; letter-spacing:-0.03em; margin-top:0.15em; }
-  .spark{ width:100%; height:2.4em; margin:0.5em 0 0.7em; display:block; }
-  .tiles{ display:flex; gap:0.5em; }
-  .tile{ flex:1; background:oklch(0.975 0.008 300); border-radius:0.6em; padding:0.55em 0.6em; }
-  .tile .n{ font-size:0.95em; font-weight:700; letter-spacing:-0.02em; }
-  .tile .l{ font-family:var(--mono); font-size:0.5em; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; margin-top:0.15em; }
-  .tile .l b{ color:var(--green); font-weight:500; }
-  .bars{ margin-top:0.8em; display:flex; flex-direction:column; gap:0.5em; }
-  .bar{ display:flex; align-items:center; gap:0.6em; font-size:0.66em; }
-  .bar .bn{ width:4.4em; color:var(--ink-soft); font-weight:500; }
+  .dash{ left:81%; top:56%; width:15em; padding:1em; }
+  .dash .dk{ font-family:var(--mono); font-size:0.6em; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-faint); display:flex; justify-content:space-between; align-items:center; }
+  .dash .up{ color:var(--green); background:var(--green-bg); padding:0.2em 0.5em; border-radius:0.5em; font-size:0.92em; }
+  .dash .rev{ font-size:1.9em; font-weight:800; letter-spacing:-0.03em; margin-top:0.15em; }
+  .spark{ width:100%; height:2.6em; margin:0.5em 0 0.7em; display:block; }
+  .stats{ display:flex; gap:0.5em; padding-bottom:0.8em; border-bottom:1px solid var(--line-soft); }
+  .stat{ flex:1; }
+  .stat .n{ font-size:1.02em; font-weight:800; letter-spacing:-0.02em; }
+  .stat .l{ font-family:var(--mono); font-size:0.5em; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.1em; }
+  .tch{ font-family:var(--mono); font-size:0.5em; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0.75em 0 0.5em; }
+  .bars{ display:flex; flex-direction:column; gap:0.5em; }
+  .bar{ display:flex; align-items:center; gap:0.6em; font-size:0.68em; }
+  .bar .bn{ width:5em; color:var(--ink-soft); font-weight:500; }
   .bar .track{ flex:1; height:0.5em; border-radius:999px; background:oklch(0.94 0.01 300); overflow:hidden; }
-  .bar .fill{ height:100%; border-radius:999px; background:var(--grad); }
-  .bar .bv{ font-family:var(--mono); color:var(--ink-faint); }
+  .bar .fill{ height:100%; border-radius:999px; }
+  .bar .bv{ font-family:var(--mono); color:var(--ink-faint); width:2.3em; text-align:right; }
+  .f-ig{ background:radial-gradient(circle at 20% 50%, #f56040, #c13584); } .f-wa{ background:#25d366; } .f-tk{ background:oklch(0.25 0.02 300); } .f-fb{ background:#1877f2; }
 
   /* converted toast */
-  .toast{
-    left:80%; top:19%; width:13.5em; padding:0.72em 0.85em;
-    display:flex; align-items:center; gap:0.7em; z-index:5;
-  }
-  .toast .tick{ width:2em; height:2em; border-radius:50%; background:var(--green-bg); display:grid; place-items:center; flex:none; }
+  .toast{ left:81%; top:19.5%; width:14em; padding:0.72em 0.85em; display:flex; align-items:center; gap:0.7em; z-index:5; border-color:oklch(0.85 0.06 160); }
+  .toast .tick{ width:2em; height:2em; border-radius:50%; background:var(--green); display:grid; place-items:center; flex:none; }
   .toast .tick svg{ width:1em; height:1em; }
   .toast .t1{ font-size:0.82em; font-weight:700; letter-spacing:-0.01em; }
-  .toast .t2{ font-family:var(--mono); font-size:0.62em; color:var(--ink-faint); margin-top:0.15em; }
+  .toast .t2{ font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); margin-top:0.15em; }
   .toast .t2 .amt{ color:var(--green); font-weight:500; }
 
-  @media(prefers-reduced-motion:reduce){
-    .float,.orb::before,.wire-flow{ animation:none; }
-  }
+  @media(prefers-reduced-motion:reduce){ .float,.orb::before,.vpill .pulse{ animation:none; } }
 
   /* entrance */
-  .an{ opacity:0; transform:translateY(16px); animation:rise .8s var(--ease) forwards; }
-  .d1{ animation-delay:.05s } .d2{ animation-delay:.13s } .d3{ animation-delay:.21s }
-  .d4{ animation-delay:.29s } .d5{ animation-delay:.37s }
-  .stage .an{ animation-name:riseStage; transform:translate(-50%,-50%); }
+  .an{ opacity:0; animation:fade .8s var(--ease) forwards; }
+  .an.mv{ transform:translateY(16px); animation-name:rise; }
+  .d1{animation-delay:.05s} .d2{animation-delay:.12s} .d3{animation-delay:.19s} .d4{animation-delay:.26s} .d5{animation-delay:.33s}
+  .stage .an{ transform:translate(-50%,-50%); animation-name:fade; }
+  @keyframes fade{ to{ opacity:1; } }
   @keyframes rise{ to{ opacity:1; transform:none; } }
-  @keyframes riseStage{ to{ opacity:1; } }
-  @media(prefers-reduced-motion:reduce){ .an{ opacity:1; transform:none; animation:none; } }
+  @media(prefers-reduced-motion:reduce){ .an{ opacity:1 !important; transform:none; animation:none; } .stage .an{ transform:translate(-50%,-50%); } }
 </style>
 </head>
 <body>
@@ -266,10 +207,7 @@
     base360
   </a>
   <div class="nav-links">
-    <a href="#">Product</a>
-    <a href="#">AI Agents</a>
-    <a href="#">Pricing</a>
-    <a href="#">Sign in</a>
+    <a href="#">Product</a><a href="#">AI Agents</a><a href="#">Pricing</a><a href="#">Sign in</a>
     <a class="nav-demo" href="#">Book a demo</a>
   </div>
 </nav>
@@ -277,150 +215,141 @@
 <main class="hero">
   <!-- copy -->
   <div class="copy">
-    <span class="badge an d1"><span class="d"></span>AI agents for B2C communication</span>
-    <h1 class="an d2">One comment.<br><span class="g">Every channel.</span><br>One customer.</h1>
-    <p class="sub an d3">Base360 turns a single <b>"how much is this?"</b> into a qualified, closed customer. Replying, DMing, calling and nurturing across every channel, <b>automatically</b>.</p>
-    <div class="cta an d4">
+    <span class="badge an mv d1"><span class="d"></span>AI agents for B2C communication</span>
+    <h1 class="an mv d2">One comment.<br><span class="g">Every channel.</span><br>One customer.</h1>
+    <p class="sub an mv d3">Base360 turns a single <b>"how much is this?"</b> into a qualified, closed customer. Replying, DMing, calling and nurturing across every channel, <b>automatically</b>.</p>
+    <div class="cta an mv d4">
       <a class="btn-primary" href="#">Book a demo
         <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn-ghost" href="#">
-        <span class="play"><svg viewBox="0 0 24 24" fill="var(--ink)"><path d="M6 4l14 8-14 8z"/></svg></span>
-        Watch the 2-min journey
-      </a>
+      <a class="btn-ghost" href="#"><span class="play"><svg viewBox="0 0 24 24" fill="var(--ink)"><path d="M6 4l14 8-14 8z"/></svg></span>Watch the 2-min journey</a>
     </div>
-    <div class="trust an d5">
-      <div class="avstack">
-        <span style="background:oklch(0.7 0.15 20)">R</span>
-        <span style="background:oklch(0.65 0.15 160)">A</span>
-        <span style="background:oklch(0.6 0.18 280)">M</span>
-        <span style="background:oklch(0.7 0.14 60)">J</span>
+    <div class="chstrip an mv d5">
+      <span class="cl">Live on</span>
+      <div class="ics">
+        <span class="ic tk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
+        <span class="ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
+        <span class="ic fb"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.5c-2.7 0-3.7 1.4-3.7 3.7v1.8H9V11h1.8v9h3.2v-9h2.3l.4-2.5z"/></svg></span>
+        <span class="ic wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3zm0 2a7 7 0 11-3.7 12.9l-.3-.2-2.4.6.6-2.3-.2-.3A7 7 0 0112 5zm3.9 9.3c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.6.8c-.1.1-.2.2-.4.1a5.7 5.7 0 01-2.8-2.4c-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.7.7-.7 1.7-.1 2.9a9.3 9.3 0 003.6 3.4c1.5.6 2 .6 2.8.5.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1z"/></svg></span>
+        <span class="ic em"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6" stroke-linecap="round"/></svg></span>
       </div>
-      Trusted by 400+ B2C brands to never miss a message
     </div>
   </div>
 
   <!-- visual -->
   <div class="stage">
    <div class="stage-inner">
-    <svg class="wires" viewBox="0 0 660 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <svg class="wires" viewBox="0 0 680 580" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path id="r1" class="rail" d="M260 112 C 315 150, 306 216, 318 256"/>
+      <path id="r2" class="rail" d="M272 290 C 284 290, 292 290, 300 290"/>
+      <path id="r3" class="rail" d="M257 466 C 315 432, 306 362, 318 324"/>
+      <path id="r4" class="rail" d="M419 294 C 430 296, 440 298, 449 300"/>
+      <g fill="url(#fg)">
+        <circle class="flow" r="3.4"><animateMotion dur="2.6s" begin="0s"   repeatCount="indefinite"><mpath xlink:href="#r1"/></animateMotion></circle>
+        <circle class="flow" r="3.4"><animateMotion dur="2.2s" begin="0.5s" repeatCount="indefinite"><mpath xlink:href="#r2"/></animateMotion></circle>
+        <circle class="flow" r="3.4"><animateMotion dur="2.8s" begin="1s"   repeatCount="indefinite"><mpath xlink:href="#r3"/></animateMotion></circle>
+        <circle class="flow" r="3.6" fill="url(#fg2)"><animateMotion dur="1.9s" begin="0.3s" repeatCount="indefinite"><mpath xlink:href="#r4"/></animateMotion></circle>
+      </g>
       <defs>
-        <linearGradient id="flowgrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="oklch(0.63 0.26 356)"/>
-          <stop offset="1" stop-color="oklch(0.52 0.25 289)"/>
-        </linearGradient>
+        <radialGradient id="fg"><stop offset="0" stop-color="oklch(0.7 0.26 350)"/><stop offset="1" stop-color="oklch(0.55 0.26 350 / .2)"/></radialGradient>
+        <radialGradient id="fg2"><stop offset="0" stop-color="oklch(0.72 0.15 160)"/><stop offset="1" stop-color="oklch(0.6 0.15 160 / .2)"/></radialGradient>
       </defs>
-      <path class="wire"      d="M62 116 C 165 140, 235 205, 296 232"/>
-      <path class="wire-flow" d="M62 116 C 165 140, 235 205, 296 232"/>
-      <path class="wire"      d="M62 208 C 165 205, 240 235, 296 246"/>
-      <path class="wire-flow" d="M62 208 C 165 205, 240 235, 296 246"/>
-      <path class="wire"      d="M62 300 C 165 298, 240 272, 298 256"/>
-      <path class="wire-flow" d="M62 300 C 165 298, 240 272, 298 256"/>
-      <path class="wire"      d="M62 392 C 175 378, 250 292, 302 266"/>
-      <path class="wire-flow" d="M62 392 C 175 378, 250 292, 302 266"/>
-      <path class="wire"      d="M404 244 C 416 245, 426 246, 436 247"/>
-      <path class="wire-flow" d="M404 244 C 416 245, 426 246, 436 247"/>
     </svg>
 
-    <!-- channel sources: where the messages come from -->
-    <div class="srclabel an" style="left:7.5%; top:9%">Messages in</div>
-    <div class="chdot tk an" style="left:6.3%; top:22%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></div>
-    <div class="chdot ig an" style="left:6.3%; top:40%"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></div>
-    <div class="chdot wa an" style="left:6.3%; top:58%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3zm0 2a7 7 0 11-3.7 12.9l-.3-.2-2.4.6.6-2.3-.2-.3A7 7 0 0112 5zm3.9 9.3c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.6.8c-.1.1-.2.2-.4.1a5.7 5.7 0 01-2.8-2.4c-.2-.3.2-.3.5-1 .1-.1 0-.3 0-.4l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.7.7-.7 1.7-.1 2.9a9.3 9.3 0 003.6 3.4c1.5.6 2 .6 2.8.5.4-.1 1.2-.5 1.3-1 .2-.5.2-.9.1-1z"/></svg></div>
-    <div class="chdot fb an" style="left:6.3%; top:76%"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.5c-2.7 0-3.7 1.4-3.7 3.7v1.8H9V11h1.8v9h3.2v-9h2.3l.4-2.5z"/></svg></div>
+    <!-- volume pill -->
+    <div class="node vpill an d2"><span class="pulse"></span>+100 messages / night</div>
 
-    <!-- small comment: Canada (TikTok) -->
-    <div class="node cmt sm float an" style="left:26%; top:19%">
-      <span class="dot tk"></span><span class="cq">Do you ship to Canada?</span>
-    </div>
-
-    <!-- small comment: in stock (Instagram) -->
-    <div class="node cmt sm float b an" style="left:43%; top:26%">
-      <span class="dot ig"></span><span class="cq">Is it in stock? 🙏</span>
-    </div>
-
-    <!-- BIG hero comment: how much (Instagram) -->
-    <div class="node cmt big float an" style="left:28%; top:47%">
-      <div class="top">
-        <span class="av" style="background:oklch(0.74 0.13 30)"></span>
-        <span class="nm">@mia.gzz</span>
+    <!-- small comment: TikTok -->
+    <div class="node scmt float an d1" style="left:24%; top:18.5%">
+      <img class="sav" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Lucas, a customer" referrerpolicy="no-referrer">
+      <div>
+        <div class="ssub"><span class="cdot ic tk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>Lucas · TikTok · 1m</div>
+        <div class="sq">Do you ship to Canada?</div>
       </div>
-      <div class="q">How much is this?</div>
-      <div class="t">Instagram comment · 2m ago</div>
     </div>
 
-    <!-- small comment: black (WhatsApp) -->
-    <div class="node cmt sm float c an" style="left:27%; top:73%">
-      <span class="dot wa"></span><span class="cq">Available in black?</span>
+    <!-- BIG hero comment: Instagram -->
+    <div class="node bigcard float an d2">
+      <div class="bhead">
+        <img class="bav" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80" alt="Mia, a customer" referrerpolicy="no-referrer">
+        <div class="bt">
+          <div class="bnm">mia.gzz <span class="vf">✓</span></div>
+          <div class="bsub">2m ago · Instagram comment</div>
+        </div>
+        <span class="bsrc ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
+      </div>
+      <div class="bbody">
+        <div class="btext">
+          <div class="q">How much is this? 💸</div>
+          <div class="bfoot">♥ 34 · <span class="hi">scored high intent</span></div>
+        </div>
+        <img class="thumb" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&h=200&q=80" alt="The product she asked about" referrerpolicy="no-referrer">
+      </div>
     </div>
 
-    <!-- small comment: COD (Facebook) -->
-    <div class="node cmt sm float an" style="left:42%; top:64%">
-      <span class="dot fb"></span><span class="cq">Can I pay on delivery?</span>
-    </div>
-
-    <!-- +100 tag -->
-    <div class="node tag an" style="left:52%; top:83%">
-      <span class="pip"></span>+100 messages <small>/ night</small>
+    <!-- small comment: WhatsApp -->
+    <div class="node scmt float c an d3" style="left:24.5%; top:81%">
+      <img class="sav" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80" alt="Priya, a customer" referrerpolicy="no-referrer">
+      <div>
+        <div class="ssub"><span class="cdot ic wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z"/></svg></span>Priya · WhatsApp · 4m</div>
+        <div class="sq">Is this back in stock?</div>
+      </div>
     </div>
 
     <!-- orb -->
-    <div class="orb an">
+    <div class="orb an d3">
       <svg class="rob" viewBox="0 0 48 48" fill="none">
         <rect x="10" y="14" width="28" height="22" rx="8" fill="#fff"/>
-        <circle cx="19" cy="25" r="3" fill="oklch(0.5 0.26 292)"/>
-        <circle cx="29" cy="25" r="3" fill="oklch(0.5 0.26 292)"/>
+        <circle cx="19" cy="25" r="3" fill="oklch(0.55 0.26 350)"/>
+        <circle cx="29" cy="25" r="3" fill="oklch(0.55 0.26 350)"/>
         <path d="M24 8v5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
         <circle cx="24" cy="7" r="2.4" fill="#fff"/>
-        <path d="M20 31h8" stroke="oklch(0.5 0.26 292)" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M20 31h8" stroke="oklch(0.55 0.26 350)" stroke-width="2.2" stroke-linecap="round"/>
       </svg>
-      <div class="lbl">AI Agent</div>
-      <div class="desc">Understands intent.<br>Takes action. Converts.</div>
+      <div class="olbl">AI Agent</div>
+    </div>
+    <div class="orb-cap an d4">Understands intent.<br><b>Replies, calls & converts.</b></div>
+
+    <!-- converted toast -->
+    <div class="node toast an d4">
+      <span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div>
+        <div class="t1">New customer converted 🎉</div>
+        <div class="t2">Order #1042 · <span class="amt">$119.00</span> · just now</div>
+      </div>
     </div>
 
     <!-- dashboard -->
-    <div class="node dash an">
-      <div class="dh">
-        <span class="k">Revenue · this month</span>
-        <span class="up">▲ 12%</span>
-      </div>
+    <div class="node dash an d5">
+      <div class="dk"><span>Revenue generated</span><span class="up">▲ 12%</span></div>
       <div class="rev">$248,560</div>
-      <svg class="spark" viewBox="0 0 200 46" preserveAspectRatio="none">
+      <svg class="spark" viewBox="0 0 200 48" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="sg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="oklch(0.63 0.26 356)"/>
-            <stop offset="1" stop-color="oklch(0.52 0.25 289)"/>
-          </linearGradient>
-          <linearGradient id="sgf" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="oklch(0.6 0.24 320 / .22)"/>
-            <stop offset="1" stop-color="oklch(0.6 0.24 320 / 0)"/>
-          </linearGradient>
+          <linearGradient id="sg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="oklch(0.63 0.26 356)"/><stop offset="1" stop-color="oklch(0.52 0.25 289)"/></linearGradient>
+          <linearGradient id="sgf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="oklch(0.6 0.24 330 / .2)"/><stop offset="1" stop-color="oklch(0.6 0.24 330 / 0)"/></linearGradient>
         </defs>
-        <path d="M0 38 L26 34 L52 36 L78 24 L104 27 L130 15 L156 18 L200 4 L200 46 L0 46 Z" fill="url(#sgf)"/>
-        <path d="M0 38 L26 34 L52 36 L78 24 L104 27 L130 15 L156 18 L200 4" fill="none" stroke="url(#sg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M0 40 L26 36 L52 38 L78 26 L104 29 L130 16 L156 19 L200 5 L200 48 L0 48 Z" fill="url(#sgf)"/>
+        <path d="M0 40 L26 36 L52 38 L78 26 L104 29 L130 16 L156 19 L200 5" fill="none" stroke="url(#sg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <div class="tiles">
-        <div class="tile"><div class="n">1,145</div><div class="l">convos <b>+38%</b></div></div>
-        <div class="tile"><div class="n">3.6×</div><div class="l">conv. rate</div></div>
+      <div class="stats">
+        <div class="stat"><div class="n">246</div><div class="l">Leads</div></div>
+        <div class="stat"><div class="n">1,146</div><div class="l">Chats</div></div>
+        <div class="stat"><div class="n">3.6×</div><div class="l">ROAS</div></div>
       </div>
+      <div class="tch">Top channels</div>
       <div class="bars">
-        <div class="bar"><span class="bn">TikTok</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="bv">42%</span></div>
-        <div class="bar"><span class="bn">Instagram</span><span class="track"><span class="fill" style="width:64%"></span></span><span class="bv">31%</span></div>
-        <div class="bar"><span class="bn">WhatsApp</span><span class="track"><span class="fill" style="width:34%"></span></span><span class="bv">17%</span></div>
-      </div>
-    </div>
-
-    <!-- converted toast -->
-    <div class="node toast an">
-      <span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="oklch(0.55 0.16 158)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div>
-        <div class="t1">New customer converted 🎉</div>
-        <div class="t2">Order #1042 · <span class="amt">$139.00</span> · 2m ago</div>
+        <div class="bar"><span class="bn">Instagram</span><span class="track"><span class="fill f-ig" style="width:68%"></span></span><span class="bv">68%</span></div>
+        <div class="bar"><span class="bn">WhatsApp</span><span class="track"><span class="fill f-wa" style="width:45%"></span></span><span class="bv">45%</span></div>
+        <div class="bar"><span class="bn">TikTok</span><span class="track"><span class="fill f-tk" style="width:31%"></span></span><span class="bv">31%</span></div>
+        <div class="bar"><span class="bn">Facebook</span><span class="track"><span class="fill f-fb" style="width:22%"></span></span><span class="bv">22%</span></div>
       </div>
     </div>
    </div>
   </div>
 </main>
 
+<script>
+  document.documentElement.classList.add("js");
+</script>
 </body>
 </html>
