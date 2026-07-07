@@ -387,39 +387,56 @@
   .callout .ck svg{ width:11px; height:11px; }
   .callout p{ font-size:14.5px; line-height:1.5; color:var(--violet-deep); font-weight:500; }
 
-  /* upgraded tiktok card */
-  .ttcard{ width:380px; max-width:90vw; overflow:hidden; }
-  .tt-head{ display:flex; align-items:center; gap:11px; padding:13px 14px; }
-  .tt-logo{ width:38px; height:38px; border-radius:50%; background:#111; display:grid; place-items:center; flex:none; }
-  .tt-logo svg{ width:20px; height:20px; }
-  .tt-id{ flex:1; min-width:0; }
-  .tt-nm{ font-weight:700; font-size:15px; line-height:1.15; }
-  .tt-hd{ font-size:12.5px; color:var(--ink-faint); }
-  .tt-follow{ font-family:inherit; font-weight:600; font-size:13px; color:var(--ink); background:none; border:1.5px solid var(--line); border-radius:999px; padding:7px 17px; cursor:pointer; transition:border-color .25s var(--ease), color .25s var(--ease); }
-  .tt-follow:hover{ border-color:var(--magenta); color:var(--magenta); }
-  .tt-more{ color:var(--ink-faint); letter-spacing:1.5px; font-weight:700; }
-  .tt-body{ display:flex; }
-  .tt-media{ flex:1; min-width:0; aspect-ratio:4/3; background:#0a0a0b; position:relative; }
-  .tt-media img{ width:100%; height:100%; object-fit:cover; }
-  .tt-rail{ width:56px; display:flex; flex-direction:column; align-items:center; gap:15px; padding:16px 0; }
-  .tt-act{ display:flex; flex-direction:column; align-items:center; gap:3px; font-size:11px; font-weight:600; color:var(--ink-soft); }
-  .tt-act svg{ width:24px; height:24px; }
+  /* realistic vertical TikTok post */
+  .ttcard{ width:328px; max-width:88vw; height:604px; border-radius:26px; overflow:hidden; position:relative; background:#000; color:#fff; border:none; box-shadow:0 30px 72px oklch(0.32 0.05 300 / .4); }
+  .tt-video{ position:absolute; top:0; left:0; right:0; height:414px; overflow:hidden; }
+  .tt-video img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
+  .tt-video::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.42), transparent 24% 58%, rgba(0,0,0,.5)); }
+
+  .tt-top{ position:absolute; top:13px; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:center; gap:22px; font-size:15px; font-weight:600; }
+  .tt-top .t{ color:rgba(255,255,255,.55); }
+  .tt-top .t.on{ color:#fff; }
+  .tt-top .t.on::after{ content:""; display:block; width:18px; height:2.5px; border-radius:2px; background:#fff; margin:5px auto 0; }
+  .tt-live{ position:absolute; left:14px; top:14px; z-index:3; font-size:10px; font-weight:700; background:#fe2c55; padding:3px 7px; border-radius:6px; letter-spacing:.04em; }
+
+  .tt-rail{ position:absolute; right:10px; bottom:214px; z-index:4; display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .tt-ava{ position:relative; margin-bottom:6px; }
+  .tt-ava .av{ width:46px; height:46px; border-radius:50%; background:#111; border:2px solid #fff; display:grid; place-items:center; }
+  .tt-ava .av svg{ width:24px; height:24px; }
+  .tt-ava .plus{ position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); width:21px; height:21px; border-radius:50%; background:#fe2c55; display:grid; place-items:center; font-size:16px; line-height:1; }
+  .tt-act{ display:flex; flex-direction:column; align-items:center; gap:4px; font-size:12px; font-weight:600; }
+  .tt-act svg{ width:32px; height:32px; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
   .tt-act.liked svg{ color:#fe2c55; }
-  .tt-cap{ padding:11px 14px; font-size:13.5px; line-height:1.4; }
-  .tt-cap .tags{ color:var(--violet); font-weight:600; }
-  .tt-cmts{ border-top:1px solid var(--line-soft); }
-  .tt-cmts-head{ display:flex; justify-content:space-between; align-items:center; padding:12px 14px 6px; font-weight:700; font-size:14px; }
-  .tt-cmts-head .cc{ font-weight:400; font-size:12px; color:var(--ink-faint); }
-  .ttc{ display:flex; gap:11px; padding:9px 14px; }
-  .ttc .cav{ width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none; background:oklch(0.8 0.06 30); }
+  .tt-disc{ width:44px; height:44px; border-radius:50%; border:5px solid #161616; background:radial-gradient(circle, #555 22%, #000 24%); overflow:hidden; animation:spin 4.5s linear infinite; box-shadow:0 0 0 1px rgba(255,255,255,.12); }
+  .tt-disc img{ width:100%; height:100%; object-fit:cover; opacity:.85; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @media(prefers-reduced-motion:reduce){ .tt-disc{ animation:none; } }
+
+  .tt-info{ position:absolute; left:15px; right:74px; bottom:210px; z-index:4; text-shadow:0 1px 6px rgba(0,0,0,.4); }
+  .tt-info .u{ font-weight:700; font-size:15px; }
+  .tt-info .cap{ font-size:13px; line-height:1.38; margin-top:6px; }
+  .tt-info .cap .tag{ font-weight:600; }
+  .tt-info .music{ display:inline-flex; align-items:center; gap:7px; font-size:12px; margin-top:10px; }
+  .tt-info .music svg{ width:13px; height:13px; flex:none; }
+
+  /* comment sheet */
+  .tt-sheet{ position:absolute; left:0; right:0; bottom:0; height:196px; z-index:5; background:#fff; color:var(--ink); border-radius:18px 18px 0 0; box-shadow:0 -8px 22px rgba(0,0,0,.14); display:flex; flex-direction:column; }
+  .tt-sheet-h{ text-align:center; font-weight:700; font-size:13px; padding:13px 0 9px; border-bottom:1px solid var(--line-soft); position:relative; }
+  .tt-sheet-h::before{ content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:34px; height:4px; border-radius:2px; background:oklch(0.9 0.01 300); }
+  .tt-sheet-body{ flex:1; overflow:hidden; padding:4px 15px; }
+  .ttc{ display:flex; gap:10px; padding:9px 0; }
+  .ttc .cav{ width:32px; height:32px; border-radius:50%; object-fit:cover; flex:none; background:oklch(0.8 0.06 30); }
   .ttc .cav.lume{ background:#111; display:grid; place-items:center; }
-  .ttc .cav.lume svg{ width:19px; height:19px; }
-  .c-nm{ font-weight:600; font-size:13px; display:flex; align-items:center; gap:6px; }
-  .c-tm{ font-weight:400; color:var(--ink-faint); font-size:11.5px; }
-  .ai-badge{ font-family:var(--mono); font-size:9px; letter-spacing:.03em; color:var(--violet-deep); background:oklch(0.94 0.04 300); border:1px solid oklch(0.86 0.05 300); border-radius:5px; padding:1px 5px; }
-  .c-tx{ font-size:13.5px; line-height:1.45; margin-top:2px; }
+  .ttc .cav.lume svg{ width:18px; height:18px; }
+  .ttc-body{ flex:1; min-width:0; }
+  .c-nm{ font-weight:600; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:6px; }
+  .c-tm{ font-weight:400; color:var(--ink-faint); font-size:11px; }
+  .ai-badge{ font-family:var(--mono); font-size:8.5px; letter-spacing:.03em; color:var(--violet-deep); background:oklch(0.94 0.04 300); border:1px solid oklch(0.86 0.05 300); border-radius:5px; padding:1px 5px; }
+  .c-tx{ font-size:13.5px; line-height:1.4; margin-top:3px; }
   .c-tx .link{ color:var(--violet); }
-  .c-act{ display:flex; gap:15px; align-items:center; margin-top:7px; font-size:11.5px; color:var(--ink-faint); font-family:var(--mono); }
+  .c-act{ display:flex; gap:16px; align-items:center; margin-top:6px; font-size:11px; color:var(--ink-faint); }
+  .clike{ display:flex; flex-direction:column; align-items:center; gap:2px; font-size:10.5px; color:var(--ink-faint); flex:none; }
+  .clike svg{ width:15px; height:15px; }
 
   /* the AI reply reveals when step 2 becomes active */
   .tt-reply{ display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .6s var(--ease), opacity .45s var(--ease); }
@@ -655,42 +672,52 @@
 
     <div class="panel is-active" data-panel="tt">
         <div class="mcard ttcard">
-          <div class="tt-head">
-            <span class="tt-logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
-            <div class="tt-id"><div class="tt-nm">Lume</div><div class="tt-hd">@lume.store</div></div>
-            <button class="tt-follow">Follow</button>
-            <span class="tt-more">⋮</span>
+          <div class="tt-video">
+            <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=440&h=560&q=80" alt="Lume sneaker video" referrerpolicy="no-referrer">
           </div>
-          <div class="tt-body">
-            <div class="tt-media">
-              <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=520&h=420&q=80" alt="The Lume sneaker" referrerpolicy="no-referrer">
+          <span class="tt-live">LIVE</span>
+          <div class="tt-top"><span class="t">Following</span><span class="t on">For You</span></div>
+
+          <div class="tt-rail">
+            <div class="tt-ava">
+              <span class="av"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
+              <span class="plus">+</span>
             </div>
-            <div class="tt-rail">
-              <span class="tt-act liked"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>12.4K</span>
-              <span class="tt-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-8.5 8.5 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 014 11.5 8.5 8.5 0 0112.5 3 8.4 8.4 0 0121 11.5z"/></svg>234</span>
-              <span class="tt-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>86</span>
-              <span class="tt-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
-            </div>
+            <span class="tt-act liked"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>12.4K</span>
+            <span class="tt-act"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v4l5-4h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>234</span>
+            <span class="tt-act"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12a1 1 0 011 1v18l-7-4-7 4V3a1 1 0 011-1z"/></svg>1.2K</span>
+            <span class="tt-act"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3L2 10.5l6.6 2.2L11 21l3.4-6.2L22 3z"/></svg>86</span>
+            <span class="tt-disc"><img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=80&h=80&q=60" alt="" referrerpolicy="no-referrer"></span>
           </div>
-          <div class="tt-cap">New collection is live ⭐ <span class="tags">#lume #sneakers</span></div>
-          <div class="tt-cmts">
-            <div class="tt-cmts-head"><span>Comments</span><span class="cc">234 comments</span></div>
-            <div class="ttc">
-              <img class="cav" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=90&h=90&q=80" alt="Maya" referrerpolicy="no-referrer">
-              <div>
-                <div class="c-nm">maya.k <span class="c-tm">· 2h ago</span></div>
-                <div class="c-tx">How much is this?</div>
-                <div class="c-act"><span>Reply</span><span>♡ 4</span></div>
+
+          <div class="tt-info">
+            <div class="u">@lume.store</div>
+            <div class="cap">New collection is live ✨ <span class="tag">#lume #sneakers</span></div>
+            <div class="music"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17a3 3 0 11-2-2.83V4l11-2v11.17A3 3 0 1116 16V6L9 7.3z"/></svg>original sound · lume.store</div>
+          </div>
+
+          <div class="tt-sheet">
+            <div class="tt-sheet-h">234 comments</div>
+            <div class="tt-sheet-body">
+              <div class="ttc">
+                <img class="cav" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=90&h=90&q=80" alt="Maya" referrerpolicy="no-referrer">
+                <div class="ttc-body">
+                  <div class="c-nm">maya.k <span class="c-tm">· 2h ago</span></div>
+                  <div class="c-tx">How much is this?</div>
+                  <div class="c-act"><span>Reply</span></div>
+                </div>
+                <div class="clike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>4</div>
               </div>
-            </div>
-            <div class="tt-reply">
-              <div class="tt-reply-inner">
-                <div class="ttc reply">
-                  <span class="cav lume"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
-                  <div>
-                    <div class="c-nm">lume.store <span class="ai-badge">AI</span> <span class="c-tm">· Just now</span></div>
-                    <div class="c-tx">Hi maya! 👋 It's $129, grab it before it sells out 🔥 <span class="link">lume.store/new</span></div>
-                    <div class="c-act"><span>Reply</span><span>♡ 12</span></div>
+              <div class="tt-reply">
+                <div class="tt-reply-inner">
+                  <div class="ttc reply">
+                    <span class="cav lume"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>
+                    <div class="ttc-body">
+                      <div class="c-nm">lume.store <span class="ai-badge">AI</span> <span class="c-tm">· now</span></div>
+                      <div class="c-tx">Hi maya! 👋 It's $129, grab it before it sells out 🔥 <span class="link">lume.store/new</span></div>
+                      <div class="c-act"><span>Reply</span></div>
+                    </div>
+                    <div class="clike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>12</div>
                   </div>
                 </div>
               </div>
