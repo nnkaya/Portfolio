@@ -100,14 +100,14 @@
   .ic.fb{ background:#1877f2; } .ic.wa{ background:#25d366; } .ic.em{ background:oklch(0.55 0.2 25); }
 
   /* ================= VISUAL STAGE ================= */
-  .stage{ position:relative; width:100%; max-width:680px; margin-left:auto; aspect-ratio:680/580; container-type:inline-size; }
-  .stage-inner{ position:absolute; inset:0; font-size:1.98cqw; }
+  .stage{ position:relative; width:100%; max-width:730px; margin-left:auto; aspect-ratio:720/560; container-type:inline-size; }
+  .stage-inner{ position:absolute; inset:0; font-size:1.9cqw; }
   @media(max-width:980px){ .stage{ margin:0 auto; } }
 
   /* rails */
   .wires{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; z-index:1; }
-  .rail{ fill:none; stroke:var(--rail); stroke-width:1.8; stroke-linecap:round; }
-  .flow{ filter:drop-shadow(0 0 4px oklch(0.63 0.26 356 / .8)); }
+  .rail{ fill:none; stroke:url(#railGrad); stroke-width:1.7; stroke-linecap:round; }
+  .flow{ filter:drop-shadow(0 0 5px oklch(0.63 0.26 356 / .85)); }
 
   .node{ position:absolute; transform:translate(-50%,-50%); z-index:2; background:var(--card); border:1px solid var(--line); border-radius:1.1em; box-shadow:0 1.1em 2.6em oklch(0.5 0.06 300 / .13); }
   .float{ animation:float 7s ease-in-out infinite; }
@@ -116,7 +116,8 @@
   @keyframes float{ 0%,100%{ transform:translate(-50%,-50%);} 50%{ transform:translate(-50%,calc(-50% - 7px)); } }
 
   /* big hero comment */
-  .bigcard{ left:23.5%; top:50%; width:16.2em; padding:0.95em 1em; z-index:4; box-shadow:0 1.8em 3.4em oklch(0.5 0.09 320 / .2); }
+  .bigcard{ left:22.5%; top:47%; width:14.3em; padding:0.95em 1em; z-index:4; box-shadow:0 1.8em 3.4em oklch(0.5 0.09 320 / .2); }
+  .bigcard .q{ margin-top:0.7em; }
   .bhead{ display:flex; align-items:center; gap:0.6em; }
   .bav{ width:2.35em; height:2.35em; border-radius:50%; object-fit:cover; flex:none; background:oklch(0.8 0.08 20); }
   .bhead .bt{ flex:1; min-width:0; }
@@ -141,14 +142,14 @@
   .sq{ font-size:0.92em; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; }
 
   /* volume pill */
-  .vpill{ left:45%; top:16%; display:flex; align-items:center; gap:0.5em; background:var(--ink); color:oklch(0.97 0.01 300); border:none; border-radius:999px; padding:0.5em 0.9em; font-size:0.8em; font-weight:600; z-index:3; }
+  .vpill{ left:34.5%; top:33%; display:flex; align-items:center; gap:0.5em; background:var(--ink); color:oklch(0.97 0.01 300); border:none; border-radius:999px; padding:0.5em 0.9em; font-size:0.8em; font-weight:600; z-index:3; }
   .vpill .pulse{ width:0.5em; height:0.5em; border-radius:50%; background:var(--magenta); box-shadow:0 0 0 0 oklch(0.63 0.26 356 / .6); animation:pp 2s ease-out infinite; }
   @keyframes pp{ 0%{box-shadow:0 0 0 0 oklch(0.63 0.26 356 / .6)} 100%{box-shadow:0 0 0 0.7em oklch(0.63 0.26 356 / 0)} }
 
   /* orb */
   .orb{
-    position:absolute; left:53%; top:50%; transform:translate(-50%,-50%); z-index:3;
-    width:8.8em; height:8.8em; border-radius:50%;
+    position:absolute; left:58%; top:48%; transform:translate(-50%,-50%); z-index:3;
+    width:7.6em; height:7.6em; border-radius:50%;
     background:radial-gradient(circle at 38% 32%, oklch(0.72 0.2 350), oklch(0.55 0.26 350) 42%, oklch(0.47 0.24 300));
     display:grid; place-items:center; color:#fff; text-align:center;
     box-shadow:0 0 0 0.5em oklch(0.7 0.2 340 / .1), 0 0 3.8em oklch(0.62 0.26 345 / .5), 0 1.4em 3em oklch(0.5 0.24 330 / .4);
@@ -157,11 +158,11 @@
   @keyframes halo{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.32); opacity:0; } }
   .orb .rob{ width:2.9em; height:2.9em; margin-bottom:0.05em; filter:drop-shadow(0 2px 6px oklch(0.3 0.1 330 / .5)); }
   .orb .olbl{ font-size:0.82em; font-weight:700; letter-spacing:-0.01em; }
-  .orb-cap{ position:absolute; left:53%; top:calc(50% + 5.4em); transform:translateX(-50%); z-index:3; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); letter-spacing:0.02em; line-height:1.5; white-space:nowrap; }
+  .orb-cap{ position:absolute; left:58%; top:calc(48% + 4.5em); transform:translateX(-50%); z-index:3; text-align:center; font-family:var(--mono); font-size:0.6em; color:var(--ink-faint); letter-spacing:0.02em; line-height:1.55; max-width:14em; }
   .orb-cap b{ color:var(--ink); font-weight:500; }
 
   /* dashboard */
-  .dash{ left:81%; top:56%; width:15em; padding:1em; }
+  .dash{ left:85%; top:50%; width:14em; padding:1em; }
   .dash .dk{ font-family:var(--mono); font-size:0.6em; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-faint); display:flex; justify-content:space-between; align-items:center; }
   .dash .up{ color:var(--green); background:var(--green-bg); padding:0.2em 0.5em; border-radius:0.5em; font-size:0.92em; }
   .dash .rev{ font-size:1.9em; font-weight:800; letter-spacing:-0.03em; margin-top:0.15em; }
@@ -180,7 +181,7 @@
   .f-ig{ background:radial-gradient(circle at 20% 50%, #f56040, #c13584); } .f-wa{ background:#25d366; } .f-tk{ background:oklch(0.25 0.02 300); } .f-fb{ background:#1877f2; }
 
   /* converted toast */
-  .toast{ left:81%; top:19.5%; width:14em; padding:0.72em 0.85em; display:flex; align-items:center; gap:0.7em; z-index:5; border-color:oklch(0.85 0.06 160); }
+  .toast{ left:79%; top:75%; width:13.6em; padding:0.72em 0.85em; display:flex; align-items:center; gap:0.7em; z-index:6; border-color:oklch(0.85 0.06 160); }
   .toast .tick{ width:2em; height:2em; border-radius:50%; background:var(--green); display:grid; place-items:center; flex:none; }
   .toast .tick svg{ width:1em; height:1em; }
   .toast .t1{ font-size:0.82em; font-weight:700; letter-spacing:-0.01em; }
@@ -477,60 +478,89 @@
   <!-- visual -->
   <div class="stage">
    <div class="stage-inner">
-    <svg class="wires" viewBox="0 0 680 580" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <path id="r1" class="rail" d="M260 112 C 315 150, 306 216, 318 256"/>
-      <path id="r2" class="rail" d="M272 290 C 284 290, 292 290, 300 290"/>
-      <path id="r3" class="rail" d="M257 466 C 315 432, 306 362, 318 324"/>
-      <path id="r4" class="rail" d="M419 294 C 430 296, 440 298, 449 300"/>
-      <g fill="url(#fg)">
-        <circle class="flow" r="3.4"><animateMotion dur="2.6s" begin="0s"   repeatCount="indefinite"><mpath xlink:href="#r1"/></animateMotion></circle>
-        <circle class="flow" r="3.4"><animateMotion dur="2.2s" begin="0.5s" repeatCount="indefinite"><mpath xlink:href="#r2"/></animateMotion></circle>
-        <circle class="flow" r="3.4"><animateMotion dur="2.8s" begin="1s"   repeatCount="indefinite"><mpath xlink:href="#r3"/></animateMotion></circle>
-        <circle class="flow" r="3.6" fill="url(#fg2)"><animateMotion dur="1.9s" begin="0.3s" repeatCount="indefinite"><mpath xlink:href="#r4"/></animateMotion></circle>
-      </g>
+    <svg class="wires" viewBox="0 0 720 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
-        <radialGradient id="fg"><stop offset="0" stop-color="oklch(0.7 0.26 350)"/><stop offset="1" stop-color="oklch(0.55 0.26 350 / .2)"/></radialGradient>
-        <radialGradient id="fg2"><stop offset="0" stop-color="oklch(0.72 0.15 160)"/><stop offset="1" stop-color="oklch(0.6 0.15 160 / .2)"/></radialGradient>
+        <linearGradient id="railGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="oklch(0.9 0.03 340 / .35)"/>
+          <stop offset="1" stop-color="oklch(0.62 0.24 350 / .85)"/>
+        </linearGradient>
+        <radialGradient id="fg"><stop offset="0" stop-color="oklch(0.72 0.26 350)"/><stop offset="1" stop-color="oklch(0.55 0.26 350 / .15)"/></radialGradient>
+        <radialGradient id="fg2"><stop offset="0" stop-color="oklch(0.72 0.16 160)"/><stop offset="1" stop-color="oklch(0.6 0.16 160 / .15)"/></radialGradient>
       </defs>
+      <path id="w1" class="rail" d="M205 92 C 300 116, 344 184, 380 232"/>
+      <path id="w2" class="rail" d="M404 150 C 412 178, 406 202, 402 222"/>
+      <path id="w3" class="rail" d="M262 268 C 305 269, 335 269, 366 269"/>
+      <path id="w4" class="rail" d="M366 352 C 392 340, 400 322, 402 306"/>
+      <path id="w5" class="rail" d="M212 430 C 320 414, 352 348, 380 300"/>
+      <path id="w6" class="rail" d="M392 472 C 410 416, 404 348, 400 312"/>
+      <path id="w7" class="rail" d="M470 270 C 492 277, 502 281, 516 285"/>
+      <g>
+        <circle class="flow" r="3.4" fill="url(#fg)"><animateMotion dur="2.6s" begin="0s"   repeatCount="indefinite"><mpath xlink:href="#w1"/></animateMotion></circle>
+        <circle class="flow" r="3.4" fill="url(#fg)"><animateMotion dur="2.1s" begin="0.4s" repeatCount="indefinite"><mpath xlink:href="#w3"/></animateMotion></circle>
+        <circle class="flow" r="3.4" fill="url(#fg)"><animateMotion dur="2.9s" begin="0.9s" repeatCount="indefinite"><mpath xlink:href="#w5"/></animateMotion></circle>
+        <circle class="flow" r="3.4" fill="url(#fg)"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#w6"/></animateMotion></circle>
+        <circle class="flow" r="3.8" fill="url(#fg2)"><animateMotion dur="1.8s" begin="0.3s" repeatCount="indefinite"><mpath xlink:href="#w7"/></animateMotion></circle>
+      </g>
     </svg>
 
     <!-- volume pill -->
-    <div class="node vpill an d2"><span class="pulse"></span>+100 messages / night</div>
+    <div class="node vpill an d2"><span class="pulse"></span>+100 messages</div>
 
-    <!-- small comment: TikTok -->
-    <div class="node scmt float an d1" style="left:24%; top:18.5%">
-      <img class="sav" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Lucas, a customer" referrerpolicy="no-referrer">
+    <!-- comment: TikTok (top-left) -->
+    <div class="node scmt float an d1" style="left:18%; top:14%">
+      <img class="sav" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Lucas" referrerpolicy="no-referrer">
       <div>
         <div class="ssub"><span class="cdot ic tk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.3 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v6.2c0 3.6-2.6 5.9-5.6 5.9C7.8 20.6 5.5 18.3 5.5 15c0-3.2 2.6-5.2 5.6-5v2.8c-.4-.1-.8-.2-1.2-.2-1.4 0-2.6 1.1-2.6 2.5s1.2 2.6 2.6 2.6c1.5 0 2.6-1.2 2.6-2.8V3z"/></svg></span>Lucas · TikTok · 1m</div>
         <div class="sq">Do you ship to Canada?</div>
       </div>
     </div>
 
-    <!-- BIG hero comment: Instagram -->
-    <div class="node bigcard float an d2">
-      <div class="bhead">
-        <img class="bav" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80" alt="Mia, a customer" referrerpolicy="no-referrer">
-        <div class="bt">
-          <div class="bnm">mia.gzz <span class="vf">✓</span></div>
-          <div class="bsub">2m ago · Instagram comment</div>
-        </div>
-        <span class="bsrc ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
-      </div>
-      <div class="bbody">
-        <div class="btext">
-          <div class="q">How much is this? 💸</div>
-          <div class="bfoot">♥ 34 · <span class="hi">scored high intent</span></div>
-        </div>
-        <img class="thumb" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&h=200&q=80" alt="The product she asked about" referrerpolicy="no-referrer">
+    <!-- comment: Facebook (top) -->
+    <div class="node scmt float b an d2" style="left:46%; top:24%">
+      <img class="sav" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=120&h=120&q=80" alt="Marco" referrerpolicy="no-referrer">
+      <div>
+        <div class="ssub"><span class="cdot ic fb"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.5c-2.7 0-3.7 1.4-3.7 3.7v1.8H9V11h1.8v9h3.2v-9h2.3l.4-2.5z"/></svg></span>Marco · Facebook · 6m</div>
+        <div class="sq">What's the return policy?</div>
       </div>
     </div>
 
-    <!-- small comment: WhatsApp -->
-    <div class="node scmt float c an d3" style="left:24.5%; top:81%">
-      <img class="sav" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80" alt="Priya, a customer" referrerpolicy="no-referrer">
+    <!-- BIG hero comment: Instagram -->
+    <div class="node bigcard float an d2">
+      <div class="bhead">
+        <img class="bav" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80" alt="Sarah M." referrerpolicy="no-referrer">
+        <div class="bt">
+          <div class="bnm">Sarah M.</div>
+          <div class="bsub">2m ago · Instagram</div>
+        </div>
+        <span class="bsrc ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>
+      </div>
+      <div class="q">How much is this? 🛍️</div>
+    </div>
+
+    <!-- comment: Instagram (mid-left) -->
+    <div class="node scmt float c an d3" style="left:39%; top:63%">
+      <img class="sav" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80" alt="Rui" referrerpolicy="no-referrer">
       <div>
-        <div class="ssub"><span class="cdot ic wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z"/></svg></span>Priya · WhatsApp · 4m</div>
-        <div class="sq">Is this back in stock?</div>
+        <div class="ssub"><span class="cdot ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>Rui · Instagram · 1m</div>
+        <div class="sq">Is it available in stock?</div>
+      </div>
+    </div>
+
+    <!-- comment: WhatsApp (bottom-left) -->
+    <div class="node scmt float an d3" style="left:19%; top:77%">
+      <img class="sav" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80" alt="Jade" referrerpolicy="no-referrer">
+      <div>
+        <div class="ssub"><span class="cdot ic wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z"/></svg></span>Jade · WhatsApp · 8m</div>
+        <div class="sq">Can I get a discount code?</div>
+      </div>
+    </div>
+
+    <!-- comment: Instagram (bottom) -->
+    <div class="node scmt float b an d4" style="left:44%; top:86%">
+      <img class="sav" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Ana" referrerpolicy="no-referrer">
+      <div>
+        <div class="ssub"><span class="cdot ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg></span>Ana · Instagram · 1m</div>
+        <div class="sq">Do you restock the tan one?</div>
       </div>
     </div>
 
@@ -546,14 +576,14 @@
       </svg>
       <div class="olbl">AI Agent</div>
     </div>
-    <div class="orb-cap an d4">Understands intent.<br><b>Replies, calls & converts.</b></div>
+    <div class="orb-cap an d4">Understands intent.<br>Takes action. <b>Converts.</b></div>
 
     <!-- converted toast -->
     <div class="node toast an d4">
       <span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div>
         <div class="t1">New customer converted 🎉</div>
-        <div class="t2">Order #1042 · <span class="amt">$119.00</span> · just now</div>
+        <div class="t2">Order #1042 · <span class="amt">$129.00</span> · just now</div>
       </div>
     </div>
 
